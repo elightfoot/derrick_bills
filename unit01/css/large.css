@@ -8,6 +8,7 @@
 /*end media query*/
 
 p {
-    color: blue;
-    font-size: 2em;
+    color: rgb(72, 82, 90);
+    font-size: 1.5em;
+    font-family: Georgia, "Times New Roman", Times, serif;
 }
