@@ -2,7 +2,7 @@
     .img {
         width: 300px;
         height: 200px;
-        background-image: url(images/desktop.jpg);
+        background-image: url(desktop.jpg);
         background-size: contain;
     }
     footer p {

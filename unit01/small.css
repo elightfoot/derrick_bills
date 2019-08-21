@@ -81,7 +81,7 @@ nav ul.pages li.active a {
 .img {
     width: 300px;
     height: 200px;
-    background-image: url(images/phone.jpg);
+    background-image: url(phone.jpg);
     background-size: contain;
 }
 
