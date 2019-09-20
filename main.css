@@ -1,0 +1,99 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+}
+
+.sticky {
+    position: sticky;
+    top: 0;
+}
+
+#navbar {
+    
+    position: relative;
+    /* height: 30vh; */
+    width: 100vw;
+    /* border: 1px solid red; */
+    display: flex;
+    background-color: #8C95A6;
+    opacity: .8;
+    /* background-color: #E59676; */
+    /* background-color: #03A2C6; */
+    /* This moves the nav links to the right */
+    justify-content: flex-end;
+    justify-content: center;
+}
+
+ul {
+    width: 90vw;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style-type: none;
+    border-bottom: 1px solid #fff;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+}
+
+li {
+    display: flex;
+    padding: 1em;
+    margin: 1em;
+}
+
+li a {
+    color: black;
+    text-decoration: none;
+}
+
+#welcome-section {
+    background-image: url(Group.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    justify-content: flex-start;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 100vw;
+    color: rgb(255, 255, 255);
+}
+
+
+/* #welcome-section img {
+    height: 500px;
+} */
+
+.hero {
+    width: 100vw;
+}
+
+#projects {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 50vh;
+}
+
+#social {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 50vh;
+}
+
+.social-links {
+    width: 100vw;
+    display: flex;
+    justify-content: space-around;
+}
+
+footer {
+    text-align: center;
+}
