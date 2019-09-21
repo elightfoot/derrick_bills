@@ -1,0 +1,30 @@
+header,
+nav,
+footer,
+main {
+    max-width: 75rem;
+    margin: auto;
+}
+
+nav ul {
+    padding-left: 2%;
+}
+
+nav li {
+    width: inherit;
+}
+
+nav a {
+    padding: .5rem 1rem;
+}
+
+main figure img.innerimage {
+    width: 33%;
+}
+
+
+/* newspaper columns from video lecture */
+
+div.news {
+    column-count: 3;
+}

@@ -1,0 +1,41 @@
+header h1 {
+    text-align: left;
+    line-height: 3;
+    top: 40px;
+}
+
+header h2 {
+    text-align: left;
+    display: contents;
+    font-size: 1rem;
+}
+
+nav ul {
+    padding-left: 2%;
+}
+
+nav li {
+    float: left;
+    width: 25%;
+}
+
+
+/* main figure {
+        float: right;
+        width: 48%;
+        margin-left: 2%;
+    } */
+
+
+/* newspaper column section from video lecture */
+
+main figure img.innerimage {
+    float: right;
+    width: 50%;
+}
+
+div.news {
+    clear: both;
+    column-count: 2;
+    column-rule: 1px solid #ddd;
+}
