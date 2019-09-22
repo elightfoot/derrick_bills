@@ -1,0 +1,17 @@
+div.news {
+    clear: both;
+    column-count: 2;
+    column-rule: 3px solid #ddd;
+}
+
+header {
+    background-image: url("/images/medium.jpg");
+    object-fit: none;
+    width: 100%;
+    background-repeat: no-repeat;
+}
+
+.nav_links {
+    margin-left: 3%;
+    list-style: none;
+}

@@ -1,0 +1,72 @@
+    /*-----Prevents iPhone from resizing in portrait/landscape mode -----*/
+    /* html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%
+} Theese rules are include on line 14,15 of our normalize file and are only needed if using a normalize file where they are included!!!!*/
+    /*----------- apply a natural box layout model to all elements --------------*/
+    
+    * {
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        margin: auto;
+    }
+    /* fixes collapse of navbar on med,large screens.. must add class to nav elemnt in html */
+    
+    .clearfix:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+    
+    // start my styles after this line=======================================================================================================================================
+    body {
+        justify-content: center;
+    }
+    
+    .header-grid {
+        height: 20vh;
+        background-color: #242424e2;
+        justify-content: start;
+        align-items: end;
+        display: grid;
+        grid-template-rows: 5fr 1fr;
+        h2,
+        h3 {
+            font-size: 2rem;
+            color: white;
+            margin: 0;
+            padding: 0;
+            margin-left: 2%;
+            align-self: end;
+            display: none;
+        }
+    }
+    
+    .header-grid {
+        img {
+            padding-left: 20px;
+            width: 75px;
+            margin: 0;
+        }
+    }
+    
+    .nav-grid {
+        margin-left: 2%;
+        width: 100vw;
+        height: 5em;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        a {
+            align-self: center;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 1.5rem;
+            margin-left: 0;
+            color: rgb(201, 200, 200);
+        }
+    }
+    
+    main {
+        max-width: 80rem;
+    }

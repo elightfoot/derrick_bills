@@ -1,0 +1,16 @@
+.header-grid {
+    height: 20vh;
+    background-color: #242424e2;
+    justify-content: start;
+    align-items: end;
+    display: grid;
+    grid-template-rows: 5fr 1fr;
+    h2 h3 {
+        font-size: 2rem;
+        color: white;
+        margin: 0;
+        padding: 0;
+        margin-left: 2%;
+        align-self: end;
+    }
+}

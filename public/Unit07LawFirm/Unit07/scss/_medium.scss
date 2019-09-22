@@ -1,0 +1,64 @@
+header h1 {
+    align-items: flex-start;
+    margin-left: 5%;
+}
+
+header h2 {
+    text-align: left;
+    font-size: 1rem;
+    margin-left: 5%;
+}
+
+.fas {
+    visibility: hidden;
+}
+
+.fas .fa-bars {
+    display: none;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    width: 800px;
+    margin-left: -35px;
+}
+
+#active {
+    color: rgb(167, 20, 20);
+}
+
+nav li {
+    display: flex;
+    // justify-self: space-around;
+    // float: left;
+    // width: 25%;
+}
+
+@for $i from 1 through 12 {
+    $w: ($i / 12) * 100%;
+    .medium-#{$i} {
+        flex-basis: $w;
+    }
+}
+
+nav a {
+    display: flex;
+    display: contents;
+    /*44min height for touch*/
+    color: #eee;
+    // text-align: center;
+    text-decoration: none;
+}
+
+.ctabuttons {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin: 0;
+}

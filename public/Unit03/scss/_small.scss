@@ -1,0 +1,128 @@
+    /*-----Prevents iPhone from resizing in portrait/landscape mode -----*/
+    /* html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%
+} Theese rules are include on line 14,15 of our normalize file and are only needed if using a normalize file where they are included!!!!*/
+    /*----------- apply a natural box layout model to all elements --------------*/
+    
+    * {
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        max-width: 71.25rem;
+        margin: auto;
+        font-family: 'Chilanka', cursive;
+    }
+    
+    @import url('https://fonts.googleapis.com/css?family=Chilanka&display=swap');
+    // variables are here----------------------
+    $primary-color: #6BD8E0;
+    $text-color:#E78C84;
+    /* body rules start------------- */
+    
+    body {
+        font-family: 'Chilanka', cursive;
+        font-size: 16px;
+        // header rules---------------------
+        header {
+            padding: 2rem 2%;
+            height: 200px;
+        }
+        header h1 {
+            position: relative;
+            font-size: 2rem;
+            top: 70px;
+            color: $text-color;
+        }
+        header h2 {
+            line-height: 6;
+            color: $text-color;
+        }
+        // nav rules---------------------------------------
+        nav {
+            background-color: darken($primary-color, 10%);
+        }
+        nav ul {
+            margin: 0;
+            padding: 0;
+        }
+        nav li {
+            float: left;
+            padding-right: 1rem;
+            padding-left: 2%;
+            width: 25%;
+            font-family: 'Orbitron', sans-serif;
+            /* capilizes first letter of nav items */
+            text-transform: capitalize;
+            /*remove dots from list items*/
+            list-style-type: none;
+        }
+        nav li.active {
+            background-color: darken($primary-color, 30%)
+        }
+        nav a {
+            display: block;
+            /*44min height for touch*/
+            padding: .8rem 0;
+            color: #eee;
+            text-align: center;
+            text-decoration: none;
+        }
+        nav a:hover {
+            background-color: lighten($primary-color, 5%)
+        }
+        // main rules--------------------------------------------
+        main {
+            font-size: 1.25rem;
+            padding: 1rem 2%;
+            /* for ie issues */
+            display: block;
+            background-color: rgb(240, 240, 240);
+        }
+        main h1 {
+            color: $text-color;
+        }
+        // container 1 rules------------------------------------------
+        .container-1 {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            flex-direction: row;
+            justify-content: space-around;
+            flex: 1;
+        }
+        .container-1 img {
+            margin: 0;
+            box-shadow: 3px 3px 8px 0px rgba(0, 0, 0, 0.502);
+            max-height: 250px;
+            max-width: 150px;
+        }
+        figure .box {
+            display: flex;
+            padding: 5px;
+        }
+        .box {
+            display: flex;
+            flex-direction: row;
+            flex-basis: 50%;
+            flex: 1;
+        }
+        span {
+            display: table-cell;
+            margin: auto;
+        }
+        // Footer rules-----------------------------------------------
+        footer {
+            text-transform: uppercase;
+            text-align: center;
+            background-color: $primary-color;
+            clear: both;
+            padding: .4rem 2%;
+        }
+        /* fixes collapse of navbar on med,large screens.. must add class to nav elemnt in html */
+        .clearfix:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+    }

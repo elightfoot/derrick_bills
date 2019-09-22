@@ -1,0 +1,22 @@
+.nav-grid {
+    width: 75vw;
+    height: 5em;
+    display: grid;
+    grid-template-columns: 200px 200px 200px 200fr;
+    a {
+        font-size: 2rem;
+        margin-left: 0;
+        margin-right: 10%;
+    }
+}
+
+.wrapper {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 1fr 1fr;
+}
+
+.members {
+    width: 100%;
+    min-width: 250px;
+}

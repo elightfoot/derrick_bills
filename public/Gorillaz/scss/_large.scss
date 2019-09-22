@@ -1,0 +1,8 @@
+article {
+    column-count: 4;
+    column-width: 25%;
+}
+
+.wrapper {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}

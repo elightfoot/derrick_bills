@@ -1,0 +1,26 @@
+nav {
+    h3,
+    h2 {
+        font-size: 1.5rem;
+        color: #FFF;
+        margin: 2%;
+        padding: 0;
+    }
+}
+
+li {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    padding: 20px;
+}
+
+.wrapper {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 1fr 1fr;
+}
+
+.members {
+    width: 100%;
+    min-width: 250px;
+}

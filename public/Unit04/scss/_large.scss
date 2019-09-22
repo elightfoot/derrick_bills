@@ -1,0 +1,16 @@
+    div.news {
+        column-count: 3;
+    }
+    
+    nav {
+        z-index: 1;
+    }
+    
+    header {
+        background-image: url();
+        background: url("/images/large.jpg") no-repeat center;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }

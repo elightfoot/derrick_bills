@@ -1,0 +1,41 @@
+header h2 {
+    position: relative;
+    display: contents;
+    display: block;
+    top: 80px;
+}
+
+header figure.logo {
+    margin: 0;
+    position: relative;
+    float: left;
+    top: 20px;
+    bottom: 0;
+    width: 160px;
+    height: 120px;
+}
+
+nav ul {
+    padding-left: 2%;
+}
+
+nav li {
+    float: left;
+    width: 25%;
+}
+
+#feature {
+    margin: 0;
+    padding: 0;
+    float: right;
+    width: 150%;
+}
+
+div.news {
+    clear: both;
+    column-count: 2;
+    column-rule: 1px solid #ddd;
+}
+
+
+/* end media query */

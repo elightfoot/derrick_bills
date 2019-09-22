@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Nanum+Brush+Script|Nunito+Sans:400,700&display=swap');
-@media only screen and (min-width 35em) {
+@media only screen and (min-width: 35rem) {
     .bottomh2 {
         color: white;
     }
@@ -143,6 +143,7 @@ li a:hover {
 .project-image {
     max-width: 550px;
     max-height: 300px;
+    
 }
 
 a {
@@ -152,6 +153,8 @@ a {
 }
 
 .projects-grid {
+    
+
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;

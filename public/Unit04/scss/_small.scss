@@ -1,0 +1,147 @@
+@import url("https://fonts.googleapis.com/css?family=Fira+Sans&display=swap");
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    // max-width: 90rem;
+    margin: auto;
+    font-family: "Fira Sans", sans-serif;
+}
+
+// variables are here----------------------
+$nav-color: rgb(160,
+158,
+158);
+$text-color-gray: rgb(128,
+127,
+127);
+// variables End-----------------------------------
+li,
+a {
+    display: flex;
+    font-family: "Fira Sans", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #edf0f1;
+    text-decoration: none;
+}
+
+header {
+    background-image: url("/images/small.jpg");
+    object-fit: fill;
+    display: flex;
+    height: 155px;
+    justify-content: center;
+}
+
+.logo-container {
+    // background-color: #e3e3e3;
+    margin: auto;
+    max-width: 960px;
+    width: 100%;
+}
+
+.logo {
+    margin-left: 3%;
+    height: 150px;
+    align-self: baseline;
+}
+
+.slogan {
+    color: white;
+    margin-left: auto;
+    align-self: baseline;
+    display: inline-block;
+}
+
+.slogan p {
+    font-size: 19px;
+}
+
+body {
+    min-width: 430px;
+}
+
+main h1 {
+    color: rgb(128, 127, 127);
+}
+
+nav {
+    min-width: 460px;
+    flex-wrap: nowrap;
+    margin: auto;
+    max-width: 960px;
+    min-width: 420px;
+    background: $nav-color;
+    display: flex;
+}
+
+.padding {
+    margin-left: 3%;
+}
+
+hr {
+    margin-bottom: 15px;
+}
+
+.news {
+    margin-left: 3%;
+    column-count: 1;
+}
+
+.news h1 {
+    color: rgb(128, 127, 127);
+}
+
+.outsidenav {
+    background-color: rgb(160, 158, 158);
+}
+
+.nav_links {
+    margin-left: auto;
+    list-style: none;
+}
+
+.nav_links li {
+    clear: both;
+    display: inline-flex;
+    justify-content: space-around;
+    padding: 0px 15px;
+}
+
+nav li.active {
+    border-radius: 50%;
+    background-color: #3a4c50;
+}
+
+.nav_links li a {
+    /* cool Transition to improve aesthetics */
+    transition: all 0.3s ease 0s;
+}
+
+.nav_links li a:hover {
+    color: #0088a9;
+}
+
+main {
+    max-width: 960px;
+    padding-bottom: 20px;
+}
+
+footer {
+    text-transform: uppercase;
+    text-align: center;
+    background-color: rgb(160, 158, 158);
+    clear: both;
+    // max-width: 960px; footer requirements said full width for nav but must have meant footer
+    padding: 0.4rem 2%;
+}
+
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
