@@ -1,0 +1,172 @@
+    /*-----Prevents iPhone from resizing in portrait/landscape mode -----*/
+    /* html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%
+} Theese rules are include on line 14,15 of our normalize file and are only needed if using a normalize file where they are included!!!!*/
+    /*----------- apply a natural box layout model to all elements --------------*/
+    @import url('https://fonts.googleapis.com/css?family=Bree+Serif&display=swap');
+
+    $primeBlue: #3CADEC;
+    $textGray: rgb(201, 200, 200);
+    
+
+    * {
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        // margin: auto;
+    }
+    /* fixes collapse of navbar on med,large screens.. must add class to nav elemnt in html */
+    
+    .clearfix:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+    
+    // start my styles after this line=======================================================================================================================================
+    body {
+        margin: 0;
+        padding: 0;
+        margin: 0 auto;
+        max-width: 80rem;
+        font-family: 'Bree Serif', serif;
+    }
+    
+    .header-grid {
+        height: 100px;
+        min-height: 100px;
+        background-color: darken($textGray, 50%);
+        
+        img{padding: 1rem;}
+      
+    }
+    button{
+        text-align: left;
+        margin: 0;
+        padding: 0;
+        background-color: $primeBlue;
+    }
+    nav {
+        display: grid;
+        // background-color: $primeBlue;
+        padding: 0;
+        margin: 0;
+        
+       
+       ul{
+           display: grid;
+           grid-template-rows: 1fr 1fr 1fr 1fr 1fr;         
+           margin-left: 0; 
+           margin: 0;
+           padding: 0; 
+        background-color: $primeBlue;
+
+        //    max-width: 40vw;
+       }
+       li{list-style: none;
+        padding: 0;
+        border-top: 1px solid darken($textGray, 40%);
+        li a:hover{
+        cursor: pointer;
+        background-color: darken($textGray, 30%);
+        }
+        }
+        a {
+            width: 100%;
+            font-size: 1rem;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 1.5rem;
+            margin-left: 0;
+            padding: 1rem;
+            color: $textGray;
+            align-content: center;
+            button{
+                color: $textGray;
+                background-color: rgba($color: #000000, $alpha: 0);
+                border: none;}
+        }
+        
+    }
+    nav ul li:hover{
+        background-color: darken($primeBlue, 40%);
+    }
+    li .active {
+        color: lighten($textGray, 20%);
+    }
+    nav ul.hide{
+      
+        display: none;
+    }
+   
+    .main-wrapper{
+        background-color: black;
+        color: white;
+        display: grid;
+        gap: 5px;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(5, minmax(150px, auto));
+        align-items: center;
+        
+        
+    }
+    img{
+    max-width:100%;
+   
+}
+    .headline{
+    //    max-width: 200px;
+        text-align: center;
+        margin-top: 5px;
+        // background-color: green;
+        grid-column: 1/3;
+    }
+    
+    
+    .one{
+       
+        grid-column: 1/2;
+        grid-row: 2/3;
+    }
+    .two{
+        grid-column: 2/3;
+        grid-row: 2/3;
+    }
+    .three{
+        grid-column: 1/2;
+        grid-row: 3/4;
+    }
+    .four{
+        grid-column: 2/3;
+        grid-row: 3/4;
+    }
+    .five{
+        grid-column: 1/2;
+        grid-row: 4/5;
+    }
+    .six{
+        grid-column: 2/3;
+        grid-row: 4/5;
+    }
+    .hide-small{
+        display: none;
+    }
+    .footer{
+        grid-column: 1/3;
+        grid-row: 5/6;
+        grid-auto-columns: 1fr;
+        display: grid;
+        justify-items: center;
+        text-align: center;
+        
+    }
+    aside{
+        min-width: 150px;
+    
+}
+footer{
+    grid-column: 1/3;
+    padding: 10px;
+    text-align: center;
+}
