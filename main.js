@@ -6,7 +6,7 @@ console.log(starships);
 
 console.log(films);
 
-let mainArea = document.querySelector('main')
+let mainArea = document.querySelector('.div-grid')
 
 
 function addElement() {
@@ -21,8 +21,10 @@ function addElement() {
     var currentDiv = document.getElementById("div1");
     document.body.insertBefore(newDiv, currentDiv);
 }
+addElement('test add')
 
 people.forEach((person) => {
+
     let personDiv = document.createElement('div');
     personDiv.classList.add('person-div');
     let name = document.createElement('h1');
@@ -37,10 +39,42 @@ people.forEach((person) => {
     gender.textContent = person.gender;
     pic.src = `https://starwars-visualguide.com/assets/img/characters/${charNum}.jpg`;
 
-    personDiv.appendChild(name);
-    personDiv.appendChild(gender);
-    personDiv.appendChild(pic);
-    mainArea.appendChild(personDiv);
+
+    if (person.gender === 'male') {
+
+
+        personDiv.appendChild(name);
+        personDiv.appendChild(gender);
+        personDiv.appendChild(pic);
+        mainArea.appendChild(personDiv);
+    }
+
+});
+people.forEach((person) => {
+
+    let personDiv = document.createElement('div');
+    personDiv.classList.add('person-div');
+    let name = document.createElement('h1');
+    let gender = document.createElement('p');
+    let pic = document.createElement('img');
+
+    let charNum = getCharNumber(person.url);
+
+    getCharNumber(person.url);
+
+    name.textContent = person.name;
+    gender.textContent = person.gender;
+    pic.src = `https://starwars-visualguide.com/assets/img/characters/${charNum}.jpg`;
+
+
+    if (person.gender === 'female') {
+
+
+        personDiv.appendChild(name);
+        personDiv.appendChild(gender);
+        personDiv.appendChild(pic);
+        mainArea.appendChild(personDiv);
+    }
 
 });
 
@@ -57,5 +91,7 @@ function getPerNumber(url) {
     let sliceStart = url.slice()
 }
 
+
+console.log(people);
 
 

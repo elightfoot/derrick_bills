@@ -1,9 +1,13 @@
 
 body{
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(116, 115, 115);
 }
-
-.main-grid{
+.heading{
+    text-align: center;
+    /* background-color: white; */
+    color: white;
+}
+.div-grid{
    margin: auto;
     width: 75vw;
     gap: 20px;
@@ -28,13 +32,13 @@ body{
     -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
     box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 }
-.main-grid div{
+.div-grid div{
     display: grid;
     justify-items: center;
     height: 100%;
     /* border: 5px solid red; */
 }
-.main-grid img{
+.div-grid img{
     opacity: .7;
     border-radius: 30%;
     display: grid;
@@ -42,7 +46,7 @@ body{
     width: 100%;
     /* border: 5px solid red; */
 }
-.main-grid h1{
+.div-grid h1{
     max-width: 150px;
     /* white-space: nowrap; */
     /* border: 5px solid red; */
