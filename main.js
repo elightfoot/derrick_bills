@@ -1,7 +1,7 @@
 import { films } from '/assets/films.js';
 import { people } from '/assets/people.js';
 import { starships } from '/assets/starships.js';
-// console.log(starships);
+console.log(starships);
 
 
 
@@ -128,6 +128,65 @@ droid2.write();
 droid3.write();
 droid4.write();
 
+class Ships {
+    constructor(name, model, url) {
+        this.name = name;
+        this.model = model;
+        this.url = url;
+    }
+    write() {
+        let mainArea3 = document.querySelector('.div-grid3')
+        let personDiv = document.createElement('div');
+        personDiv.classList.add('person-div');
+        let name = document.createElement('h1');
+        let model = document.createElement('p');
+        let pic = document.createElement('img');
+        // console.log(mainArea2);
+
+        let charNum = getCharNumber(this.url);
+
+        getCharNumber(this.url);
+
+        name.textContent = this.name;
+        // gender.textContent = person.gender;
+        pic.src = `https://starwars-visualguide.com/assets/img/starships/${charNum}.jpg`;
+
+
+        personDiv.appendChild(name);
+        personDiv.appendChild(model);
+        personDiv.appendChild(pic);
+        mainArea3.appendChild(personDiv);
+
+
+        function getCharNumber(charURL) {
+            let end = charURL.lastIndexOf('/')
+            let charID = charURL.substring(end - 2, end)
+            if (charID.indexOf('/') !== -1) {
+                return charID.slice(1, 2)
+            } else {
+                return charID
+            }
+        }
+
+
+
+    }
+
+}
+let ship1 = new Ships(starships[0].name, starships[0].model, starships[0].url);
+let ship2 = new Ships(starships[2].name, starships[2].model, starships[2].url);
+let ship3 = new Ships(starships[3].name, starships[3].model, starships[3].url);
+let ship4 = new Ships(starships[4].name, starships[4].model, starships[4].url);
+let ship5 = new Ships(starships[5].name, starships[5].model, starships[5].url);
+// let ship6 = new Ships(starships[26].name, starships[26].model, starships[26].url);
+
+
+ship1.write();
+ship2.write();
+ship3.write();
+ship4.write();
+ship5.write();
+// ship6.write();
 
 
 
