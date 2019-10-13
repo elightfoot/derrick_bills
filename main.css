@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Nanum+Brush+Script|Nunito+Sans:400,700&display=swap');
-@media only screen and (min-width 35em) {
+@media only screen and (min-width: 35em) {
     .bottomh2 {
         color: white;
     }
