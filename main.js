@@ -7,10 +7,11 @@ import { starships } from '/assets/starships.js';
 
 console.log(people)
 class Character {
-    constructor(name, height, url) {
+    constructor(name, height, url, gender) {
         this.name = name;
         this.height = height;
         this.url = url;
+        this.gender = gender;
     }
     write() {
         let mainArea = document.querySelector('.div-grid')
@@ -25,11 +26,11 @@ class Character {
         getCharNumber(this.url);
 
         name.textContent = this.name;
-        // gender.textContent = person.gender;
+        gender.textContent = this.gender;
         pic.src = `https://starwars-visualguide.com/assets/img/characters/${charNum}.jpg`;
 
 
-        personDiv.appendChild(name);
+        personDiv.appendChild(name, gender, pic);
         personDiv.appendChild(gender);
         personDiv.appendChild(pic);
         mainArea.appendChild(personDiv);
@@ -48,7 +49,7 @@ class Character {
     }
 
 }
-let characterOne = new Character(people[0].name, people[0].height, people[0].url);
+let characterOne = new Character(people[0].name, people[0].height, people[0].url, people[0].gender);
 let characterTwo = new Character(people[3].name, people[3].height, people[3].url);
 let characterThree = new Character(people[10].name, people[10].height, people[10].url);
 let characterFour = new Character(people[9].name, people[9].height, people[9].url);
@@ -79,12 +80,13 @@ class Character2 {
         this.url = url;
     }
     write() {
-        let mainArea = document.querySelector('.div-grid2')
+        let mainArea2 = document.querySelector('.div-grid2')
         let personDiv = document.createElement('div');
         personDiv.classList.add('person-div');
         let name = document.createElement('h1');
-        let gender = document.createElement('p');
+        let height = document.createElement('p');
         let pic = document.createElement('img');
+        // console.log(mainArea2);
 
         let charNum = getCharNumber(this.url);
 
@@ -96,9 +98,10 @@ class Character2 {
 
 
         personDiv.appendChild(name);
-        personDiv.appendChild(gender);
+        personDiv.appendChild(height);
         personDiv.appendChild(pic);
-        mainArea.appendChild(personDiv);
+        mainArea2.appendChild(personDiv);
+
 
         function getCharNumber(charURL) {
             let end = charURL.lastIndexOf('/')
@@ -111,31 +114,19 @@ class Character2 {
         }
 
 
+
     }
 
 }
-let character10 = new Character(people[0].name, people[0].height, people[0].url);
-// let characterTwo = new Character(people[3].name, people[3].height, people[3].url);
-// let characterThree = new Character(people[10].name, people[10].height, people[10].url);
-// let characterFour = new Character(people[9].name, people[9].height, people[9].url);
-// let characterFive = new Character(people[18].name, people[18].height, people[18].url);
-// let characterSix = new Character(people[19].name, people[19].height, people[19].url);
-// let characterSeven = new Character(people[41].name, people[41].height, people[41].url);
-// let characterEight = new Character(people[30].name, people[30].height, people[30].url);
-// let characterNine = new Character(people[63].name, people[63].height, people[63].url);
-// let characterTen = new Character(people[76].name, people[76].height, people[76].url);
+let droid1 = new Character2(people[1].name, people[1].height, people[1].url);
+let droid2 = new Character2(people[2].name, people[2].height, people[2].url);
+let droid3 = new Character2(people[21].name, people[21].height, people[21].url);
+let droid4 = new Character2(people[84].name, people[84].height, people[84].url);
 
-character10.write();
-// characterTwo.write();
-// characterThree.write();
-// characterFour.write();
-// characterFive.write();
-// characterSix.write();
-// characterSeven.write();
-// characterEight.write();
-// characterNine.write();
-// characterTen.write();
-
+droid1.write();
+droid2.write();
+droid3.write();
+droid4.write();
 
 
 
