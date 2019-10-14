@@ -122,11 +122,11 @@ let droid1 = new Character2(people[1].name, people[1].height, people[1].url);
 let droid2 = new Character2(people[2].name, people[2].height, people[2].url);
 let droid3 = new Character2(people[21].name, people[21].height, people[21].url);
 let droid4 = new Character2(people[84].name, people[84].height, people[84].url);
+let droidList = [droid1, droid2, droid3, droid4];
+for (let i = 0; i < droidList.length; i++) {
+    droidList[i].write();
+}
 
-droid1.write();
-droid2.write();
-droid3.write();
-droid4.write();
 
 class Ships {
     constructor(name, model, url) {
@@ -178,16 +178,10 @@ let ship2 = new Ships(starships[2].name, starships[2].model, starships[2].url);
 let ship3 = new Ships(starships[3].name, starships[3].model, starships[3].url);
 let ship4 = new Ships(starships[4].name, starships[4].model, starships[4].url);
 let ship5 = new Ships(starships[5].name, starships[5].model, starships[5].url);
-// let ship6 = new Ships(starships[26].name, starships[26].model, starships[26].url);
-
-
-ship1.write();
-ship2.write();
-ship3.write();
-ship4.write();
-ship5.write();
-// ship6.write();
-
+let shipList = [ship1, ship2, ship3, ship4, ship5];
+for (let i = 0; i <= shipList.length; i++) {
+    shipList[i].write();
+}
 
 
 //the 'new' keyword
