@@ -3,6 +3,8 @@ html {
     margin: 0;
 }
 body{
+    margin: auto;
+    max-width: 1200px;
   background-color: black;
   background-image: url('http://www.script-tutorials.com/demos/360/images/stars.png')
    /* top center #000 */
