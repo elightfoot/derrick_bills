@@ -1,124 +1,120 @@
-
+html {
+    color: rgb(0, 0, 0);
+    margin: 0;
+}
 body{
-    background-color: rgb(7, 7, 7);
+  background-color: black;
+  background-image: url('http://www.script-tutorials.com/demos/360/images/stars.png')
+   /* top center #000 */
 }
-.main-grid{
-    justify-items: center;
-    margin: auto;
-    width: 90vw;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+.logo{
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 200px;
+  background-image: url('/images/logo.jpg');
+  background-repeat: no-repeat;
+  background-size: 50%;
+  background-position-y: -58px;
+  background-position-x: 50%;
+  background-color: black;
+
+  position: center;
+
 }
-.heading{
-    text-align: center;
-    /* background-color: white; */
-    color: white;
-    grid-column: 1/span 5;
+header {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-gap: 2rem;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  margin-bottom: 6rem;
+  grid-template-columns: auto auto;
+  /* background-image: url("/assets/star-wars-star-background-4.jpg"); */
 }
 
-.div-grid3{
-    margin: auto;
-     width: 90vw;
-     gap: 20px;
-     display: grid;
-     /* grid-template-columns: repeat(3,minmax(200px, 400px)); */
-     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-     grid-auto-rows: minmax(100px, 1fr);
-    grid-column: 1/span 1;
-    /* grid-row: 2/span 1; */
-     
-     align-items: end;
+main {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  
+  grid-gap: 2rem;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  margin-bottom: 6rem;
+  /* grid-template-columns: auto auto; */
+  /* background-image: url("/assets/star-wars-star-background-4.jpg"); */
+  padding: 1rem;
+  }
+
+  button {
+    margin: 1rem;
+    font-size: 1.5rem;
+    background: #c2c2c2;
+    background-image: -webkit-linear-gradient(top, #c2c2c2, #000000);
+    background-image: -moz-linear-gradient(top, #c2c2c2, #000000);
+    background-image: -ms-linear-gradient(top, #c2c2c2, #000000);
+    background-image: -o-linear-gradient(top, #c2c2c2, #000000);
+    background-image: linear-gradient(to bottom, #c2c2c2, #000000);
+    -webkit-border-radius: 28;
+    -moz-border-radius: 28;
+    border-radius: 28px;
+    text-shadow: 1px 1px 3px #666666;
+    font-family: Arial;
+    color: #000000;
+    font-size: 20px;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+  }
+  button:hover{
+    cursor: pointer;
+    background: #525252;
+  background-image: -webkit-linear-gradient(top, #525252, #e0e0e0);
+  background-image: -moz-linear-gradient(top, #525252, #e0e0e0);
+  background-image: -ms-linear-gradient(top, #525252, #e0e0e0);
+  background-image: -o-linear-gradient(top, #525252, #e0e0e0);
+  background-image: linear-gradient(to bottom, #525252, #e0e0e0);
+  text-decoration: none;
+  }
+ .person-div{ 
+   display: none;
+   border: 10px solid white;
+
  }
-.div-grid2{
-    margin: auto;
-     width: 90vw;
-     gap: 20px;
-     display: grid;
-     /* grid-template-columns: repeat(3,minmax(200px, 400px)); */
-     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-     grid-auto-rows: minmax(100px, 1fr);
-    grid-column: 1/span 1;
-    /* grid-row: 2/span 1; */
-     
-     align-items: end;
+ h1, p{
+   text-align: center;
+   color: rgb(254, 254, 254);
  }
-.div-grid{
+ .grid{
    margin: auto;
-    width: 90vw;
-    gap: 20px;
-    display: grid;
-    /* grid-template-columns: repeat(3,minmax(200px, 400px)); */
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    grid-auto-rows: minmax(100px, 1fr);
+     width: 90vw;
+     gap: 20px;
+     display: grid;
+     /* grid-template-columns: repeat(3,minmax(200px, 400px)); */
+     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+     grid-auto-rows: minmax(100px, 1fr);
     grid-column: 1/span 1;
-    
-    /* align-items: end; */
+  /* justify-content: center;
+    margin: auto;
+    width: 90vw;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; */
+    /* grid-template-columns: repeat(auto-fill, minmax(120px, 300pxfr));
+    grid-auto-rows: minmax(100px, 1fr); */
+  /* background-color: rgb(73, 73, 73); */
 }
-
-.person-div{
-    background-color: rgb(173, 173, 173);
-    /* background-image: linear-gradient(to left top, #ffffff, #c8c8c8, #959595, #9ccdda, #abc1e9); */
-}
-.person-div{
-    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-}
-
-.div-grid div{
-    display: grid;
-    justify-items: center;
-    height: 100%;
-    /* border: 5px solid red; */
-}
-.div-grid img{
-    opacity: .7;
+.grid img{
+  opacity: .9;
     border-radius: 30%;
     display: grid;
     align-self: end;
     width: 100%;
-    /* border: 5px solid red; */
-}
-.div-grid h1{
-    max-width: 150px;
-    /* white-space: nowrap; */
-    /* border: 5px solid red; */
-}
-.div-grid2 div{
-    display: grid;
-    justify-items: center;
-    height: 100%;
-    /* border: 5px solid red; */
-}
-.div-grid2 img{
-    opacity: .7;
-    border-radius: 30%;
-    display: grid;
-    align-self: end;
-    width: 100%;
-    /* border: 5px solid red; */
-}
-.div-grid2 h1{
-    max-width: 150px;
-    /* white-space: nowrap; */
-    /* border: 5px solid red; */
-}
-.div-grid3 div{
-    display: grid;
-    justify-items: center;
-    height: 100%;
-    /* border: 5px solid red; */
-}
-.div-grid3 img{
-    opacity: .7;
-    border-radius: 30%;
-    display: grid;
-    align-self: end;
-    width: 100%;
-    /* border: 5px solid red; */
-}
-.div-grid3 h1{
-    max-width: 150px;
-    /* white-space: nowrap; */
-    /* border: 5px solid red; */
+  width: 100%;
 }

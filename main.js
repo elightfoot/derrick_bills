@@ -1,279 +1,162 @@
-import { films } from '/assets/films.js';
-import { people } from '/assets/people.js';
-import { starships } from '/assets/starships.js';
-console.log(starships);
+import { films } from "./assets/films.js"
+import { people } from "./assets/people.js"
+import { planets } from "./assets/planets.js"
 
 
 
-console.log(people)
-class Character {
-    constructor(name, height, url, gender) {
-        this.name = name;
-        this.height = height;
-        this.url = url;
-        this.gender = gender;
-    }
-    write() {
-        let mainArea = document.querySelector('.div-grid')
-        let personDiv = document.createElement('div');
-        personDiv.classList.add('person-div');
-        let name = document.createElement('h1');
-        let gender = document.createElement('p');
-        let pic = document.createElement('img');
+let mainArea = document.querySelector('main')
+let section = document.querySelector('section')
+people.forEach((person) => {
+    let personDiv = document.createElement('div')
+    let name = document.createElement('h1')
+    let gender = document.createElement('p')
+    let pic = document.createElement('img')
+    let charNum = getCharNumber(person.url)
 
-        let charNum = getCharNumber(this.url);
+    name.textContent = person.name
+    gender.textContent = person.gender
+    pic.src = `https://starwars-visualguide.com/assets/img/characters/${charNum}.jpg`
 
-        getCharNumber(this.url);
+    personDiv.appendChild(name)
+    personDiv.appendChild(gender)
+    personDiv.appendChild(pic)
+    personDiv.className = "person-div";
 
-        name.textContent = this.name;
-        gender.textContent = this.gender;
-        pic.src = `https://starwars-visualguide.com/assets/img/characters/${charNum}.jpg`;
+    // mainArea.appendChild(personDiv)
+    document.getElementById('people').appendChild(personDiv)
 
+});
+// films.forEach((film) => {
+//     let filmDiv = document.createElement('div')
+//     let title = document.createElement('h1')
+//     let director = document.createElement('p')
+//     let pic = document.createElement('img')
+//     let charNum = getCharNumber(film.url)
 
-        personDiv.appendChild(name, gender, pic);
-        personDiv.appendChild(gender);
-        personDiv.appendChild(pic);
-        mainArea.appendChild(personDiv);
+//     title.textContent = film.title
+//     director.textContent = film.director
+//     pic.src = `https://starwars-visualguide.com/assets/img/films/${charNum}.jpg`
 
-        function getCharNumber(charURL) {
-            let end = charURL.lastIndexOf('/')
-            let charID = charURL.substring(end - 2, end)
-            if (charID.indexOf('/') !== -1) {
-                return charID.slice(1, 2)
-            } else {
-                return charID
-            }
-        }
+//     filmDiv.appendChild(title)
+//     filmDiv.appendChild(director)
+//     filmDiv.appendChild(pic)
+//     filmDiv.className = "film-list";
 
-
-    }
-
-}
-let characterOne = new Character(people[0].name, people[0].height, people[0].url, people[0].gender);
-let characterTwo = new Character(people[3].name, people[3].height, people[3].url);
-let characterThree = new Character(people[10].name, people[10].height, people[10].url);
-let characterFour = new Character(people[9].name, people[9].height, people[9].url);
-let characterFive = new Character(people[18].name, people[18].height, people[18].url);
-let characterSix = new Character(people[19].name, people[19].height, people[19].url);
-let characterSeven = new Character(people[41].name, people[41].height, people[41].url);
-let characterEight = new Character(people[30].name, people[30].height, people[30].url);
-let characterNine = new Character(people[63].name, people[63].height, people[63].url);
-let characterTen = new Character(people[76].name, people[76].height, people[76].url);
-
-characterOne.write();
-characterTwo.write();
-characterThree.write();
-characterFour.write();
-characterFive.write();
-characterSix.write();
-characterSeven.write();
-characterEight.write();
-characterNine.write();
-characterTen.write();
-
-
-
-class Character2 {
-    constructor(name, height, url) {
-        this.name = name;
-        this.height = height;
-        this.url = url;
-    }
-    write() {
-        let mainArea2 = document.querySelector('.div-grid2')
-        let personDiv = document.createElement('div');
-        personDiv.classList.add('person-div');
-        let name = document.createElement('h1');
-        let height = document.createElement('p');
-        let pic = document.createElement('img');
-        // console.log(mainArea2);
-
-        let charNum = getCharNumber(this.url);
-
-        getCharNumber(this.url);
-
-        name.textContent = this.name;
-        // gender.textContent = person.gender;
-        pic.src = `https://starwars-visualguide.com/assets/img/characters/${charNum}.jpg`;
-
-
-        personDiv.appendChild(name);
-        personDiv.appendChild(height);
-        personDiv.appendChild(pic);
-        mainArea2.appendChild(personDiv);
-
-
-        function getCharNumber(charURL) {
-            let end = charURL.lastIndexOf('/')
-            let charID = charURL.substring(end - 2, end)
-            if (charID.indexOf('/') !== -1) {
-                return charID.slice(1, 2)
-            } else {
-                return charID
-            }
-        }
-
-
-
-    }
-
-}
-let droid1 = new Character2(people[1].name, people[1].height, people[1].url);
-let droid2 = new Character2(people[2].name, people[2].height, people[2].url);
-let droid3 = new Character2(people[21].name, people[21].height, people[21].url);
-let droid4 = new Character2(people[84].name, people[84].height, people[84].url);
-let droidList = [droid1, droid2, droid3, droid4];
-for (let i = 0; i < droidList.length; i++) {
-    droidList[i].write();
-}
-
-
-class Ships {
-    constructor(name, model, url) {
-        this.name = name;
-        this.model = model;
-        this.url = url;
-    }
-    write() {
-        let mainArea3 = document.querySelector('.div-grid3')
-        let personDiv = document.createElement('div');
-        personDiv.classList.add('person-div');
-        let name = document.createElement('h1');
-        let model = document.createElement('p');
-        let pic = document.createElement('img');
-        // console.log(mainArea2);
-
-        let charNum = getCharNumber(this.url);
-
-        getCharNumber(this.url);
-
-        name.textContent = this.name;
-        // gender.textContent = person.gender;
-        pic.src = `https://starwars-visualguide.com/assets/img/starships/${charNum}.jpg`;
-
-
-        personDiv.appendChild(name);
-        personDiv.appendChild(model);
-        personDiv.appendChild(pic);
-        mainArea3.appendChild(personDiv);
-
-
-        function getCharNumber(charURL) {
-            let end = charURL.lastIndexOf('/')
-            let charID = charURL.substring(end - 2, end)
-            if (charID.indexOf('/') !== -1) {
-                return charID.slice(1, 2)
-            } else {
-                return charID
-            }
-        }
-
-
-
-    }
-
-}
-let ship1 = new Ships(starships[0].name, starships[0].model, starships[0].url);
-let ship2 = new Ships(starships[2].name, starships[2].model, starships[2].url);
-let ship3 = new Ships(starships[3].name, starships[3].model, starships[3].url);
-let ship4 = new Ships(starships[4].name, starships[4].model, starships[4].url);
-let ship5 = new Ships(starships[5].name, starships[5].model, starships[5].url);
-let shipList = [ship1, ship2, ship3, ship4, ship5];
-for (let i = 0; i <= shipList.length; i++) {
-    shipList[i].write();
-}
-
-
-//the 'new' keyword
-//-reates a new empty object{}
-// sets the value of 'this' to be the new empty object
-// calls the constructor method
-
-// ****************************************************************************
-
-
-// let mainArea = document.querySelector('.div-grid')
-
-
-
-// addElement('test add')
-// let smallerList = people.slice(0, 10)
-// console.log(smallerList);
-
-
-// people.forEach((person) => {
-
-//     let personDiv = document.createElement('div');
-//     personDiv.classList.add('person-div');
-//     let name = document.createElement('h1');
-//     let gender = document.createElement('p');
-//     let pic = document.createElement('img');
-
-//     let charNum = getCharNumber(person.url);
-
-//     getCharNumber(person.url);
-
-//     name.textContent = person.name;
-//     gender.textContent = person.gender;
-//     pic.src = `https://starwars-visualguide.com/assets/img/characters/${charNum}.jpg`;
-
-
-//     // if (person.gender === 'male') {
-
-
-//     personDiv.appendChild(name);
-//     personDiv.appendChild(gender);
-//     personDiv.appendChild(pic);
-//     mainArea.appendChild(personDiv);
-//     // }
-
+//     mainArea.appendChild(filmDiv)
 // });
-// people.forEach((person) => {
+let planetList = planets.slice(1, 15);
+planetList.forEach((planet) => {
+    let planetDiv = document.createElement('div')
+    let name = document.createElement('h1')
+    let population = document.createElement('p')
+    let pic = document.createElement('img')
+    let charNum = getCharNumber(planet.url)
 
-//     let personDiv = document.createElement('div');
-//     personDiv.classList.add('person-div');
-//     let name = document.createElement('h1');
-//     let gender = document.createElement('p');
-//     let pic = document.createElement('img');
+    name.textContent = planet.name
+    population.textContent = planet.population
+    pic.src = `https://starwars-visualguide.com/assets/img/planets/${charNum}.jpg`
 
-//     let charNum = getCharNumber(person.url);
-
-//     getCharNumber(person.url);
-
-//     name.textContent = person.name;
-//     gender.textContent = person.gender;
-//     pic.src = `https://starwars-visualguide.com/assets/img/characters/${charNum}.jpg`;
-
-
-//     if (person.gender === 'female') {
-
-
-//         personDiv.appendChild(name);
-//         personDiv.appendChild(gender);
-//         personDiv.appendChild(pic);
-//         mainArea.appendChild(personDiv);
-//     }
-
-// });
-
-// function getCharNumber(charURL) {
-//     let end = charURL.lastIndexOf('/')
-//     let charID = charURL.substring(end - 2, end)
-//     if (charID.indexOf('/') !== -1) {
-//         return charID.slice(1, 2)
-//     } else {
-//         return charID
-//     }
-// }
+    planetDiv.appendChild(name)
+    planetDiv.appendChild(population)
+    planetDiv.appendChild(pic)
+    planetDiv.className = "person-div";
 
 
 
-// console.log(people);
+    document.getElementById('planets').appendChild(planetDiv)
 
-// let peopleMap = people.map((thing) => {
-//     return (thing.gender);
+});
+
+
+// personDiv.setAttribute("style", "display: hidden;")
+
+
+function getCharNumber(charURL) {
+    let end = charURL.lastIndexOf('/')
+    let charID = charURL.substring(end - 2, end)
+    if (charID.indexOf('/') !== -1) {
+        return charID.slice(1, 2)
+    } else {
+        return charID
+    }
+}
+
+const allDivs = Array.from(document.querySelectorAll('div'))
+console.log(allDivs)
+const mainHeader = document.querySelector('header')
+let maleButton = document.createElement('button', 'reset')
+maleButton.textContent = 'Male Characters'
+maleButton.addEventListener('click', () => {
+    maleCharacters.forEach(character => {
+        femaleButton.removeAttribute('styel', 'display: none');
+        let matchedDiv = allDivs.find(oneDiv => {
+            return oneDiv.firstChild.textContent === character.name
+        })
+
+        matchedDiv.classList.toggle('person-div');
+    })
+
+
+})
+
+// location.reload();
+
+
+let femaleButton = document.createElement('button')
+femaleButton.textContent = 'Female Characters'
+femaleButton.addEventListener('click', () => {
+    femaleCharacters.forEach(character => {
+
+        let matchedDiv = allDivs.find(oneDiv => {
+            return oneDiv.firstChild.textContent === character.name
+        })
+        matchedDiv.classList.toggle('person-div');
+    })
+
+
+})
+let planetButton = document.createElement('button')
+planetButton.textContent = 'planets'
+planetButton.addEventListener('click', () => {
+    planetList.forEach(character => {
+
+        let matchedDiv = allDivs.find(oneDiv => {
+            return oneDiv.firstChild.textContent === character.name
+            clearElement(matchedDiv);
+
+        })
+
+        matchedDiv.classList.toggle('person-div');
+
+    })
+    // filmDiv.classList.toggle('hide');
+
+})
+
+
+// let planetButton = document.createElement('button')
+// planetButton.textContent = 'Planets'
+// planetButton.addEventListener('click', () => {
+//     maleCharacters.forEach(character => {
+//         let matchedDiv = allDivs.find(oneDiv => {
+//             return oneDiv.firstChild.textContent === planet.name
+//         })
+//         matchedDiv.setAttribute("style", "display: none;")
+//         otherCharacters.setAttribute("style", "display: none;")
+//     })
 // })
-// console.log(peopleMap)
-// console.log(people.length)
-// console.log(eyeColor);
+
+
+mainHeader.appendChild(maleButton)
+mainHeader.appendChild(femaleButton)
+mainHeader.appendChild(planetButton)
+
+
+const maleCharacters = people.filter(person => person.gender === 'male')
+const femaleCharacters = people.filter(person => person.gender === 'female')
+const otherCharacters = people.filter(person => person.gender === 'n/a' || person.gender === 'none' || person.gender === "hermaphrodite")
+
+console.log(maleCharacters)
+console.log(femaleCharacters)
+
 
