@@ -40,7 +40,7 @@ people.forEach((person) => {
 //     filmDiv.appendChild(title)
 //     filmDiv.appendChild(director)
 //     filmDiv.appendChild(pic)
-//     filmDiv.className = "film-list";
+//     // filmDiv.className = "person-div";
 
 //     mainArea.appendChild(filmDiv)
 // });
@@ -60,6 +60,8 @@ planetList.forEach((planet) => {
     planetDiv.appendChild(population)
     planetDiv.appendChild(pic)
     planetDiv.className = "person-div";
+
+
 
 
 
@@ -129,22 +131,11 @@ planetButton.addEventListener('click', () => {
         matchedDiv.classList.toggle('person-div');
 
     })
-    // filmDiv.classList.toggle('hide');
+    filmDiv.classList.toggle('person-div');
 
 })
 
 
-// let planetButton = document.createElement('button')
-// planetButton.textContent = 'Planets'
-// planetButton.addEventListener('click', () => {
-//     maleCharacters.forEach(character => {
-//         let matchedDiv = allDivs.find(oneDiv => {
-//             return oneDiv.firstChild.textContent === planet.name
-//         })
-//         matchedDiv.setAttribute("style", "display: none;")
-//         otherCharacters.setAttribute("style", "display: none;")
-//     })
-// })
 
 
 mainHeader.appendChild(maleButton)
