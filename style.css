@@ -128,9 +128,9 @@ body {
     /* width: 100%; */
     /* height: 100%; */
     /* Hide elements that flow outside the viewable space */
-    overflow: hidden;
+    /* overflow: hidden; */
     /* Black background for the screen */
-    background: #000;
+    /* background: #000; */
   }
   .star-wars {
     /* Flexbox to center the entire element on the screen */
@@ -175,7 +175,7 @@ body {
       /* This is a magic number, but using a big one to make sure the text is fully off the screen at the end */
       top: -6000px;
       /* Slightly increasing the rotation at the end and moving the text far away from the viewer */
-      transform: rotateX(25deg) translateZ(-2800px);
+      transform: rotateX(25deg) translateZ(-2900px);
     }
   }
   .crawl {
@@ -190,7 +190,7 @@ body {
     position: relative;
     width: 100%;
     min-height: 60vh;
-    top: 175px;
+    top: -75px;
     background-image: linear-gradient(0deg, transparent, black 75%);
     z-index: -5;
   }
