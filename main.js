@@ -21,6 +21,7 @@ people.forEach((person) => {
     personDiv.appendChild(gender)
     personDiv.appendChild(pic)
     personDiv.className = "person-div";
+    // personDiv.setAttribute('class', 'hide');
 
     // mainArea.appendChild(personDiv)
     document.getElementById('people').appendChild(personDiv)
@@ -53,13 +54,15 @@ planetList.forEach((planet) => {
     let charNum = getCharNumber(planet.url)
 
     name.textContent = planet.name
-    population.textContent = planet.population
+    population.textContent = `Population: ${planet.population}`;
     pic.src = `https://starwars-visualguide.com/assets/img/planets/${charNum}.jpg`
 
     planetDiv.appendChild(name)
     planetDiv.appendChild(population)
     planetDiv.appendChild(pic)
-    planetDiv.className = "person-div";
+    // planetDiv.toggle('person-div');
+
+    planetDiv.className = "planet-div";
 
 
 
@@ -84,28 +87,29 @@ function getCharNumber(charURL) {
 }
 
 const allDivs = Array.from(document.querySelectorAll('div'))
-console.log(allDivs)
+// console.log(allDivs)
 const mainHeader = document.querySelector('header')
 let maleButton = document.createElement('button', 'reset')
 maleButton.textContent = 'Male Characters'
+
 maleButton.addEventListener('click', () => {
     maleCharacters.forEach(character => {
-        femaleButton.removeAttribute('styel', 'display: none');
         let matchedDiv = allDivs.find(oneDiv => {
             return oneDiv.firstChild.textContent === character.name
         })
-
         matchedDiv.classList.toggle('person-div');
+        // matchedDiv.classList.toggle('hide');
     })
+
+
+
 
 
 })
 
-// location.reload();
-
-
 let femaleButton = document.createElement('button')
 femaleButton.textContent = 'Female Characters'
+
 femaleButton.addEventListener('click', () => {
     femaleCharacters.forEach(character => {
 
@@ -113,27 +117,44 @@ femaleButton.addEventListener('click', () => {
             return oneDiv.firstChild.textContent === character.name
         })
         matchedDiv.classList.toggle('person-div');
+        // matchedDiv.classList.toggle('hide');
+
     })
+
 
 
 })
 let planetButton = document.createElement('button')
 planetButton.textContent = 'planets'
 planetButton.addEventListener('click', () => {
+
     planetList.forEach(character => {
 
         let matchedDiv = allDivs.find(oneDiv => {
             return oneDiv.firstChild.textContent === character.name
-            clearElement(matchedDiv);
+
 
         })
 
-        matchedDiv.classList.toggle('person-div');
+        matchedDiv.classList.toggle('planet-div');
+        // matchedDiv.classList.toggle('hide');
+
 
     })
-    filmDiv.classList.toggle('person-div');
+    femaleCharacters.forEach(character => {
+
+        let matchedDiv = allDivs.find(oneDiv => {
+            return oneDiv.firstChild.textContent === character.name
+        })
+        matchedDiv.classList.toggle('person-div');
+        // matchedDiv.classList.toggle('hide');
+
+    })
+
+
 
 })
+
 
 
 
@@ -147,7 +168,7 @@ const maleCharacters = people.filter(person => person.gender === 'male')
 const femaleCharacters = people.filter(person => person.gender === 'female')
 const otherCharacters = people.filter(person => person.gender === 'n/a' || person.gender === 'none' || person.gender === "hermaphrodite")
 
-console.log(maleCharacters)
-console.log(femaleCharacters)
+// console.log(maleCharacters)
+// console.log(femaleCharacters)
 
 
