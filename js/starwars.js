@@ -1,6 +1,6 @@
-import { films } from "./assets/films.js"
-import { people } from "./assets/people.js"
-import { planets } from "./assets/planets.js"
+import { films } from "../assets/films.js"
+import { people } from "../assets/people.js"
+import { planets } from "../assets/planets.js"
 
 
 

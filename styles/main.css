@@ -89,7 +89,7 @@ li a:hover {
 }
 
 #welcome-section {
-    background-image: url(Group.png);
+    background-image: url(/images/Group.png);
     background-color: rgb(5, 5, 5);
     background-size: contain;
     background-repeat: no-repeat;
