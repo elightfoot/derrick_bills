@@ -27,6 +27,8 @@ const theData = getAPIData('https://pokeapi.co/api/v2/pokemon/')
 
 let mainArea = document.querySelector('main')
 
+// function fillCardBack(pokeBack, )
+
 function populateDom(single_pokemon) {
     let pokeCard = document.createElement('div')
     let pokeScene = document.createElement('div')

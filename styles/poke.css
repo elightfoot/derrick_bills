@@ -55,7 +55,7 @@ flip card styles start  */
 }
 
 .card__face--front {
-  background: red;
+  background: rgb(125, 125, 125);
 }
 
 .card__face--back {
