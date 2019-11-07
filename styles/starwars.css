@@ -89,27 +89,7 @@ main {
   button:active{
       text-decoration: none;
   }
-  /* .person-div{
-      display: none;
-  } */
- /* .male-div{ 
-   display: none;
-   border: 10px solid white;
-
- }
- .female-div{ 
-    display: none;
-    border: 10px solid white;
  
-  } */
- /* .planet-div{ 
-    display: none;
-    border: 10px solid white;
- 
-  }
- .hide{
-     display: revert;
- } */
  h1, p{
    text-align: center;
    color: #feda4a;
@@ -126,7 +106,7 @@ main {
   
 }
 main img{
-  opacity: .9;
+  opacity: .7;
     border-radius: 30%;
     display: grid;
     align-self: end;
