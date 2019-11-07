@@ -5,7 +5,6 @@ let planetList = planets.slice(1, 15);
 
 
 let mainArea = document.querySelector('main')
-let section = document.querySelector('section')
 
 function showCharArray(arrayOfPeople) {
     arrayOfPeople.forEach(person => {
@@ -33,11 +32,13 @@ function showCharArray(arrayOfPeople) {
 
     })
 }
+
 function showPlanetArray(arrayOfPlanets) {
     arrayOfPlanets.forEach(planet => {
         let personDiv = document.createElement('div')
         let name = document.createElement('h1')
-        let gender = document.createElement('p')
+        let population = document.createElement('p')
+        let diameter = document.createElement('p')
         let pic = document.createElement('img')
 
         personDiv.setAttribute('class', 'charDivs');
@@ -47,12 +48,15 @@ function showPlanetArray(arrayOfPlanets) {
 
 
         name.textContent = planet.name
-        gender.textContent = `Population: ${planet.population}`
+        population.textContent = `Population: ${planet.population}`
+        diameter.textContent = `${(planet.diameter / 7917).toFixed(2)} Earth Diameters`
         pic.src = `https://starwars-visualguide.com/assets/img/planets/${charNum}.jpg`
 
         personDiv.appendChild(name)
-        personDiv.appendChild(gender)
+        personDiv.appendChild(population)
         personDiv.appendChild(pic)
+        personDiv.appendChild(diameter)
+
         personDiv.className = "person-div";
 
         mainArea.appendChild(personDiv)
@@ -61,8 +65,6 @@ function showPlanetArray(arrayOfPlanets) {
 
 
 }
-
-
 
 function getCharNumber(charURL) {
     let end = charURL.lastIndexOf('/')
@@ -102,6 +104,9 @@ otherButton.textContent = 'Other Characters'
 otherButton.addEventListener('click', () => {
     deleteNodes()
     showCharArray(otherCharacters)
+    otherButton.addEventListener('click', () => {
+
+    })
 
 
 })
