@@ -1,6 +1,8 @@
 import { films } from "../assets/films.js"
 import { people } from "../assets/people.js"
 import { planets } from "../assets/planets.js"
+let planetList = planets.slice(1, 15);
+
 
 let mainArea = document.querySelector('main')
 let section = document.querySelector('section')
@@ -41,11 +43,11 @@ function showPlanetArray(arrayOfPlanets) {
         personDiv.setAttribute('class', 'charDivs');
         pic.setAttribute('class', 'picDivs')
 
-        let charNum = getCharNumber(person.url)
+        let charNum = getCharNumber(planet.url)
 
 
-        name.textContent = person.name
-        gender.textContent = person.gender
+        name.textContent = planet.name
+        gender.textContent = `Population: ${planet.population}`
         pic.src = `https://starwars-visualguide.com/assets/img/planets/${charNum}.jpg`
 
         personDiv.appendChild(name)
@@ -56,33 +58,9 @@ function showPlanetArray(arrayOfPlanets) {
         mainArea.appendChild(personDiv)
 
     })
+
+
 }
-
-let planetList = planets.slice(1, 15);
-planetList.forEach((planet) => {
-    let planetDiv = document.createElement('div')
-    let name = document.createElement('h1')
-    let population = document.createElement('p')
-    let pic = document.createElement('img')
-    let charNum = getCharNumber(planet.url)
-
-    name.textContent = planet.name
-    population.textContent = `Population: ${planet.population}`;
-    pic.src = `https://starwars-visualguide.com/assets/img/planets/${charNum}.jpg`
-
-    planetDiv.appendChild(name)
-    planetDiv.appendChild(population)
-    planetDiv.appendChild(pic)
-
-    planetDiv.className = "planet-div";
-
-
-
-
-
-
-});
-
 
 
 
@@ -138,7 +116,7 @@ function deleteNodes() {
 
 mainHeader.appendChild(maleButton)
 mainHeader.appendChild(femaleButton)
-// mainHeader.appendChild(planetButton)
+mainHeader.appendChild(planetButton)
 mainHeader.appendChild(otherButton)
 
 
