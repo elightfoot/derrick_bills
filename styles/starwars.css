@@ -89,9 +89,9 @@ main {
   button:active{
       text-decoration: none;
   }
-  .person-div{
+  /* .person-div{
       display: none;
-  }
+  } */
  /* .male-div{ 
    display: none;
    border: 10px solid white;
@@ -102,14 +102,14 @@ main {
     border: 10px solid white;
  
   } */
- .planet-div{ 
+ /* .planet-div{ 
     display: none;
     border: 10px solid white;
  
   }
  .hide{
      display: revert;
- }
+ } */
  h1, p{
    text-align: center;
    color: #feda4a;
@@ -134,7 +134,7 @@ main {
     grid-auto-rows: minmax(100px, 1fr); */
   /* background-color: rgb(73, 73, 73); */
 }
-.grid img{
+main img{
   opacity: .9;
     border-radius: 30%;
     display: grid;

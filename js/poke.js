@@ -24,33 +24,20 @@ const theData = getAPIData('https://pokeapi.co/api/v2/pokemon/')
                 })
         }
     })
-
 let mainArea = document.querySelector('main')
-
-// function fillCardBack(pokeBack, )
 
 function populateDom(single_pokemon) {
     let pokeCard = document.createElement('div')
     let pokeScene = document.createElement('div')
     let pokeFront = document.createElement('div')
     let pokeBack = document.createElement('div')
-    let name = document.createElement('h3')
-    let pic = document.createElement('img')
+
+
+    fillCardFront(pokeFront, single_pokemon)
+    fillCardBack(pokeBack, single_pokemon)
 
     pokeScene.setAttribute('class', 'scene')
     pokeCard.setAttribute('class', 'card')
-    pokeFront.setAttribute('class', 'card__face card__face--front')
-    pokeBack.setAttribute('class', 'card__face card__face--back')
-    pic.setAttribute('class', 'picDivs')
-
-    let pokeNum = getPokeNumber(single_pokemon.id)
-
-    name.textContent = `${single_pokemon.name} height: ${single_pokemon.height}`
-    pokeFront.appendChild(name)
-    pic.src = `../images/${pokeNum}.png`
-    pokeFront.appendChild(pic)
-    pokeFront.appendChild(name)
-
     pokeCard.appendChild(pokeFront)
     pokeCard.appendChild(pokeBack)
     pokeScene.appendChild(pokeCard)
@@ -62,7 +49,31 @@ function populateDom(single_pokemon) {
         pokeCard.classList.toggle('is-flipped');
     });
 }
+function fillCardBack(pokeBack, data) {
+    pokeBack.setAttribute('class', 'card__face card__face--back')
+    let pokeOrder = document.createElement('p')
+    let pokeHP = document.createElement('p')
+    pokeOrder.textContent = `Poke Number: ${data.order}`
+    pokeHP.textContent = `Base Hit Points: ${data.stats[0].base_stat}`
+    pokeBack.appendChild(pokeOrder)
+    pokeBack.appendChild(pokeHP)
 
+
+}
+function fillCardFront(pokeFront, data) {
+    pokeFront.setAttribute('class', 'card__face card__face--front')
+    let name = document.createElement('h3')
+    let pic = document.createElement('img')
+    pic.setAttribute('class', 'picDivs')
+    let pokeNum = getPokeNumber(data.id)
+    name.textContent = `${data.name} height: ${data.height}`
+    pokeFront.appendChild(name)
+    pic.src = `../images/${pokeNum}.png`
+    pokeFront.appendChild(pic)
+    pokeFront.appendChild(name)
+
+
+}
 function getPokeNumber(id) {
     if (id < 10) return `00${id}`
     if (id > 9 && id < 100) {
