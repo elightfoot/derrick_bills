@@ -84,6 +84,9 @@ maleButton.textContent = 'male Characters'
 maleButton.addEventListener('click', () => {
     deleteNodes()
     showCharArray(maleCharacters)
+    maleButton.addEventListener('click', () => {
+        location.reload();
+    })
 })
 
 let femaleButton = document.createElement('button')
@@ -91,6 +94,9 @@ femaleButton.textContent = 'Female Characters'
 femaleButton.addEventListener('click', () => {
     deleteNodes()
     showCharArray(femaleCharacters)
+    femaleButton.addEventListener('click', () => {
+        location.reload();
+    })
 })
 
 let planetButton = document.createElement('button')
@@ -98,6 +104,9 @@ planetButton.textContent = 'Planets'
 planetButton.addEventListener('click', () => {
     deleteNodes()
     showPlanetArray(planetList)
+    planetButton.addEventListener('click', () => {
+        location.reload();
+    })
 })
 let otherButton = document.createElement('button')
 otherButton.textContent = 'Other Characters'
@@ -105,8 +114,9 @@ otherButton.addEventListener('click', () => {
     deleteNodes()
     showCharArray(otherCharacters)
     otherButton.addEventListener('click', () => {
-
+        location.reload();
     })
+
 
 
 })
