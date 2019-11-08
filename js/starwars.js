@@ -12,6 +12,8 @@ function showShipsArray(arrayOfShips) {
         let name = document.createElement('h1')
         let model = document.createElement('p')
         let pic = document.createElement('img')
+        let cost = document.createElement('p')
+
 
         personDiv.setAttribute('class', 'charDivs');
         pic.setAttribute('class', 'picDivs')
@@ -22,11 +24,14 @@ function showShipsArray(arrayOfShips) {
         name.textContent = ship.name
         model.textContent = ship.model
         pic.src = `https://starwars-visualguide.com/assets/img/starships/${charNum}.jpg`
+        cost.textContent = `Cost in Imperial Credits: ${ship.cost_in_credits}`
 
         personDiv.appendChild(name)
         personDiv.appendChild(model)
         personDiv.appendChild(pic)
         personDiv.className = "person-div";
+        personDiv.appendChild(cost)
+
 
         mainArea.appendChild(personDiv)
 
