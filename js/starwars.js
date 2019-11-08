@@ -1,10 +1,38 @@
-import { films } from "../assets/films.js"
+import { starships } from "../assets/starships.js"
 import { people } from "../assets/people.js"
 import { planets } from "../assets/planets.js"
 let planetList = planets.slice(1, 15);
-
+let shipList = starships.slice(1, 15);
 
 let mainArea = document.querySelector('main')
+
+function showShipsArray(arrayOfShips) {
+    arrayOfShips.forEach(ship => {
+        let personDiv = document.createElement('div')
+        let name = document.createElement('h1')
+        let model = document.createElement('p')
+        let pic = document.createElement('img')
+
+        personDiv.setAttribute('class', 'charDivs');
+        pic.setAttribute('class', 'picDivs')
+
+        let charNum = getCharNumber(ship.url)
+
+
+        name.textContent = ship.name
+        model.textContent = ship.model
+        pic.src = `https://starwars-visualguide.com/assets/img/starships/${charNum}.jpg`
+
+        personDiv.appendChild(name)
+        personDiv.appendChild(model)
+        personDiv.appendChild(pic)
+        personDiv.className = "person-div";
+
+        mainArea.appendChild(personDiv)
+
+    })
+}
+
 
 function showCharArray(arrayOfPeople) {
     arrayOfPeople.forEach(person => {
@@ -116,10 +144,17 @@ otherButton.addEventListener('click', () => {
     otherButton.addEventListener('click', () => {
         location.reload();
     })
-
-
-
 })
+let shipsButton = document.createElement('button')
+shipsButton.textContent = 'Ships'
+shipsButton.addEventListener('click', () => {
+    deleteNodes()
+    showShipsArray(shipList)
+    shipsButton.addEventListener('click', () => {
+        location.reload();
+    })
+})
+
 
 function deleteNodes() {
     while (mainArea.firstChild) {
@@ -133,6 +168,9 @@ mainHeader.appendChild(maleButton)
 mainHeader.appendChild(femaleButton)
 mainHeader.appendChild(planetButton)
 mainHeader.appendChild(otherButton)
+mainHeader.appendChild(shipsButton)
+
+
 
 
 
