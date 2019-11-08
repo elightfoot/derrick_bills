@@ -115,8 +115,10 @@ const mainHeader = document.querySelector('header')
 let maleButton = document.createElement('button')
 maleButton.textContent = 'male Characters'
 maleButton.addEventListener('click', () => {
+    //deletes if there is a previous display of nodes
     deleteNodes()
     showCharArray(maleCharacters)
+    //auto reloads to delete display on second click
     maleButton.addEventListener('click', () => {
         location.reload();
     })

@@ -279,7 +279,7 @@ h2.welcome-title {
     height: 100%;
     top: 0;
     left: 0;
-    background: rgba(124, 195, 91, 0.9);
+    background:#3CF;
     text-align: center;
     opacity: 0;
     -webkit-transition: all 200ms ease-in-out;
@@ -566,7 +566,6 @@ span.offer-right {
 .blog-item {
     position: relative;
     overflow: hidden;
-    @extned %clearfix;;padding: 20px;
     color: #6d747e;
     text-align: center;
     margin-bottom: 30px;
@@ -855,7 +854,6 @@ body {
     font-family: "Roboto",sans-serif;
     line-height: 1.55;
     text-rendering: optimizeLegibility;
-    -webkit-backface-visibility: hidden;
     overflow-x: hidden;
 }
 
