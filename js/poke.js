@@ -71,7 +71,7 @@ function fillCardFront(pokeFront, data) {
     let pic = document.createElement('img')
     pic.setAttribute('class', 'picDivs')
     let pokeNum = getPokeNumber(data.id)
-    name.textContent = `${data.name} height: ${data.height}`
+    name.textContent = `${data.name} Type: ${data.types[0].type.name}`
     pokeFront.appendChild(name)
     pic.src = `../images/${pokeNum}.png`
     pokeFront.appendChild(pic)
