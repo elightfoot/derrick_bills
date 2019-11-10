@@ -14,7 +14,9 @@ async function getAPIData(url) {
     }
 }
 
-const theData = getAPIData('https://pokeapi.co/api/v2/pokemon/')
+const theData = getAPIData('https://pokeapi.co/api/v2/pokemon/?limit=30&offset=0')
+    // const theData = getAPIData('https://pokeapi.co/api/v2/pokemon/?page=2')
+
     .then(data => {
         for (const pokemon of data.results) {
             getAPIData(pokemon.url)
@@ -22,7 +24,10 @@ const theData = getAPIData('https://pokeapi.co/api/v2/pokemon/')
                     populateDom(pokedata)
                     console.log(pokedata)
                 })
+
+
         }
+
     })
 let mainArea = document.querySelector('main')
 
