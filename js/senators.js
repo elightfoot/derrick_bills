@@ -11,6 +11,8 @@ let allSenators = []
 const theData = getAPIData('senators.json').then(data => {
     allSenators = data.results[0].members
     populateDom(allSenators)
+    console.log(allSenators)
+
 })
 const container = document.querySelector('.container')
 
@@ -46,6 +48,15 @@ function cardContent(senator) {
     let img = document.createElement('img')
     img.src = `https://bulma.io/images/placeholders/96x96.png`
     img.alt = 'Placeholder image'
+    if (senator.party === "R") {
+        img.src = `/images/republican.png`
+    }
+    else if (senator.party === "D") {
+        img.src = `/images/Democrat.png`
+    }
+    if (senator.party === "I") {
+        img.src = `https://bulma.io/images/placeholders/96x96.png`
+    }
     let mediaContent = document.createElement('div')
     mediaContent.setAttribute('class', 'media-content')
     let titleP = document.createElement('p')
@@ -55,6 +66,13 @@ function cardContent(senator) {
     subTitleP.setAttribute('class', 'subtitle is-6')
     subTitleP.textContent = `Home state: ${senator.state}`
 
+    let contentDiv = document.createElement('div')
+    contentDiv.setAttribute('class', 'content')
+    contentDiv.textContent = `;lksdjf;safk;lsdfjkjdskfjjdk;la`
+    let contentBreak = document.createElement('br')
+    let ageP = document.createElement('p')
+    ageP.textContent = '100'
+
     mediaContent.appendChild(titleP)
     mediaContent.appendChild(subTitleP)
     figure.appendChild(img)
@@ -62,6 +80,11 @@ function cardContent(senator) {
     media.appendChild(mediaLeft)
     media.appendChild(mediaContent)
     cardContent.appendChild(media)
+
     return cardContent
+    contentDiv.appendChild(contentBreak)
+    contentDiv.appendChild(ageP)
+    cardContent.appendChild(media)
+    cardContent.appendChild(contentDiv)
 
 }
