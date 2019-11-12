@@ -62,6 +62,16 @@ function fillCardBack(pokeBack, data) {
     pokeHP.textContent = `Base Hit Points: ${data.stats[0].base_stat}`
     pokeBack.appendChild(pokeOrder)
     pokeBack.appendChild(pokeHP)
+    let pokeNum = getPokeNumber(data.id)
+
+    let pic = document.createElement('img')
+    pic.setAttribute('class', 'picDivs')
+    pic.src = `../images/${pokeNum}.png`
+    pokeBack.appendChild(pic)
+
+
+
+
 
 
 }
@@ -69,13 +79,15 @@ function fillCardFront(pokeFront, data) {
     pokeFront.setAttribute('class', 'card__face card__face--front')
     let name = document.createElement('h3')
     let pic = document.createElement('img')
+    let type = document.createElement('p')
     pic.setAttribute('class', 'picDivs')
     let pokeNum = getPokeNumber(data.id)
-    name.textContent = `${data.name} Type: ${data.types[0].type.name}`
+    name.textContent = `${data.name}`
+    type.textContent = `Type: ${data.types[0].type.name}`
     pokeFront.appendChild(name)
     pic.src = `../images/${pokeNum}.png`
+    pokeFront.appendChild(type)
     pokeFront.appendChild(pic)
-    pokeFront.appendChild(name)
 
 
 }
