@@ -23,6 +23,7 @@ function showShipsArray(arrayOfShips) {
 
         name.textContent = ship.name
         model.textContent = ship.model
+
         pic.src = `https://starwars-visualguide.com/assets/img/starships/${charNum}.jpg`
         cost.textContent = `Cost in Imperial Credits: ${ship.cost_in_credits}`
 
@@ -81,7 +82,16 @@ function showPlanetArray(arrayOfPlanets) {
 
 
         name.textContent = planet.name
-        population.textContent = `Population: ${planet.population}`
+        const populationComma = (Number(planet.population).toLocaleString());
+
+        population.textContent = `Population: ${populationComma}`
+        if (planet.population === "unknown") {
+            population.textContent = `Unknown`
+        }
+        else if (planet.population) {
+            population.textContent = `Population: ${populationComma}`
+
+        }
         diameter.textContent = `${(planet.diameter / 7917).toFixed(2)} Earth Diameters`
         pic.src = `https://starwars-visualguide.com/assets/img/planets/${charNum}.jpg`
 
@@ -94,10 +104,12 @@ function showPlanetArray(arrayOfPlanets) {
 
         mainArea.appendChild(personDiv)
 
+
     })
 
 
 }
+// Displays "3,500" if in U.S. English locale
 
 function getCharNumber(charURL) {
     let end = charURL.lastIndexOf('/')
