@@ -30,7 +30,7 @@ const theData = getAPIData('https://pokeapi.co/api/v2/pokemon/?limit=30&offset=0
 
     })
 let mainArea = document.querySelector('main')
-
+let createNew = document.querySelector('.create')
 function populateDom(single_pokemon) {
     let pokeCard = document.createElement('div')
     let pokeScene = document.createElement('div')
@@ -49,7 +49,7 @@ function populateDom(single_pokemon) {
 
 
     mainArea.appendChild(pokeScene)
-
+    // createNew.appendChild(pokeScene)
     pokeCard.addEventListener('click', function () {
         pokeCard.classList.toggle('is-flipped');
     });
