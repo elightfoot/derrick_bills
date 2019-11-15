@@ -49,9 +49,9 @@ const theData = getAPIData('senators.json').then(data => {
     // console.log(totalVotes(simpleSenators))
     // console.log(oldestSenator(simpleSenators))
     populateDom(simpleSenators)
-    const utahSenator = new Senator(utahMapped[0].id, utahMapped[0].name, utahMapped[0].party, utahMapped[0].age, utahMapped[0].state, utahMapped[0].office, utahMapped[0].phone, utahMapped[0].gender, utahMapped[0].total_votes, utahMapped[0].twitter)
-    populateDom(utahSenator)
-    console.log(utahSenator)
+    // const utahSenator = new Senator(utahMapped[0].id, utahMapped[0].name, utahMapped[0].party, utahMapped[0].age, utahMapped[0].state, utahMapped[0].office, utahMapped[0].phone, utahMapped[0].gender, utahMapped[0].total_votes, utahMapped[0].twitter)
+    // populateDom(utahSenator)
+    // console.log(utahSenator)
 
 
 
