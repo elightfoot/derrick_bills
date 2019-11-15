@@ -59,18 +59,5 @@ jQuery(document).ready(function ($) {
 });
 
 
-function loadScript() {
-	var script = document.createElement('script');
-	script.type = 'text/javascript';
-	script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&' +
-		'callback=initialize';
-	document.body.appendChild(script);
-}
 
-function initialize() {
-	var mapOptions = {
-		zoom: 15,
-		center: new google.maps.LatLng(40.361270, -111.977670)
-	};
-	var map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
-}
+
