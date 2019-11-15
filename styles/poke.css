@@ -76,7 +76,7 @@ box-shadow: 14px 10px 9px -9px rgba(0,0,0,0.75);
 
 
 .card.is-flipped {
-  transform: rotateY(180deg);
+  transform: rotatey(200deg);
 }
 
 .card__face {

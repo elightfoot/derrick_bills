@@ -11,6 +11,7 @@ let allSenators = []
 let simpleSenators = []
 let republicans = []
 let democrats = []
+console.log(simpleSenators.sort(senators.age))
 const theData = getAPIData('senators.json').then(data => {
     allSenators = data.results[0].members
     simpleSenators = senatorMap(allSenators)
@@ -58,6 +59,12 @@ function totalVotes(senatorList) {
     }, 0)
     return results
 }
+
+// function oldestSenator(senatorList) {
+//         return const results = senatorList.reduce((oldest, senator) => {
+//         return (oldest.age || 0) > senator.age ? oldest : senator;
+
+//     }, {})
 
 const container = document.querySelector('.container')
 

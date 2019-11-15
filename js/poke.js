@@ -3,6 +3,16 @@
     const response = await fetch(url)
     return await response.json()
 }*/
+class Pokemon {
+    constructor(id, name, ) {
+        this.id = id;
+        this.name = name;
+
+    }
+
+}
+
+const CreatedPoke = new Pokemon(31, 'Derrick', 'type=fire');
 
 async function getAPIData(url) {
     try {
@@ -13,30 +23,26 @@ async function getAPIData(url) {
         console.log(error)
     }
 }
+const theData = getAPIData('https://pokeapi.co/api/v2/pokemon/?limit=30&offset=0').then(data => {
+    for (const pokemon of data.results) {
+        getAPIData(pokemon.url)
+            .then(pokedata => {
+                populateDom(pokedata)
+                console.log(pokedata)
 
-const theData = getAPIData('https://pokeapi.co/api/v2/pokemon/?limit=30&offset=0')
-    // const theData = getAPIData('https://pokeapi.co/api/v2/pokemon/?page=2')
+            })
+    }
 
-    .then(data => {
-        for (const pokemon of data.results) {
-            getAPIData(pokemon.url)
-                .then(pokedata => {
-                    populateDom(pokedata)
-                    console.log(pokedata)
-                })
+})
 
-
-        }
-
-    })
 let mainArea = document.querySelector('main')
 // let createNew = document.querySelector('.create')
+
 function populateDom(single_pokemon) {
     let pokeCard = document.createElement('div')
     let pokeScene = document.createElement('div')
     let pokeFront = document.createElement('div')
     let pokeBack = document.createElement('div')
-
 
     fillCardFront(pokeFront, single_pokemon)
     fillCardBack(pokeBack, single_pokemon)
@@ -47,9 +53,8 @@ function populateDom(single_pokemon) {
     pokeCard.appendChild(pokeBack)
     pokeScene.appendChild(pokeCard)
 
-
     mainArea.appendChild(pokeScene)
-    // createNew.appendChild(pokeScene)
+
     pokeCard.addEventListener('click', function () {
         pokeCard.classList.toggle('is-flipped');
     });
@@ -68,12 +73,6 @@ function fillCardBack(pokeBack, data) {
     pic.setAttribute('class', 'picDivs')
     pic.src = `../images/${pokeNum}.png`
     pokeBack.appendChild(pic)
-
-
-
-
-
-
 }
 function fillCardFront(pokeFront, data) {
     pokeFront.setAttribute('class', 'card__face card__face--front')
@@ -82,15 +81,21 @@ function fillCardFront(pokeFront, data) {
     let type = document.createElement('p')
     pic.setAttribute('class', 'picDivs')
     let pokeNum = getPokeNumber(data.id)
-    name.textContent = `${data.name}`
+    name.textContent = capitalize_Words(`${data.name}`)
     type.textContent = `Type: ${data.types[0].type.name}`
     pokeFront.appendChild(name)
     pic.src = `../images/${pokeNum}.png`
     pokeFront.appendChild(type)
     pokeFront.appendChild(pic)
-
-
 }
+
+function capitalize_Words(str) {
+    return str.replace(/\w\S*/g, function (txt) { return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase(); });
+}
+
+console.log(capitalize_Words('js string exercises'));
+
+
 function getPokeNumber(id) {
     if (id < 10) return `00${id}`
     if (id > 9 && id < 100) {
