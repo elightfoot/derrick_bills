@@ -11,7 +11,8 @@ let allSenators = []
 let simpleSenators = []
 let republicans = []
 let democrats = []
-console.log(simpleSenators.sort(senators.age))
+let utah = []
+
 const theData = getAPIData('senators.json').then(data => {
     allSenators = data.results[0].members
     simpleSenators = senatorMap(allSenators)
@@ -19,6 +20,7 @@ const theData = getAPIData('senators.json').then(data => {
     democrats = filterSenators(simpleSenators, "D")
 
     console.log(totalVotes(simpleSenators))
+    console.log(oldestSenator(simpleSenators))
     // console.log(democrats)
     populateDom(simpleSenators)
     // console.log(allSenators)
@@ -26,7 +28,9 @@ const theData = getAPIData('senators.json').then(data => {
 //-------------------------------------------------------FILTER SENATORS.JSON. put in .then method when ready to implement
 function filterSenators(simpleList, partyAffiliation) {
     return simpleList.filter(senator => senator.party === partyAffiliation)
+    // console.log(party)
 }
+
 
 //-------------------------------------------------------MAP SENATORS.JSON
 function senatorMap(allOfThem) {
@@ -60,11 +64,13 @@ function totalVotes(senatorList) {
     return results
 }
 
-// function oldestSenator(senatorList) {
-//         return const results = senatorList.reduce((oldest, senator) => {
-//         return (oldest.age || 0) > senator.age ? oldest : senator;
+function oldestSenator(senatorList) {
+    return senatorList.reduce((oldest, senator) => {
+        return (oldest.age || 0) > senator.age ? oldest : senator
 
-//     }, {})
+    }, {})
+}
+
 
 const container = document.querySelector('.container')
 
@@ -80,6 +86,11 @@ function populateDom(senator_array) {
         figureImage.src = `https://www.congress.gov/img/member/${senator.id.toLowerCase()}_200.jpg`
         figureImage.alt = 'Placeholder image'
 
+        figureImage.addEventListener('error', (event) => {
+            let noImage = event.target
+            //image is from doug jones' twitter page
+            noImage.src = 'https://pbs.twimg.com/profile_images/1020031896741400577/RvxrHrIA_400x400.jpg'
+        })
 
         figure.appendChild(figureImage)
         cardImage.appendChild(figure)
