@@ -4,15 +4,18 @@
     return await response.json()
 }*/
 class Pokemon {
-    constructor(id, name, ) {
+    constructor(id, name, pokeNum) {
         this.id = id;
         this.name = name;
-
+        this.pokeNum = pokeNum;
     }
-
 }
 
-const CreatedPoke = new Pokemon(31, 'Derrick', 'type=fire');
+const CreatedPoke = new Pokemon(31, 'Lord Voldemort', 10);
+const newButton = document.querySelector('#newPokemon')
+newButton.addEventListener('click', function () {
+    populateDom(CreatedPoke)
+})
 
 async function getAPIData(url) {
     try {
@@ -23,7 +26,7 @@ async function getAPIData(url) {
         console.log(error)
     }
 }
-const theData = getAPIData('https://pokeapi.co/api/v2/pokemon/?limit=30&offset=0').then(data => {
+const theData = getAPIData('https://pokeapi.co/api/v2/pokemon/?limit=30&offset=450').then(data => {
     for (const pokemon of data.results) {
         getAPIData(pokemon.url)
             .then(pokedata => {
@@ -32,6 +35,7 @@ const theData = getAPIData('https://pokeapi.co/api/v2/pokemon/?limit=30&offset=0
 
             })
     }
+    // populateDom(CreatedPoke)
 
 })
 
@@ -64,7 +68,7 @@ function fillCardBack(pokeBack, data) {
     let pokeOrder = document.createElement('p')
     let pokeHP = document.createElement('p')
     pokeOrder.textContent = `Poke Number: ${data.order}`
-    pokeHP.textContent = `Base Hit Points: ${data.stats[0].base_stat}`
+    // pokeHP.textContent = `Base Hit Points: ${data.stats[0].base_stat}`
     pokeBack.appendChild(pokeOrder)
     pokeBack.appendChild(pokeHP)
     let pokeNum = getPokeNumber(data.id)
@@ -82,7 +86,7 @@ function fillCardFront(pokeFront, data) {
     pic.setAttribute('class', 'picDivs')
     let pokeNum = getPokeNumber(data.id)
     name.textContent = capitalize_Words(`${data.name}`)
-    type.textContent = `Type: ${data.types[0].type.name}`
+    // type.textContent = `Type: ${data.types[0].type.name}`
     pokeFront.appendChild(name)
     pic.src = `../images/${pokeNum}.png`
     pokeFront.appendChild(type)
