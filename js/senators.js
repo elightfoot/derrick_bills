@@ -7,28 +7,64 @@ async function getAPIData(url) {
         console.log(error)
     }
 }
+
+
+class Senator {
+    constructor(id, name, party, age, state, office, phone, gender, total_votes, twitter) {
+        this.id = id;
+        this.name = name;
+        this.party = party;
+        this.age = age;
+        this.state = state;
+        this.office = office;
+        this.phone = phone;
+        this.gender = gender;
+        this.total_votes = total_votes;
+        this.twitter = twitter;
+
+    }
+}
+
+
+
+
 let allSenators = []
 let simpleSenators = []
 let republicans = []
 let democrats = []
 let utah = []
+let utahMapped = []
+
+
 
 const theData = getAPIData('senators.json').then(data => {
     allSenators = data.results[0].members
     simpleSenators = senatorMap(allSenators)
     republicans = filterSenators(simpleSenators, "R")
     democrats = filterSenators(simpleSenators, "D")
-
-    console.log(totalVotes(simpleSenators))
-    console.log(oldestSenator(simpleSenators))
-    // console.log(democrats)
+    console.log(allSenators)
+    utah = findUtah(allSenators, "UT")
+    utahMapped = senatorMap(utah)
+    console.log(utah)
+    // console.log(totalVotes(simpleSenators))
+    // console.log(oldestSenator(simpleSenators))
     populateDom(simpleSenators)
-    // console.log(allSenators)
+    const utahSenator = new Senator(utahMapped[0].id, utahMapped[0].name, utahMapped[0].party, utahMapped[0].age, utahMapped[0].state, utahMapped[0].office, utahMapped[0].phone, utahMapped[0].gender, utahMapped[0].total_votes, utahMapped[0].twitter)
+    populateDom(utahSenator)
+    console.log(utahSenator)
+
+
+
+
+
 })
 //-------------------------------------------------------FILTER SENATORS.JSON. put in .then method when ready to implement
 function filterSenators(simpleList, partyAffiliation) {
     return simpleList.filter(senator => senator.party === partyAffiliation)
     // console.log(party)
+}
+function findUtah(allSenators, state) {
+    return allSenators.filter(senator => senator.state === state)
 }
 
 
@@ -55,7 +91,7 @@ const testArray = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50]
 const testReduce = testArray.reduce((accumlator, currentValue) => {
     return accumlator + currentValue
 }, 0)
-console.log(testReduce)
+// console.log(testReduce)
 
 function totalVotes(senatorList) {
     const results = senatorList.reduce((acc, senator) => {
