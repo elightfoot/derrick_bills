@@ -3,6 +3,10 @@
     const response = await fetch(url)
     return await response.json()
 }*/
+let myRandomNum = function random() {
+    console.log(Math.round(Math.random() * 450))
+
+}
 class Pokemon {
     constructor(id, name, pokeNum) {
         this.id = id;
@@ -10,6 +14,7 @@ class Pokemon {
         this.pokeNum = pokeNum;
     }
 }
+
 
 const CreatedPoke = new Pokemon(31, 'Lord Voldemort', 10);
 const newButton = document.querySelector('#newPokemon')
@@ -26,12 +31,14 @@ async function getAPIData(url) {
         console.log(error)
     }
 }
+
+console.log(myRandomNum(4))
 const theData = getAPIData('https://pokeapi.co/api/v2/pokemon/?limit=30&offset=450').then(data => {
     for (const pokemon of data.results) {
         getAPIData(pokemon.url)
             .then(pokedata => {
                 populateDom(pokedata)
-                console.log(pokedata)
+                // console.log(pokedata)
 
             })
     }

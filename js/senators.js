@@ -96,7 +96,7 @@ const testArray = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50]
 const testReduce = testArray.reduce((accumlator, currentValue) => {
     return accumlator + currentValue
 }, 0)
-// console.log(testReduce)
+console.log(testReduce)
 
 function totalVotes(senatorList) {
     const results = senatorList.reduce((acc, senator) => {

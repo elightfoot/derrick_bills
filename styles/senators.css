@@ -4,6 +4,11 @@ body{
     justify-content: center;
     margin: auto;
     background-color: rgb(182, 182, 182);
+    /* background-image: url(/images/senateHeader.png);
+    background-repeat: no-repeat;
+    background-position: center; */
+    /* opacity: 0.1; */
+
     /* max-width: 1280px; */
 
 }
