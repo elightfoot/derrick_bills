@@ -243,7 +243,7 @@ selectElement.addEventListener('change', (event) => {
     }
     if (`${event.target.value}` === "Republicans") {
         populateDom(republicans)
-        result2.textContent = `Total Votes: ${totalVotes(demorepublicans)}`
+        result2.textContent = `Total Votes: ${totalVotes(republicans)}`
 
     }
     if (`${event.target.value}` === "All Senators") {
