@@ -48,7 +48,7 @@ const theData = getAPIData('senators.json').then(data => {
     democrats = filterSenators(simpleSenators, "D")
     console.log(allSenators)
     //finds senators who have utah as their home state
-    utah = findUtah(allSenators, "UT")
+    utah = findUtah(simpleSenators, "UT")
     utahMapped = senatorMap(utah)
     // ageSort = sortSenatorsByAge(simpleSenators)
     // console.log(totalVotes(simpleSenators))
@@ -223,7 +223,7 @@ function deleteNodes() {
 }
 selectElement.addEventListener('change', (event) => {
     const result = document.querySelector('.result');
-    // result.setAttribute('class', 'result-styling')
+    let result2 = document.querySelector('.result2')
 
     deleteNodes()
 
@@ -232,22 +232,35 @@ selectElement.addEventListener('change', (event) => {
     }
     if (`${event.target.value}` === "Utah Senators") {
         populateDom(utah)
+        result2.textContent = `Total Votes: ${totalVotes(utah)}`
+
     }
     if (`${event.target.value}` === "Democrats") {
         populateDom(democrats)
+        result2.textContent = `Total Votes: ${totalVotes(democrats)}`
+
+
     }
     if (`${event.target.value}` === "Republicans") {
         populateDom(republicans)
+        result2.textContent = `Total Votes: ${totalVotes(demorepublicans)}`
+
     }
     if (`${event.target.value}` === "All Senators") {
         // location.reload();
-        populateDom(allSenators)
+        populateDom(simpleSenators)
+        result2.textContent = `Total Votes: ${totalVotes(simpleSenators)}`
+
     }
     if (`${event.target.value}` === "All Sen By Age") {
         populateDom(sortSenatorsByAge(simpleSenators))
+        result2.textContent = `Total Votes: ${totalVotes(simpleSenators)}`
+
     }
 
     result.textContent = `Showing results for: ${event.target.value}`
+    // result2.textContent = `Total Votes: ${totalVotes(utah)}`
+
     result.addEventListener('click', () => {
         location.reload();
     })
