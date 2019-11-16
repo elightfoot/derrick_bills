@@ -46,7 +46,10 @@ section{
   align-items: center;
 }
 
-
+.list{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
 /* **************************************************************************
 flip card styles start  */
 .card { transition: all .1s ease-in; }

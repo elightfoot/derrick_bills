@@ -12,6 +12,25 @@ body{
     /* max-width: 1280px; */
 
 }
+section{
+    display: flex;
+    flex-direction: column;
+  
+    align-items: center;
+  }
+  
+  .list{
+    height: 100%;
+    background-color: rgb(182, 182, 182);
+    
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  ul{
+      border: none;
+    background-color: rgb(182, 182, 182);
+
+  }
 .top{
     display: grid;
     justify-content: center;
