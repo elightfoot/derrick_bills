@@ -39,16 +39,20 @@ let utahMapped = []
 
 const theData = getAPIData('senators.json').then(data => {
     allSenators = data.results[0].members
+    //returns a map of all senators to the simpleSenators array
     simpleSenators = senatorMap(allSenators)
+    //filters to republican senators
     republicans = filterSenators(simpleSenators, "R")
+    //filters to democrat senators
     democrats = filterSenators(simpleSenators, "D")
     console.log(allSenators)
+    //finds senators who have utah as their home state
     utah = findUtah(allSenators, "UT")
     utahMapped = senatorMap(utah)
     console.log(utah)
     // console.log(totalVotes(simpleSenators))
     // console.log(oldestSenator(simpleSenators))
-    populateDom(simpleSenators)
+    populateDom(democrats)
     // const utahSenator = new Senator(utahMapped[0].id, utahMapped[0].name, utahMapped[0].party, utahMapped[0].age, utahMapped[0].state, utahMapped[0].office, utahMapped[0].phone, utahMapped[0].gender, utahMapped[0].total_votes, utahMapped[0].twitter)
     // populateDom(utahSenator)
     // console.log(utahSenator)
@@ -193,6 +197,7 @@ function cardContent(senator) {
 
     return cardContent
 }
+//calculates the age of each senator
 function calculate_age(dob) {
     let diff_ms = Date.now() - dob.getTime();
     let age_dt = new Date(diff_ms);
