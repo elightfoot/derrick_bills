@@ -1,5 +1,11 @@
 body{
+    display: grid;
+    justify-self: center;
+    justify-content: center;
+    margin: auto;
     background-color: rgb(182, 182, 182);
+    /* max-width: 1280px; */
+
 }
 .top{
     display: grid;
@@ -8,14 +14,16 @@ body{
 }
 .container{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px,280px));
     gap: 2rem;
     width: 100%;
-    max-width: 1280px;
     margin: 0 auto;
     margin-bottom: 6rem;
     /* background-color: blue; */
 }
 figure .img{
     width: 200px;
+}
+.result-styling{
+    color: blue;
 }

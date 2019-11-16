@@ -34,6 +34,7 @@ let republicans = []
 let democrats = []
 let utah = []
 let utahMapped = []
+let ageSort = []
 
 
 
@@ -49,7 +50,7 @@ const theData = getAPIData('senators.json').then(data => {
     //finds senators who have utah as their home state
     utah = findUtah(allSenators, "UT")
     utahMapped = senatorMap(utah)
-    console.log(utah)
+    // ageSort = sortSenatorsByAge(simpleSenators)
     // console.log(totalVotes(simpleSenators))
     // console.log(oldestSenator(simpleSenators))
     // populateDom(simpleSenators)
@@ -203,11 +204,18 @@ function calculate_age(dob) {
     let age_dt = new Date(diff_ms);
     return Math.abs(age_dt.getUTCFullYear() - 1970);
 }
+function sortSenatorsByAge(senatorList) {
+    return senatorList.sort(function (a, b) {
+        return a.age - b.age
+    });
+}
 // const utahButton = document.querySelector('#utah')
 // utahButton.addEventListener('select', function () {
 //     populateDom(utah)
 // })
-const selectElement = document.querySelector('.ice-cream');
+
+
+const selectElement = document.querySelector('.senator');
 function deleteNodes() {
     while (container.firstChild) {
         container.removeChild(container.firstChild);
@@ -215,6 +223,8 @@ function deleteNodes() {
 }
 selectElement.addEventListener('change', (event) => {
     const result = document.querySelector('.result');
+    // result.setAttribute('class', 'result-styling')
+
     deleteNodes()
 
     if (`${event.target.value}` === "") {
@@ -230,10 +240,14 @@ selectElement.addEventListener('change', (event) => {
         populateDom(republicans)
     }
     if (`${event.target.value}` === "All Senators") {
-        populateDom(simpleSenators)
+        // location.reload();
+        populateDom(allSenators)
+    }
+    if (`${event.target.value}` === "All Sen By Age") {
+        populateDom(sortSenatorsByAge(simpleSenators))
     }
 
-    result.textContent = `Showing results for: ${event.target.value}`;
+    result.textContent = `Showing results for: ${event.target.value}`
     result.addEventListener('click', () => {
         location.reload();
     })
