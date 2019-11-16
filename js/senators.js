@@ -52,7 +52,7 @@ const theData = getAPIData('senators.json').then(data => {
     console.log(utah)
     // console.log(totalVotes(simpleSenators))
     // console.log(oldestSenator(simpleSenators))
-    populateDom(democrats)
+    // populateDom(simpleSenators)
     // const utahSenator = new Senator(utahMapped[0].id, utahMapped[0].name, utahMapped[0].party, utahMapped[0].age, utahMapped[0].state, utahMapped[0].office, utahMapped[0].phone, utahMapped[0].gender, utahMapped[0].total_votes, utahMapped[0].twitter)
     // populateDom(utahSenator)
     // console.log(utahSenator)
@@ -203,3 +203,39 @@ function calculate_age(dob) {
     let age_dt = new Date(diff_ms);
     return Math.abs(age_dt.getUTCFullYear() - 1970);
 }
+// const utahButton = document.querySelector('#utah')
+// utahButton.addEventListener('select', function () {
+//     populateDom(utah)
+// })
+const selectElement = document.querySelector('.ice-cream');
+function deleteNodes() {
+    while (container.firstChild) {
+        container.removeChild(container.firstChild);
+    }
+}
+selectElement.addEventListener('change', (event) => {
+    const result = document.querySelector('.result');
+    deleteNodes()
+
+    if (`${event.target.value}` === "") {
+        location.reload();
+    }
+    if (`${event.target.value}` === "Utah Senators") {
+        populateDom(utah)
+    }
+    if (`${event.target.value}` === "Democrats") {
+        populateDom(democrats)
+    }
+    if (`${event.target.value}` === "Republicans") {
+        populateDom(republicans)
+    }
+    if (`${event.target.value}` === "All Senators") {
+        populateDom(simpleSenators)
+    }
+
+    result.textContent = `Showing results for: ${event.target.value}`;
+    result.addEventListener('click', () => {
+        location.reload();
+    })
+
+});
