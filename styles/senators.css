@@ -48,6 +48,8 @@ section{
 figure .img{
     width: 200px;
 }
-.result-styling{
-    color: blue;
+
+.tweet{
+    cursor: pointer;
 }
+/* ************************************** */

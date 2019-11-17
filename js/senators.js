@@ -8,26 +8,6 @@ async function getAPIData(url) {
     }
 }
 
-
-class Senator {
-    constructor(id, name, party, age, state, office, phone, gender, total_votes, twitter) {
-        this.id = id;
-        this.name = name;
-        this.party = party;
-        this.age = age;
-        this.state = state;
-        this.office = office;
-        this.phone = phone;
-        this.gender = gender;
-        this.total_votes = total_votes;
-        this.twitter = twitter;
-
-    }
-}
-
-
-
-
 let allSenators = []
 let simpleSenators = []
 let republicans = []
@@ -50,17 +30,6 @@ const theData = getAPIData('senators.json').then(data => {
     //finds senators who have utah as their home state
     utah = findUtah(simpleSenators, "UT")
     utahMapped = senatorMap(utah)
-    // ageSort = sortSenatorsByAge(simpleSenators)
-    // console.log(totalVotes(simpleSenators))
-    // console.log(oldestSenator(simpleSenators))
-    // populateDom(simpleSenators)
-    // const utahSenator = new Senator(utahMapped[0].id, utahMapped[0].name, utahMapped[0].party, utahMapped[0].age, utahMapped[0].state, utahMapped[0].office, utahMapped[0].phone, utahMapped[0].gender, utahMapped[0].total_votes, utahMapped[0].twitter)
-    // populateDom(utahSenator)
-    // console.log(utahSenator)
-
-
-
-
 
 })
 //-------------------------------------------------------FILTER SENATORS.JSON. put in .then method when ready to implement
@@ -97,6 +66,7 @@ const testReduce = testArray.reduce((accumlator, currentValue) => {
     return accumlator + currentValue
 }, 0)
 console.log(testReduce)
+//returns the total votes made by the array that is passed in
 
 function totalVotes(senatorList) {
     const results = senatorList.reduce((acc, senator) => {
@@ -104,7 +74,7 @@ function totalVotes(senatorList) {
     }, 0)
     return results
 }
-
+//calculates the oldest senator 
 function oldestSenator(senatorList) {
     return senatorList.reduce((oldest, senator) => {
         return (oldest.age || 0) > senator.age ? oldest : senator
@@ -114,7 +84,7 @@ function oldestSenator(senatorList) {
 
 
 const container = document.querySelector('.container')
-
+// populates the DOM with the senator selection
 function populateDom(senator_array) {
     senator_array.forEach(senator => {
         let card = document.createElement('div')
@@ -126,7 +96,7 @@ function populateDom(senator_array) {
         let figureImage = document.createElement('img')
         figureImage.src = `https://www.congress.gov/img/member/${senator.id.toLowerCase()}_200.jpg`
         figureImage.alt = 'Placeholder image'
-
+        // handles the 404 issue if no image present. only doug jones is missing
         figureImage.addEventListener('error', (event) => {
             let noImage = event.target
             //image is from doug jones' twitter page
@@ -153,6 +123,9 @@ function cardContent(senator) {
     let img = document.createElement('img')
     img.src = `/images/independent.png`
     img.alt = 'Placeholder image'
+
+
+
     if (senator.party === "R") {
         img.src = `/images/republican.png`
     }
@@ -168,10 +141,16 @@ function cardContent(senator) {
     let subTitleP = document.createElement('p')
     subTitleP.setAttribute('class', 'subtitle is-6')
     subTitleP.textContent = `Home state: ${senator.state}`
-    let tweet = document.createElement('a')
-    tweet.src = `/images/independent.png`
+
+    let tweet = document.createElement('img')
+    tweet.setAttribute('class', 'tweet image is-48x48 media-right')
+    tweet.src = `/images/twitter.png`
     let link = document.createTextNode("View Twitter")
+    tweet.onclick = function () {
+        window.location.href = (`http://twitter.com/${senator.twitter}`)
+    }
     // tweet.textContent = tweet.link(`http://twitter.com${senator.twitter}`)
+    // tweet.setAttribute('class', 'twitter')
 
     let contentDiv = document.createElement('div')
     contentDiv.setAttribute('class', 'content')
@@ -184,6 +163,7 @@ function cardContent(senator) {
     mediaContent.appendChild(subTitleP)
     mediaContent.appendChild(tweet)
     tweet.appendChild(link)
+
     tweet.title = 'this is a link'
     tweet.href = `http://twitter.com/${senator.twitter}`
     figure.appendChild(img)
