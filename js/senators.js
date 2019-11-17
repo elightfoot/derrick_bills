@@ -7,7 +7,7 @@ async function getAPIData(url) {
         console.log(error)
     }
 }
-
+// senator arrays available for use 
 let allSenators = []
 let simpleSenators = []
 let republicans = []
@@ -26,7 +26,7 @@ const theData = getAPIData('senators.json').then(data => {
     republicans = filterSenators(simpleSenators, "R")
     //filters to democrat senators
     democrats = filterSenators(simpleSenators, "D")
-    console.log(allSenators)
+    // console.log(allSenators)
     //finds senators who have utah as their home state
     utah = findUtah(simpleSenators, "UT")
     utahMapped = senatorMap(utah)
@@ -63,9 +63,10 @@ const testArray = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50]
 const testReduce = testArray.reduce((accumlator, currentValue) => {
     return accumlator + currentValue
 }, 0)
-console.log(testReduce)
+// console.log(testReduce)
 //returns the total votes made by the array that is passed in
-
+// used this reduce to display total votes
+// option to add total missed votes for a selected filtered group 
 function totalVotes(senatorList) {
     const results = senatorList.reduce((acc, senator) => {
         return acc + senator.total_votes
@@ -80,7 +81,6 @@ function oldestSenator(senatorList) {
     }, {})
 }
 
-
 const container = document.querySelector('.container')
 // populates the DOM with the senator selection
 function populateDom(senator_array) {
@@ -94,7 +94,7 @@ function populateDom(senator_array) {
         let figureImage = document.createElement('img')
         figureImage.src = `https://www.congress.gov/img/member/${senator.id.toLowerCase()}_200.jpg`
         figureImage.alt = 'Placeholder image'
-        // handles the 404 issue if no image present. only doug jones is missing
+        // handles the 404 issue if no image present. only doug jones is missing!!!
         figureImage.addEventListener('error', (event) => {
             let noImage = event.target
             //image is from doug jones' twitter page NOTE!!! does not work if a second senator is missing an image

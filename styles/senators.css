@@ -52,4 +52,7 @@ figure .img{
 .tweet{
     cursor: pointer;
 }
+.tweet:hover{
+    opacity: .4;
+}
 /* ************************************** */
