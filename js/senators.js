@@ -40,8 +40,6 @@ function filterSenators(simpleList, partyAffiliation) {
 function findUtah(allSenators, state) {
     return allSenators.filter(senator => senator.state === state)
 }
-
-
 //-------------------------------------------------------MAP SENATORS.JSON
 function senatorMap(allOfThem) {
     let results = allOfThem.map(senator => {
@@ -99,7 +97,7 @@ function populateDom(senator_array) {
         // handles the 404 issue if no image present. only doug jones is missing
         figureImage.addEventListener('error', (event) => {
             let noImage = event.target
-            //image is from doug jones' twitter page
+            //image is from doug jones' twitter page NOTE!!! does not work if a second senator is missing an image
             noImage.src = 'https://pbs.twimg.com/profile_images/1020031896741400577/RvxrHrIA_400x400.jpg'
         })
 
@@ -123,16 +121,12 @@ function cardContent(senator) {
     let img = document.createElement('img')
     img.src = `/images/independent.png`
     img.alt = 'Placeholder image'
-
-
-
     if (senator.party === "R") {
         img.src = `/images/republican.png`
     }
     else if (senator.party === "D") {
         img.src = `/images/Democrat.png`
     }
-
     let mediaContent = document.createElement('div')
     mediaContent.setAttribute('class', 'media-content')
     let titleP = document.createElement('p')
@@ -149,9 +143,6 @@ function cardContent(senator) {
     tweet.onclick = function () {
         window.location.href = (`http://twitter.com/${senator.twitter}`)
     }
-    // tweet.textContent = tweet.link(`http://twitter.com${senator.twitter}`)
-    // tweet.setAttribute('class', 'twitter')
-
     let contentDiv = document.createElement('div')
     contentDiv.setAttribute('class', 'content')
     contentDiv.textContent = `Office: ${senator.office}. Phone: ${senator.phone}`
@@ -189,11 +180,6 @@ function sortSenatorsByAge(senatorList) {
         return a.age - b.age
     });
 }
-// const utahButton = document.querySelector('#utah')
-// utahButton.addEventListener('select', function () {
-//     populateDom(utah)
-// })
-
 
 const selectElement = document.querySelector('.senator');
 function deleteNodes() {
@@ -201,48 +187,39 @@ function deleteNodes() {
         container.removeChild(container.firstChild);
     }
 }
+// select list functions and display calls*************************************************
+// could add reduce function to show vote percentage per sorted array*************************************************
+
 selectElement.addEventListener('change', (event) => {
     const result = document.querySelector('.result');
     let result2 = document.querySelector('.result2')
-
     deleteNodes()
-
     if (`${event.target.value}` === "") {
         location.reload();
     }
     if (`${event.target.value}` === "Utah Senators") {
         populateDom(utah)
-        result2.textContent = `Total Votes: ${totalVotes(utah)}`
-
+        result2.textContent = `Total Senate Votes: ${totalVotes(utah)}`
     }
     if (`${event.target.value}` === "Democrats") {
         populateDom(democrats)
-        result2.textContent = `Total Votes: ${totalVotes(democrats)}`
-
-
+        result2.textContent = `Total Senate Votes: ${totalVotes(democrats)}`
     }
     if (`${event.target.value}` === "Republicans") {
         populateDom(republicans)
-        result2.textContent = `Total Votes: ${totalVotes(republicans)}`
-
+        result2.textContent = `Total Senate Votes: ${totalVotes(republicans)}`
     }
     if (`${event.target.value}` === "All Senators") {
         // location.reload();
         populateDom(simpleSenators)
-        result2.textContent = `Total Votes: ${totalVotes(simpleSenators)}`
-
+        result2.textContent = `Total Senate Votes: ${totalVotes(simpleSenators)}`
     }
     if (`${event.target.value}` === "All Sen By Age") {
         populateDom(sortSenatorsByAge(simpleSenators))
-        result2.textContent = `Total Votes: ${totalVotes(simpleSenators)}`
-
+        result2.textContent = `Total Senate Votes: ${totalVotes(simpleSenators)}`
     }
-
     result.textContent = `Showing results for: ${event.target.value}`
-    // result2.textContent = `Total Votes: ${totalVotes(utah)}`
-
     result.addEventListener('click', () => {
         location.reload();
     })
-
 });
