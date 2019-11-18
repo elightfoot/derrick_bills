@@ -3,10 +3,7 @@
     const response = await fetch(url)
     return await response.json()
 }*/
-let myRandomNum = function random() {
-    console.log(Math.round(Math.random() * 450))
 
-}
 class Pokemon {
     constructor(id, name, pokeNum) {
         this.id = id;
@@ -16,7 +13,7 @@ class Pokemon {
 }
 
 
-const CreatedPoke = new Pokemon(44, 'Lord Voldemort', 10);
+const CreatedPoke = new Pokemon(31, 'Lord Voldemort', 30);
 const newButton = document.querySelector('#newPokemon')
 newButton.addEventListener('click', function () {
     populateDom(CreatedPoke)
@@ -32,7 +29,6 @@ async function getAPIData(url) {
     }
 }
 
-console.log(myRandomNum(4))
 const theData = getAPIData('https://pokeapi.co/api/v2/pokemon/?limit=30&offset=450').then(data => {
     for (const pokemon of data.results) {
         getAPIData(pokemon.url)
@@ -104,7 +100,7 @@ function capitalize_Words(str) {
     return str.replace(/\w\S*/g, function (txt) { return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase(); });
 }
 
-console.log(capitalize_Words('js string exercises'));
+// console.log(capitalize_Words('js string exercises'));
 
 
 function getPokeNumber(id) {
@@ -114,11 +110,11 @@ function getPokeNumber(id) {
     } else return id
 }
 // *******************************************************************ALTERNATE POKEMON API FETCHING
-const pokedex = document.getElementById('pokedex');
+// const pokedex = document.getElementById('pokedex');
 
 const fetchPokemon = () => {
     const promises = [];
-    for (let i = 300; i <= 375; i++) {
+    for (let i = 500; i <= 515; i++) {
         const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
         promises.push(fetch(url).then((res) => res.json()));
     }
@@ -203,21 +199,17 @@ const displayPokemon = (pokemon) => {
 
     });
 
-    // const pokemonHTMLString = pokemon
-    //     .map(
-    //         (pokeman) => `
-    //     <div class="card">
-    //         <div class = "inside">
-    //         <img class="card-image" src="${pokeman.image}"/>
-    //         <h2 class="card-title">${pokeman.id}. ${pokeman.name}</h2>
-    //         <p class="card-subtitle">Type: ${pokeman.type}</p>
-    //         </div>
-    //         </div>
-    // `
-    //     )
-    //     .join('');
-    // pokedex.innerHTML = pokemonHTMLString;
 };
 
-fetchPokemon();
+// fetchPokemon();
+const newButton2 = document.querySelector('#newList')
+newButton2.addEventListener('click', function () {
+    fetchPokemon();
+
+})
+let myRandomNum = function random() {
+    const random = (Math.round(Math.random() * 450))
+    console.log(random)
+}
+myRandomNum()
 

@@ -18,6 +18,7 @@ header{
   justify-content: center;
 }
 header h1{
+  
   border-top: 5px solid black;
   bottom: 0;
 }
