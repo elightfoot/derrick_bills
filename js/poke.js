@@ -16,7 +16,7 @@ class Pokemon {
 }
 
 
-const CreatedPoke = new Pokemon(31, 'Lord Voldemort', 10);
+const CreatedPoke = new Pokemon(44, 'Lord Voldemort', 10);
 const newButton = document.querySelector('#newPokemon')
 newButton.addEventListener('click', function () {
     populateDom(CreatedPoke)

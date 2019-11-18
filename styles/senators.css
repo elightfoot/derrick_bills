@@ -1,22 +1,29 @@
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
 body{
     display: grid;
     justify-self: center;
     justify-content: center;
     margin: auto;
     background-color: rgb(182, 182, 182);
-    /* background-image: url(/images/senateHeader.png);
-    background-repeat: no-repeat;
-    background-position: center; */
-    /* opacity: 0.1; */
-
-    /* max-width: 1280px; */
-
 }
 section{
     display: flex;
     flex-direction: column;
   
     align-items: center;
+  }
+  .custom-select{
+      margin: 30px;
+  }
+  
+  .senator{
+    border-radius: 5px;
+    border: 1px solid #fff;
+      background: transparent;
+      font-size: 20px;
+      width: 100%;
+      outline: none;
   }
   
   .list{
