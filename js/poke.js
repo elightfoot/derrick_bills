@@ -129,7 +129,8 @@ const fetchPokemon = () => {
             type: result.types.map((type) => type.type.name).join(', '),
             id: result.id,
             weight: result.weight,
-            hp: result.stats[0].base_stat
+            hp: result.stats[0].base_stat,
+            ability: result.abilities[0].ability.name
         }));
         displayPokemon(pokemon);
     });
@@ -137,9 +138,9 @@ const fetchPokemon = () => {
 
 
 const displayPokemon = (pokemon) => {
-    console.log(pokemon);
+    // console.log(pokemon);
     let pokeArray = [...pokemon]
-    console.log(pokeArray)
+    // console.log(pokeArray)
     pokeArray.forEach(function (p) {
         console.log(p)
 
@@ -167,6 +168,7 @@ const displayPokemon = (pokemon) => {
             pokeBack.setAttribute('class', 'card__face card__face--back')
             let pokeOrder = document.createElement('p')
             let pokeHP = document.createElement('p')
+
             pokeOrder.textContent = `Poke Number: ${p.id}`
             pokeHP.textContent = `Base Hit Points: ${p.hp}`
             pokeBack.appendChild(pokeOrder)
@@ -184,7 +186,7 @@ const displayPokemon = (pokemon) => {
             let name = document.createElement('h3')
             let pic = document.createElement('img')
             let type = document.createElement('p')
-            let weight = document.createElement('h3')
+            let weight = document.createElement('p')
             weight.textContent = `Weight: ${p.weight}`
             pic.setAttribute('class', 'picDivs')
             let pokeNum = getPokeNumber(p.id)
