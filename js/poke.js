@@ -113,4 +113,109 @@ function getPokeNumber(id) {
         return `0${id}`
     } else return id
 }
+// *******************************************************************ALTERNATE POKEMON API FETCHING
+const pokedex = document.getElementById('pokedex');
+
+const fetchPokemon = () => {
+    const promises = [];
+    for (let i = 300; i <= 375; i++) {
+        const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
+        promises.push(fetch(url).then((res) => res.json()));
+    }
+    Promise.all(promises).then((results) => {
+        const pokemon = results.map((result) => ({
+            name: result.name,
+            image: result.sprites['front_default'],
+            type: result.types.map((type) => type.type.name).join(', '),
+            id: result.id,
+            weight: result.weight,
+            hp: result.stats[0].base_stat
+        }));
+        displayPokemon(pokemon);
+    });
+};
+
+
+const displayPokemon = (pokemon) => {
+    console.log(pokemon);
+    let pokeArray = [...pokemon]
+    console.log(pokeArray)
+    pokeArray.forEach(function (p) {
+        console.log(p)
+
+        let pokeCard = document.createElement('div')
+        let pokeScene = document.createElement('div')
+        let pokeFront = document.createElement('div')
+        let pokeBack = document.createElement('div')
+
+        fillFront(pokeFront, p)
+        fillBack(pokeBack, p)
+
+        pokeScene.setAttribute('class', 'scene')
+        pokeCard.setAttribute('class', 'card')
+        pokeCard.appendChild(pokeFront)
+        pokeCard.appendChild(pokeBack)
+        pokeScene.appendChild(pokeCard)
+
+        mainArea.appendChild(pokeScene)
+
+        pokeCard.addEventListener('click', function () {
+            pokeCard.classList.toggle('is-flipped');
+        })
+        function fillBack(pokeBack, p) {
+
+            pokeBack.setAttribute('class', 'card__face card__face--back')
+            let pokeOrder = document.createElement('p')
+            let pokeHP = document.createElement('p')
+            pokeOrder.textContent = `Poke Number: ${p.id}`
+            pokeHP.textContent = `Base Hit Points: ${p.hp}`
+            pokeBack.appendChild(pokeOrder)
+            pokeBack.appendChild(pokeHP)
+            let pokeNum = getPokeNumber(p.id)
+
+            let pic = document.createElement('img')
+            pic.setAttribute('class', 'picDivs')
+            pic.src = `${p.image}`
+            pokeBack.appendChild(pic)
+        }
+
+        function fillFront(pokeFront, p) {
+            pokeFront.setAttribute('class', 'card__face card__face--front')
+            let name = document.createElement('h3')
+            let pic = document.createElement('img')
+            let type = document.createElement('p')
+            let weight = document.createElement('h3')
+            weight.textContent = `Weight: ${p.weight}`
+            pic.setAttribute('class', 'picDivs')
+            let pokeNum = getPokeNumber(p.id)
+            name.textContent = capitalize_Words(`${p.name}`)
+            type.textContent = `Type: ${p.type}`
+            pic.src = (`${p.image}`)
+            pokeFront.appendChild(name)
+            pokeFront.appendChild(type)
+            pokeFront.appendChild(pic)
+            pokeFront.appendChild(weight)
+
+        }
+
+
+    });
+
+    // const pokemonHTMLString = pokemon
+    //     .map(
+    //         (pokeman) => `
+    //     <div class="card">
+    //         <div class = "inside">
+    //         <img class="card-image" src="${pokeman.image}"/>
+    //         <h2 class="card-title">${pokeman.id}. ${pokeman.name}</h2>
+    //         <p class="card-subtitle">Type: ${pokeman.type}</p>
+    //         </div>
+    //         </div>
+    // `
+    //     )
+    //     .join('');
+    // pokedex.innerHTML = pokemonHTMLString;
+};
+
+fetchPokemon();
 
