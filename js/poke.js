@@ -114,10 +114,17 @@ function getPokeNumber(id) {
 
 const fetchPokemon = () => {
     const promises = [];
-    for (let i = 500; i <= 515; i++) {
+
+    //creates a random number up to 820
+    const random = (Math.round(Math.random() * 820))
+    console.log(random)
+    //uses random number as limit for group up to 15 pokemon
+    //could change second number to users choice of how many to pull
+    for (let i = random; i <= (random + 15); i++) {
         const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
         promises.push(fetch(url).then((res) => res.json()));
     }
+
     Promise.all(promises).then((results) => {
         const pokemon = results.map((result) => ({
             name: result.name,
@@ -138,7 +145,7 @@ const displayPokemon = (pokemon) => {
     let pokeArray = [...pokemon]
     // console.log(pokeArray)
     pokeArray.forEach(function (p) {
-        console.log(p)
+        // console.log(p)
 
         let pokeCard = document.createElement('div')
         let pokeScene = document.createElement('div')
@@ -207,9 +214,5 @@ newButton2.addEventListener('click', function () {
     fetchPokemon();
 
 })
-let myRandomNum = function random() {
-    const random = (Math.round(Math.random() * 450))
-    console.log(random)
-}
-myRandomNum()
+
 
