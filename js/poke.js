@@ -15,7 +15,7 @@ async function getAPIData(url) {
     }
 }
 
-const theData = getAPIData('https://pokeapi.co/api/v2/pokemon/?limit=30&offset=450').then(data => {
+const theData = getAPIData('https://pokeapi.co/api/v2/pokemon/?limit=28&offset=450').then(data => {
     for (const pokemon of data.results) {
         getAPIData(pokemon.url)
             .then(pokedata => {
