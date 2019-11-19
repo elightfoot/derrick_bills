@@ -101,10 +101,17 @@ class Pokemon {
     constructor(id, name, pokeNum) {
         this.id = id;
         this.name = name;
-        this.pokeNum = pokeNum;
+        this.pokeNum = Number(pokeNum);
     }
 }
+const CreatedPoke = new Pokemon(31, 'Voldemort', 713);
+const newButton = document.querySelector('#newPokemon')
+newButton.addEventListener('click', function () {
+    // CreatedPoke()
+    // fetchPokemon()
 
+    populateDom(CreatedPoke)
+})
 
 // const CreatedPoke = new Pokemon(31, 'Lord Voldemort', 30);
 // const newButton = document.querySelector('#newPokemon')
@@ -123,14 +130,7 @@ class Pokemon {
 // }
 
 
-const CreatedPoke = new Pokemon(31);
-const newButton = document.querySelector('#newPokemon')
-newButton.addEventListener('click', function () {
-    // CreatedPoke()
-    // fetchPokemon()
 
-    populateDom(CreatedPoke)
-})
 
 const fetchPokemon = (num) => {
     const promises = [];
@@ -234,7 +234,7 @@ const displayPokemon = (pokemon) => {
 // fetchPokemon();
 const newButton2 = document.querySelector('#newList')
 newButton2.addEventListener('click', function () {
-    const numberToShow = prompt('How many pokemon do you want to see?')
+    const numberToShow = prompt('How many pokemon do you want to see? Keep it under 800')
     fetchPokemon(numberToShow);
 
 })
