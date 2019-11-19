@@ -95,16 +95,16 @@ function getPokeNumber(id) {
         return `0${id}`
     } else return id
 }
-// *******************************************************************ALTERNATE POKEMON API FETCHING
 // const pokedex = document.getElementById('pokedex');
 class Pokemon {
-    constructor(id, name, pokeNum) {
+    constructor(id, name, pokeNum, type) {
         this.id = id;
         this.name = name;
         this.pokeNum = Number(pokeNum);
+        // this.type = type;
     }
 }
-const CreatedPoke = new Pokemon(31, 'Voldemort', 713);
+const CreatedPoke = new Pokemon(31, 'Voldemort', 713, 'fire');
 const newButton = document.querySelector('#newPokemon')
 newButton.addEventListener('click', function () {
     // CreatedPoke()
@@ -131,6 +131,7 @@ newButton.addEventListener('click', function () {
 
 
 
+// *******************************************************************ALTERNATE POKEMON API FETCHING
 
 const fetchPokemon = (num) => {
     const promises = [];
@@ -148,6 +149,7 @@ const fetchPokemon = (num) => {
     }
 
     Promise.all(promises).then((results) => {
+        console.log(results)
         const pokemon = results.map((result) => ({
             name: result.name,
             image: result.sprites['front_default'],
@@ -164,9 +166,11 @@ const fetchPokemon = (num) => {
 let rightArea = document.querySelector('.right')
 
 const displayPokemon = (pokemon) => {
-    // console.log(pokemon);
+    console.log(pokemon);
+    //spread operator takes the pokemon data and turns it in to an array of objects 
+    //that contains the properties and values picked in the const pokemon map.
     let pokeArray = [...pokemon]
-    // console.log(pokeArray)
+    console.log(pokeArray)
     pokeArray.forEach(function (p) {
         // console.log(p)
 
