@@ -4,20 +4,6 @@
     return await response.json()
 }*/
 
-class Pokemon {
-    constructor(id, name, pokeNum) {
-        this.id = id;
-        this.name = name;
-        this.pokeNum = pokeNum;
-    }
-}
-
-
-const CreatedPoke = new Pokemon(31, 'Lord Voldemort', 30);
-const newButton = document.querySelector('#newPokemon')
-newButton.addEventListener('click', function () {
-    populateDom(CreatedPoke)
-})
 
 async function getAPIData(url) {
     try {
@@ -42,7 +28,7 @@ const theData = getAPIData('https://pokeapi.co/api/v2/pokemon/?limit=30&offset=4
 
 })
 
-let mainArea = document.querySelector('main')
+let mainArea = document.querySelector('.left')
 // let createNew = document.querySelector('.create')
 
 function populateDom(single_pokemon) {
@@ -111,16 +97,52 @@ function getPokeNumber(id) {
 }
 // *******************************************************************ALTERNATE POKEMON API FETCHING
 // const pokedex = document.getElementById('pokedex');
+class Pokemon {
+    constructor(id, name, pokeNum) {
+        this.id = id;
+        this.name = name;
+        this.pokeNum = pokeNum;
+    }
+}
 
-const fetchPokemon = () => {
+
+// const CreatedPoke = new Pokemon(31, 'Lord Voldemort', 30);
+// const newButton = document.querySelector('#newPokemon')
+// newButton.addEventListener('click', function () {
+//     populateDom(CreatedPoke)
+// })
+// class Pokemon {
+//     constructor(id, name, pokeNum) {
+//         this.name = name;
+//         this.image = sprites['front_default'];
+//         this.type = types.map((type) => type.type.name).join(', ');
+//         this.weight = weight;
+//         this.hp = stats[0].base_stat;
+//         this.ability = abilities[0].ability.name;
+//     }
+// }
+
+
+const CreatedPoke = new Pokemon(31);
+const newButton = document.querySelector('#newPokemon')
+newButton.addEventListener('click', function () {
+    // CreatedPoke()
+    // fetchPokemon()
+
+    populateDom(CreatedPoke)
+})
+
+const fetchPokemon = (num) => {
     const promises = [];
+    const numberToShow = Number(num);
+    console.log(numberToShow)
 
     //creates a random number up to 820
-    const random = (Math.round(Math.random() * 820))
+    const random = (Math.round(Math.random() * 800))
     console.log(random)
     //uses random number as limit for group up to 15 pokemon
     //could change second number to users choice of how many to pull
-    for (let i = random; i <= (random + 15); i++) {
+    for (let i = random; i <= (random + numberToShow - 1); i++) {
         const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
         promises.push(fetch(url).then((res) => res.json()));
     }
@@ -139,6 +161,7 @@ const fetchPokemon = () => {
     });
 };
 
+let rightArea = document.querySelector('.right')
 
 const displayPokemon = (pokemon) => {
     // console.log(pokemon);
@@ -161,7 +184,7 @@ const displayPokemon = (pokemon) => {
         pokeCard.appendChild(pokeBack)
         pokeScene.appendChild(pokeCard)
 
-        mainArea.appendChild(pokeScene)
+        rightArea.appendChild(pokeScene)
 
         pokeCard.addEventListener('click', function () {
             pokeCard.classList.toggle('is-flipped');
@@ -211,7 +234,8 @@ const displayPokemon = (pokemon) => {
 // fetchPokemon();
 const newButton2 = document.querySelector('#newList')
 newButton2.addEventListener('click', function () {
-    fetchPokemon();
+    const numberToShow = prompt('How many pokemon do you want to see?')
+    fetchPokemon(numberToShow);
 
 })
 
