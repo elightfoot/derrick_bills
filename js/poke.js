@@ -29,7 +29,6 @@ const theData = getAPIData('https://pokeapi.co/api/v2/pokemon/?limit=28&offset=4
 })
 
 let mainArea = document.querySelector('.left')
-// let createNew = document.querySelector('.create')
 
 function populateDom(single_pokemon) {
     let pokeCard = document.createElement('div')
@@ -57,14 +56,14 @@ function fillCardBack(pokeBack, data) {
     let pokeOrder = document.createElement('p')
     let pokeHP = document.createElement('p')
     pokeOrder.textContent = `Poke Number: ${data.order}`
-    // pokeHP.textContent = `Base Hit Points: ${data.stats[0].base_stat}`
+    pokeHP.textContent = `Base Hit Points: ${data.stats[0].base_stat}`
     pokeBack.appendChild(pokeOrder)
     pokeBack.appendChild(pokeHP)
     let pokeNum = getPokeNumber(data.id)
 
     let pic = document.createElement('img')
     pic.setAttribute('class', 'picDivs')
-    pic.src = `../images/${pokeNum}.png`
+    pic.src = `https://raw.githubusercontent.com/fanzeyi/pokemon.json/master/images/${pokeNum}.png`
     pokeBack.appendChild(pic)
 }
 function fillCardFront(pokeFront, data) {
@@ -75,9 +74,9 @@ function fillCardFront(pokeFront, data) {
     pic.setAttribute('class', 'picDivs')
     let pokeNum = getPokeNumber(data.id)
     name.textContent = capitalize_Words(`${data.name}`)
-    // type.textContent = `Type: ${data.types[0].type.name}`
+    type.textContent = `Type: ${data.types[0].type.name}`
     pokeFront.appendChild(name)
-    pic.src = `../images/${pokeNum}.png`
+    pic.src = `https://raw.githubusercontent.com/fanzeyi/pokemon.json/master/images/${pokeNum}.png`
     pokeFront.appendChild(type)
     pokeFront.appendChild(pic)
 }
@@ -104,14 +103,22 @@ class Pokemon {
         // this.type = type;
     }
 }
-const CreatedPoke = new Pokemon(31, 'Voldemort', 713, 'fire');
+// const CreatedPoke = new Pokemon(31, 'Voldemort', 713, 'fire');
 const newButton = document.querySelector('#newPokemon')
 newButton.addEventListener('click', function () {
-    // CreatedPoke()
-    // fetchPokemon()
-
-    populateDom(CreatedPoke)
+    let pokeId = prompt("please enter a pokemon ID")
+    if (pokeId > 0 && pokeId <= 807) {
+        getAPIData(`https://pokeapi.co/api/v2/pokemon/${pokeId}`)
+            .then(result => {
+                populateDom(result)
+            })
+    } else {
+        alert('there are no poke with that id')
+    }
 })
+
+// populateDom(CreatedPoke)
+
 
 // const CreatedPoke = new Pokemon(31, 'Lord Voldemort', 30);
 // const newButton = document.querySelector('#newPokemon')
@@ -147,18 +154,21 @@ const fetchPokemon = (num) => {
         const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
         promises.push(fetch(url).then((res) => res.json()));
     }
-
+    //alternate method for pulling data out of api. this one uses sprites vs the full res images.
     Promise.all(promises).then((results) => {
         console.log(results)
         const pokemon = results.map((result) => ({
+            //select api data to add to display card
             name: result.name,
             image: result.sprites['front_default'],
+            imageBack: result.sprites['back_default'],
             type: result.types.map((type) => type.type.name).join(', '),
             id: result.id,
             weight: result.weight,
             hp: result.stats[0].base_stat,
             ability: result.abilities[0].ability.name
         }));
+
         displayPokemon(pokemon);
     });
 };
@@ -207,7 +217,7 @@ const displayPokemon = (pokemon) => {
 
             let pic = document.createElement('img')
             pic.setAttribute('class', 'picDivs')
-            pic.src = `${p.image}`
+            pic.src = `${p.imageBack}`
             pokeBack.appendChild(pic)
         }
 
@@ -239,7 +249,11 @@ const displayPokemon = (pokemon) => {
 const newButton2 = document.querySelector('#newList')
 newButton2.addEventListener('click', function () {
     const numberToShow = prompt('How many pokemon do you want to see? Keep it under 800')
-    fetchPokemon(numberToShow);
+    if (numberToShow > 0 && numberToShow <= 800) {
+        fetchPokemon(numberToShow);
+    } else {
+        alert('Please choose a number between 1 and 800!!')
+    }
 
 })
 
