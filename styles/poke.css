@@ -29,7 +29,10 @@ header{
   align-items: flex-end;
   justify-content: center;
 }
-header h1{
+header h1{  
+    animation-duration: 3s;
+    animation-delay: 2s;
+    animation-iteration-count: infinite;
   
   border-top: 5px solid black;
   bottom: 0;
