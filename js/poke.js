@@ -27,7 +27,7 @@ const theData = getAPIData('https://pokeapi.co/api/v2/pokemon/?limit=28&offset=4
     // populateDom(CreatedPoke)
 
 })
-
+// WANTED LEFT AND RIGHT SEPERATION FOR DIFFERENT API METHODS
 let mainArea = document.querySelector('.left')
 
 function populateDom(single_pokemon) {
@@ -96,15 +96,9 @@ function getPokeNumber(id) {
     } else return id
 }
 // const pokedex = document.getElementById('pokedex');
-class Pokemon {
-    constructor(id, name, pokeNum, type) {
-        this.id = id;
-        this.name = name;
-        this.pokeNum = Number(pokeNum);
-        // this.type = type;
-    }
-}
-// const CreatedPoke = new Pokemon(31, 'Voldemort', 713, 'fire');
+
+
+//Button to search by pokemon id
 const newButton = document.querySelector('#newPokemon')
 newButton.addEventListener('click', function () {
     let pokeId = prompt("please enter a pokemon ID")
@@ -117,25 +111,6 @@ newButton.addEventListener('click', function () {
         alert('there are no poke with that id')
     }
 })
-
-// populateDom(CreatedPoke)
-
-
-// const CreatedPoke = new Pokemon(31, 'Lord Voldemort', 30);
-// const newButton = document.querySelector('#newPokemon')
-// newButton.addEventListener('click', function () {
-//     populateDom(CreatedPoke)
-// })
-// class Pokemon {
-//     constructor(id, name, pokeNum) {
-//         this.name = name;
-//         this.image = sprites['front_default'];
-//         this.type = types.map((type) => type.type.name).join(', ');
-//         this.weight = weight;
-//         this.hp = stats[0].base_stat;
-//         this.ability = abilities[0].ability.name;
-//     }
-// }
 
 
 
@@ -175,7 +150,8 @@ const fetchPokemon = (num) => {
 };
 
 let rightArea = document.querySelector('.right')
-
+// *********************************************************************************
+// I HAVE 2 METHODS OF "API & POPULATEDOM" REQUESTS. THEY PULL DIFFERENT INFO FROM EACHOTHER
 const displayPokemon = (pokemon) => {
     console.log(pokemon);
     //spread operator takes the pokemon data and turns it in to an array of objects 
@@ -250,8 +226,8 @@ const displayPokemon = (pokemon) => {
     });
 
 };
-
-// fetchPokemon();
+// ********************************************************************************
+// CUSTOM CLASS SOLUTION NOT IDEAL, DUPLICATES ALL THE POPULATE DOM FUNCTIONS
 const newButton2 = document.querySelector('#newList')
 newButton2.addEventListener('click', function () {
     const numberToShow = prompt('How many pokemon do you want to see? Keep it under 800')
@@ -264,3 +240,74 @@ newButton2.addEventListener('click', function () {
 })
 
 
+function populateDom2(single_pokemon) {
+    let pokeCard = document.createElement('div')
+    let pokeScene = document.createElement('div')
+    let pokeFront = document.createElement('div')
+    let pokeBack = document.createElement('div')
+
+    fillCardFront2(pokeFront, single_pokemon)
+    fillCardBack2(pokeBack, single_pokemon)
+
+    pokeScene.setAttribute('class', 'scene')
+    pokeCard.setAttribute('class', 'card')
+    pokeCard.appendChild(pokeFront)
+    pokeCard.appendChild(pokeBack)
+    pokeScene.appendChild(pokeCard)
+
+    mainArea.appendChild(pokeScene)
+
+    pokeCard.addEventListener('click', function () {
+        pokeCard.classList.toggle('is-flipped');
+    });
+}
+// not a good way to use the add card by class button, but this way had no affect on 
+// the original cards. TODO: FIND A BETTER SOLUTION
+class Pokemon {
+    constructor(id, name, pokeNum, type) {
+        this.id = id;
+        this.name = name;
+        this.pokeNum = Number(pokeNum);
+        this.type = type;
+    }
+}
+
+
+const CreatedPoke = new Pokemon(31, 'Voldemort', 713);
+// const CreatedPoke = new Pokemon(31, 'Voldemort', 713, 'fire');
+const newButton3 = document.querySelector('#newPokemon2')
+newButton3.addEventListener('click', function () {
+    populateDom2(CreatedPoke)
+});
+
+function fillCardBack2(pokeBack, data) {
+    pokeBack.setAttribute('class', 'card__face card__face--back')
+    let pokeOrder = document.createElement('p')
+    let pokeHP = document.createElement('p')
+    // pokeOrder.textContent = `Poke Number: ${data.order}`
+    // pokeHP.textContent = `Base Hit Points: ${data.stats[0].base_stat}`
+    pokeBack.appendChild(pokeOrder)
+    pokeBack.appendChild(pokeHP)
+    let pokeNum = getPokeNumber(data.id)
+
+    let pic = document.createElement('img')
+    pic.setAttribute('class', 'picDivs')
+    pic.classList.add('animated', 'wobble', 'delay-4s', 'picDivs')
+    pic.src = `/images/${pokeNum}.png`
+    pokeBack.appendChild(pic)
+}
+function fillCardFront2(pokeFront, data) {
+    pokeFront.setAttribute('class', 'card__face card__face--front')
+    let name = document.createElement('h3')
+    let pic = document.createElement('img')
+    let type = document.createElement('p')
+    // pic.setAttribute('class', 'picDivs')
+    pic.classList.add('animated', 'bounceInRight', 'delay-4s', 'picDivs')
+    let pokeNum = getPokeNumber(data.id)
+    name.textContent = capitalize_Words(`${data.name}`)
+    // type.textContent = `Type: ${data.types[0].type.name}`
+    pokeFront.appendChild(name)
+    pic.src = `/images/${pokeNum}.png`
+    pokeFront.appendChild(type)
+    pokeFront.appendChild(pic)
+}

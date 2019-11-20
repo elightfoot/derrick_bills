@@ -7,6 +7,18 @@ p{
   padding: 0;
 }
 
+button{
+  color:white;
+  background-color: black;
+  border-radius: 25px;
+  padding: 1rem;
+  font-size: 1.2rem;
+}
+button:hover{
+  color:black;
+  background-color: white;
+  cursor: pointer;
+}
 header{
   display: flex;
   background-image: url('/images/PokeHeader.png');
@@ -24,8 +36,10 @@ header h1{
 }
 .buttons{
  display: grid;
- grid-template-columns: 1fr 1fr;
+ grid-template-columns: 1fr 1fr 1fr;
   justify-items: center;
+  outline: none;
+  
 }
 main{
   
@@ -126,6 +140,12 @@ box-shadow: 14px 10px 9px -9px rgba(0,0,0,0.75);
 .card__face--front {
   background: rgb(125, 125, 125);
 }
+.card__face--front img {
+  width: 90%;
+  
+  background: rgb(125, 125, 125);
+}
+
 
 .card__face--back {
   display: flex;
