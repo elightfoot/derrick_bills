@@ -78,7 +78,9 @@ section{
 /* **************************************************************************
 flip card styles start  */
 .card { transition: all .1s ease-in; }
-.card:hover { transform: scale(1.3); }
+.card:hover { transform: scale(1.3); 
+  border: 1px solid white;
+}
 
 .scene {
   transition: all .2s ease-in-out;
@@ -86,6 +88,7 @@ flip card styles start  */
   height: 350px;
   margin: 40px 0;
   perspective: 600px;
+  border: 1px solid white;
 }
 
 .card {
