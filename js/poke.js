@@ -71,7 +71,8 @@ function fillCardFront(pokeFront, data) {
     let name = document.createElement('h3')
     let pic = document.createElement('img')
     let type = document.createElement('p')
-    pic.setAttribute('class', 'picDivs')
+    // pic.setAttribute('class', 'picDivs')
+    pic.classList.add('animated', 'bounceInRight', 'delay-4s', 'picDivs')
     let pokeNum = getPokeNumber(data.id)
     name.textContent = capitalize_Words(`${data.name}`)
     type.textContent = `Type: ${data.types[0].type.name}`
@@ -217,6 +218,9 @@ const displayPokemon = (pokemon) => {
 
             let pic = document.createElement('img')
             pic.setAttribute('class', 'picDivs')
+
+            pic.classList.add('bounce')
+
             pic.src = `${p.imageBack}`
             pokeBack.appendChild(pic)
         }
@@ -228,7 +232,9 @@ const displayPokemon = (pokemon) => {
             let type = document.createElement('p')
             let weight = document.createElement('p')
             weight.textContent = `Weight: ${p.weight}`
-            pic.setAttribute('class', 'picDivs')
+            // pic.setAttribute('class', 'picDivs ')
+            pic.classList.add('animated', 'bounceInRight', 'delay-4s', 'picDivs')
+
             let pokeNum = getPokeNumber(p.id)
             name.textContent = capitalize_Words(`${p.name}`)
             type.textContent = `Type: ${p.type}`
