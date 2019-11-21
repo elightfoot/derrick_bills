@@ -152,6 +152,7 @@ const fetchPokemon = (num) => {
 let rightArea = document.querySelector('.right')
 // *********************************************************************************
 // I HAVE 2 METHODS OF "API & POPULATEDOM" REQUESTS. THEY PULL DIFFERENT INFO FROM EACHOTHER
+// only one is needed but I wanted to have both in use for future reference.
 const displayPokemon = (pokemon) => {
     console.log(pokemon);
     //spread operator takes the pokemon data and turns it in to an array of objects 
@@ -272,11 +273,16 @@ class Pokemon {
     }
 }
 
+// console.log(pokemon.name)
+function random() {
 
-const CreatedPoke = new Pokemon(31, 'Voldemort', 713);
+    return (Math.round(Math.random() * 800))
+}
+const CreatedPoke = new Pokemon(random(), 'Class Pokemon', 713);
 // const CreatedPoke = new Pokemon(31, 'Voldemort', 713, 'fire');
 const newButton3 = document.querySelector('#newPokemon2')
 newButton3.addEventListener('click', function () {
+    random()
     populateDom2(CreatedPoke)
 });
 
@@ -293,7 +299,7 @@ function fillCardBack2(pokeBack, data) {
     let pic = document.createElement('img')
     pic.setAttribute('class', 'picDivs')
     pic.classList.add('animated', 'wobble', 'delay-4s', 'picDivs')
-    pic.src = `/images/${pokeNum}.png`
+    pic.src = `https://raw.githubusercontent.com/fanzeyi/pokemon.json/master/images/${data.id}.png`
     pokeBack.appendChild(pic)
 }
 function fillCardFront2(pokeFront, data) {
@@ -307,7 +313,7 @@ function fillCardFront2(pokeFront, data) {
     name.textContent = capitalize_Words(`${data.name}`)
     // type.textContent = `Type: ${data.types[0].type.name}`
     pokeFront.appendChild(name)
-    pic.src = `/images/${pokeNum}.png`
+    pic.src = `https://raw.githubusercontent.com/fanzeyi/pokemon.json/master/images/${data.id}.png`
     pokeFront.appendChild(type)
     pokeFront.appendChild(pic)
 }
