@@ -69,10 +69,10 @@ main{
   align-items: flex-start;
   flex-wrap: wrap-reverse;
   flex-grow: 1;
-  flex-basis: 4rem;
+  flex-basis: 1rem;
 }
 .right{
-  height: 100vh;
+  height: 100%;
   overflow-y: auto;
   width: 50%;
   display: flex;
