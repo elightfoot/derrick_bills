@@ -122,7 +122,7 @@ const fetchPokemon = (num) => {
     console.log(numberToShow)
 
     //creates a random number up to 820
-    const random = (Math.round(Math.random() * 800))
+    const random = (Math.round(Math.random() * 790))
     console.log(random)
     //uses random number as limit for group up to 15 pokemon
     //could change second number to users choice of how many to pull
@@ -152,7 +152,7 @@ const fetchPokemon = (num) => {
 let rightArea = document.querySelector('.right')
 // *********************************************************************************
 // I HAVE 2 METHODS OF "API & POPULATEDOM" REQUESTS. THEY PULL DIFFERENT INFO FROM EACHOTHER
-// only one is needed but I wanted to have both in use for future reference.
+// only one is needed but I wanted to have both in
 const displayPokemon = (pokemon) => {
     console.log(pokemon);
     //spread operator takes the pokemon data and turns it in to an array of objects 

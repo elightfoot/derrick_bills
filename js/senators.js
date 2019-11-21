@@ -200,6 +200,7 @@ selectElement.addEventListener('change', (event) => {
     if (`${event.target.value}` === "Utah Senators") {
         populateDom(utah)
         result2.textContent = `Total Senate Votes: ${totalVotes(utah)}`
+
     }
     if (`${event.target.value}` === "Democrats") {
         populateDom(democrats)
@@ -215,6 +216,7 @@ selectElement.addEventListener('change', (event) => {
         result2.textContent = `Total Senate Votes: ${totalVotes(simpleSenators)}`
     }
     if (`${event.target.value}` === "All Sen By Age") {
+
         populateDom(sortSenatorsByAge(simpleSenators))
         result2.textContent = `Total Senate Votes: ${totalVotes(simpleSenators)}`
     }
