@@ -197,7 +197,7 @@ const displayPokemon = (pokemon) => {
 
             pic.classList.add('bounce')
 
-            pic.src = `${p.imageBack}`
+            pic.src = `https://raw.githubusercontent.com/fanzeyi/pokemon.json/master/images/${p.id}.png`
             pokeBack.appendChild(pic)
         }
 
@@ -214,7 +214,7 @@ const displayPokemon = (pokemon) => {
             let pokeNum = getPokeNumber(p.id)
             name.textContent = capitalize_Words(`${p.name}`)
             type.textContent = `Type: ${p.type}`
-            pic.src = (`${p.image}`)
+            pic.src = `https://raw.githubusercontent.com/fanzeyi/pokemon.json/master/images/${p.id}.png`
             pokeFront.appendChild(name)
             pokeFront.appendChild(type)
             pokeFront.appendChild(pic)
