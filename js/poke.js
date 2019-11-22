@@ -15,12 +15,12 @@ async function getAPIData(url) {
     }
 }
 
-const theData = getAPIData('https://pokeapi.co/api/v2/pokemon/?limit=28&offset=450').then(data => {
+const theData = getAPIData(`https://pokeapi.co/api/v2/pokemon/?limit=28&offset=${random()}`).then(data => {
     for (const pokemon of data.results) {
         getAPIData(pokemon.url)
             .then(pokedata => {
                 populateDom(pokedata)
-                // console.log(pokedata)
+                console.log(pokedata)
 
             })
     }
@@ -72,6 +72,7 @@ function fillCardFront(pokeFront, data) {
     let pic = document.createElement('img')
     let type = document.createElement('p')
     // pic.setAttribute('class', 'picDivs')
+    //animate css classes added here to have pictures fly in to view
     pic.classList.add('animated', 'bounceInRight', 'delay-4s', 'picDivs')
     let pokeNum = getPokeNumber(data.id)
     name.textContent = capitalize_Words(`${data.name}`)
@@ -131,13 +132,14 @@ const fetchPokemon = (num) => {
         promises.push(fetch(url).then((res) => res.json()));
     }
     //alternate method for pulling data out of api. this one uses sprites vs the full res images.
+    // swapped out sprites for full res images could delete image and image back
     Promise.all(promises).then((results) => {
         console.log(results)
         const pokemon = results.map((result) => ({
             //select api data to add to display card
             name: result.name,
-            image: result.sprites['front_default'],
-            imageBack: result.sprites['back_default'],
+            // image: result.sprites['front_default'],
+            // imageBack: result.sprites['back_default'],
             type: result.types.map((type) => type.type.name).join(', '),
             id: result.id,
             weight: result.weight,
@@ -151,7 +153,7 @@ const fetchPokemon = (num) => {
 
 let rightArea = document.querySelector('.right')
 // *********************************************************************************
-// I HAVE 2 METHODS OF "API & POPULATEDOM" REQUESTS. THEY PULL DIFFERENT INFO FROM EACHOTHER
+// I HAVE 2 METHODS OF "API & POPULATEDOM" REQUESTS. THEY PULL DIFFERENT INFO FROM the api with two different api techniques
 // only one is needed but I wanted to have both in
 const displayPokemon = (pokemon) => {
     console.log(pokemon);
@@ -161,11 +163,11 @@ const displayPokemon = (pokemon) => {
     console.log(pokeArray)
     pokeArray.forEach(function (p) {
         // console.log(p)
-
         let pokeCard = document.createElement('div')
         let pokeScene = document.createElement('div')
         let pokeFront = document.createElement('div')
         let pokeBack = document.createElement('div')
+
 
         fillFront(pokeFront, p)
         fillBack(pokeBack, p)

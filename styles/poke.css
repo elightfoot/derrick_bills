@@ -71,6 +71,13 @@ main{
   flex-grow: 1;
   flex-basis: 1rem;
 }
+.left::after{
+  content: "Displays 28 random pokemon each reload";
+  top: 540px;
+  position: absolute;
+  font-size: 1.3rem;
+  text-transform: capitalize;
+}
 .right{
   height: 100%;
   overflow-y: auto;
@@ -81,6 +88,13 @@ main{
   flex-wrap: wrap;
   flex-grow: 1;
   flex-basis: 1rem;
+}
+.right::after{
+  content: "Displays selected # of random pokemon";
+  top: 540px;
+  position: absolute;
+  font-size: 1.3rem;
+  text-transform: capitalize;
 }
  .picDivs{
   width: 100%;
