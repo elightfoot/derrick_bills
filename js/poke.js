@@ -123,7 +123,7 @@ const fetchPokemon = (num) => {
     console.log(numberToShow)
 
     //creates a random number up to 820
-    const random = (Math.round(Math.random() * 790))
+    const random = (Math.round(Math.random() * 770))
     console.log(random)
     //uses random number as limit for group up to 15 pokemon
     //could change second number to users choice of how many to pull
