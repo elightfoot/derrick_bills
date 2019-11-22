@@ -204,7 +204,7 @@ function deleteNodes() {
 selectElement.addEventListener('change', (event) => {
     const result = document.querySelector('.result');
     let result2 = document.querySelector('.result2')
-    let result3 = document.querySelector('.result3')
+    // let result3 = document.querySelector('.result3')
 
     deleteNodes()
     if (`${event.target.value}` === "") {

@@ -73,7 +73,7 @@ main{
 }
 .left::after{
   content: "Displays 28 random pokemon each reload";
-  top: 540px;
+  top: 530px;
   position: absolute;
   font-size: 1.3rem;
   text-transform: capitalize;
@@ -91,7 +91,7 @@ main{
 }
 .right::after{
   content: "Displays selected # of random pokemon";
-  top: 540px;
+  top: 530px;
   position: absolute;
   font-size: 1.3rem;
   text-transform: capitalize;
