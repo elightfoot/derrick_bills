@@ -26,7 +26,7 @@ const theData = getAPIData('senators.json').then(data => {
     republicans = filterSenators(simpleSenators, "R")
     //filters to democrat senators
     democrats = filterSenators(simpleSenators, "D")
-    // console.log(allSenators)
+    console.log(allSenators)
     //finds senators who have utah as their home state
     utah = findUtah(simpleSenators, "UT")
     utahMapped = senatorMap(utah)
@@ -53,7 +53,8 @@ function senatorMap(allOfThem) {
             phone: senator.phone,
             gender: senator.gender,
             total_votes: senator.total_votes,
-            twitter: senator.twitter_account
+            twitter: senator.twitter_account,
+            missed_votes_pct: senator.missed_votes_pct,
         }
     })
     return results
@@ -66,12 +67,22 @@ const testReduce = testArray.reduce((accumlator, currentValue) => {
 // console.log(testReduce)
 //returns the total votes made by the array that is passed in
 // used this reduce to display total votes
+
 // option to add total missed votes for a selected filtered group 
 function totalVotes(senatorList) {
     const results = senatorList.reduce((acc, senator) => {
         return acc + senator.total_votes
     }, 0)
     return results
+}
+function totalVotesMissed(senatorList) {
+    let len = senatorList.length
+    console.log(len)
+    const results = senatorList.reduce((acc, senator) => {
+        // let len = senatorList.lenth
+        return (acc + senator.missed_votes_pct)
+    }, 0)
+    return (results / len).toFixed(2)
 }
 //calculates the oldest senator 
 function oldestSenator(senatorList) {
@@ -193,6 +204,8 @@ function deleteNodes() {
 selectElement.addEventListener('change', (event) => {
     const result = document.querySelector('.result');
     let result2 = document.querySelector('.result2')
+    let result3 = document.querySelector('.result3')
+
     deleteNodes()
     if (`${event.target.value}` === "") {
         location.reload();
@@ -200,11 +213,14 @@ selectElement.addEventListener('change', (event) => {
     if (`${event.target.value}` === "Utah Senators") {
         populateDom(utah)
         result2.textContent = `Total Senate Votes: ${totalVotes(utah)}`
+        // result3.textContent = `Average Votes Missed: ${totalVotesMissed(utah)}`
 
     }
     if (`${event.target.value}` === "Democrats") {
         populateDom(democrats)
         result2.textContent = `Total Senate Votes: ${totalVotes(democrats)}`
+        // result3.textContent = `Average Votes Missed: ${totalVotesMissed(democrats)}`
+
     }
     if (`${event.target.value}` === "Republicans") {
         populateDom(republicans)
