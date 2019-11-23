@@ -52,35 +52,43 @@ function populateDom(single_pokemon) {
     });
 }
 function fillCardBack(pokeBack, data) {
-    pokeBack.setAttribute('class', 'card__face card__face--back')
+    // define divs in fillCardBack
     let pokeOrder = document.createElement('p')
     let pokeHP = document.createElement('p')
-    pokeOrder.textContent = `Poke Number: ${data.order}`
-    pokeHP.textContent = `Base Hit Points: ${data.stats[0].base_stat}`
-    pokeBack.appendChild(pokeOrder)
-    pokeBack.appendChild(pokeHP)
+    let pic = document.createElement('img')
     let pokeNum = getPokeNumber(data.id)
 
-    let pic = document.createElement('img')
+    // set attributes and textContent
+    pokeOrder.textContent = `Poke Number: ${data.order}`
+    pokeHP.textContent = `Base Hit Points: ${data.stats[0].base_stat}`
+    pokeBack.setAttribute('class', 'card__face card__face--back')
     pic.setAttribute('class', 'picDivs')
     pic.src = `https://raw.githubusercontent.com/fanzeyi/pokemon.json/master/images/${pokeNum}.png`
+    // appendChildren
     pokeBack.appendChild(pic)
+    pokeBack.appendChild(pokeHP)
+    pokeBack.appendChild(pokeOrder)
+
+
 }
 function fillCardFront(pokeFront, data) {
-    pokeFront.setAttribute('class', 'card__face card__face--front')
     let name = document.createElement('h3')
     let pic = document.createElement('img')
     let type = document.createElement('p')
+    let pokeNum = getPokeNumber(data.id)
+
     // pic.setAttribute('class', 'picDivs')
     //animate css classes added here to have pictures fly in to view
+    pokeFront.setAttribute('class', 'card__face card__face--front')
     pic.classList.add('animated', 'bounceInRight', 'delay-4s', 'picDivs')
-    let pokeNum = getPokeNumber(data.id)
     name.textContent = capitalize_Words(`${data.name}`)
     type.textContent = `Type: ${data.types[0].type.name}`
-    pokeFront.appendChild(name)
     pic.src = `https://raw.githubusercontent.com/fanzeyi/pokemon.json/master/images/${pokeNum}.png`
+
     pokeFront.appendChild(type)
     pokeFront.appendChild(pic)
+    pokeFront.appendChild(name)
+
 }
 
 function capitalize_Words(str) {
