@@ -48,6 +48,7 @@ header h1{
   justify-items: center;
   outline: none;
   
+  
 }
 main{
   
@@ -72,6 +73,7 @@ main{
   flex-basis: 1rem;
 }
 .left::after{
+  z-index: -6;
   content: "Displays 28 random pokemon each reload";
   top: 530px;
   position: absolute;
@@ -79,6 +81,7 @@ main{
   text-transform: capitalize;
 }
 .right{
+
   height: 100%;
   overflow-y: auto;
   width: 50%;
@@ -90,6 +93,8 @@ main{
   flex-basis: 1rem;
 }
 .right::after{
+  z-index: -6;
+
   content: "Displays selected # of random pokemon";
   top: 530px;
   position: absolute;
