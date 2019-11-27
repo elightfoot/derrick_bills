@@ -92,6 +92,7 @@ function oldestSenator(senatorList) {
     }, {})
 }
 
+
 const container = document.querySelector('.container')
 // populates the DOM with the senator selection
 function populateDom(senator_array) {
