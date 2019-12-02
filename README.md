@@ -22,7 +22,7 @@
             -REDUCE TOTAL VOTES CASTED (SHOWN FOR EACH FILTER OF DISPLAYED SENATE MEMBERS)
         3. FLEXBOX/GRID SKILLS TO LAYOUT CARDS
         
-# FINAL REQUREMENTS
+# FINAL REQUREMENTS COMBINATION OF ALL 4 PROJECTS (POKEMON/SENATORS/STARWARS/PORFOLIO SITE)
 - X Deployable by simple Git push from your local Git repository to your Github repo to your public URL 
 - X Has a good UI that utilizes proper, basic HTML, CSS and Flexbox
 - X Provides examples of Basic JavaScript code including:
