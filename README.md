@@ -23,30 +23,30 @@
         3. FLEXBOX/GRID SKILLS TO LAYOUT CARDS
         
 # FINAL REQUREMENTS COMBINATION OF ALL 4 PROJECTS (POKEMON/SENATORS/STARWARS/PORFOLIO SITE)
-- :heavy_check_mark: Deployable by simple Git push from your local Git repository to your Github repo to your public URL 
-- X Has a good UI that utilizes proper, basic HTML, CSS and Flexbox
-- X Provides examples of Basic JavaScript code including:
-- X Proper use of variables with proper scope
-- X Good use of conditional logic and value comparison
-- X Proper use of String manipulation
-- X Good use of Arrays
-- X Use of custom JavaScript objects
-- X Demonstrates use of ES6 including:
-- X Proper use of let and const variables 
-- X Use of Arrow functions
-- X Use of Strings using Template Literals
-- X Proper declarations of Objects
-- X Use of Import and Export statements
-- X Demonstrates use of Basic Data Structures including:
-- X Using Arrays to store and manipulate collections of data
-- X Use of Objects with key-value pairs
-- X Iteration through an Array using loops and Array methods
-- X Demonstrates us of Object Oriented Programming techniques including:
-- X Objects with properties and methods accessed using dot notation
-- X Objects using Constructors properly
-- X Website is visually pleasing and easy to navigate and serves as a good example of learner's capability
-- X Website runs without errors
-- X Source code is well documented to describe where the features listed above are on display
-- X Website is clearly your own work and creatively demonstrates your web development skills
+:heavy_check_mark: Deployable by simple Git push from your local Git repository to your Github repo to your public URL 
+:heavy_check_mark: Provides examples of Basic JavaScript code including:
+:heavy_check_mark: Has a good UI that utilizes proper, basic HTML, CSS and Flexbox
+:heavy_check_mark: Proper use of variables with proper scope
+:heavy_check_mark: Good use of conditional logic and value comparison
+:heavy_check_mark: Proper use of String manipulation
+:heavy_check_mark: Good use of Arrays
+:heavy_check_mark: Use of custom JavaScript objects
+:heavy_check_mark: Demonstrates use of ES6 including:
+:heavy_check_mark: Proper use of let and const variables 
+:heavy_check_mark: Use of Arrow functions
+:heavy_check_mark: Use of Strings using Template Literals
+:heavy_check_mark: Proper declarations of Objects
+:heavy_check_mark: Use of Import and Export statements
+:heavy_check_mark: Demonstrates use of Basic Data Structures including:
+:heavy_check_mark: Using Arrays to store and manipulate collections of data
+:heavy_check_mark: Use of Objects with key-value pairs
+:heavy_check_mark: Iteration through an Array using loops and Array methods
+:heavy_check_mark: Demonstrates us of Object Oriented Programming techniques including:
+:heavy_check_mark: Objects with properties and methods accessed using dot notation
+:heavy_check_mark: Objects using Constructors properly
+:heavy_check_mark: Website is visually pleasing and easy to navigate and serves as a good example of learner's capability
+:heavy_check_mark: Website runs without errors
+:heavy_check_mark: Source code is well documented to describe where the features listed above are on display
+:heavy_check_mark: Website is clearly your own work and creatively demonstrates your web development skills
 - (partial credit) Commit to your GitHub repo at least 4 days a week with at least one commit each day for the remainder of     the semester (October 10th - December 5th)
-- X Be sure to submit both your GitHub URL and your Netlify URL!
+:heavy_check_mark: Be sure to submit both your GitHub URL and your Netlify URL!
