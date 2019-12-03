@@ -18,19 +18,21 @@ function showShipsArray(arrayOfShips) {
         name.textContent = ship.name
         model.textContent = ship.model
         pic.src = `https://starwars-visualguide.com/assets/img/starships/${charNum}.jpg`
-        // !need to refactor populationcomma to a function to reuse for any number needing comma's
-        const populationComma = (Number(ship.cost_in_credits).toLocaleString());
-        cost.textContent = `Cost in Imperial Credits: $${populationComma}`
+        // !conditional to handle cost unknown of starships
+        if (ship.cost_in_credits !== 'unknown') {
+            // !need to refactor populationcomma to a function to reuse for any number needing comma's
+            const populationComma = (Number(ship.cost_in_credits).toLocaleString());
+            cost.textContent = `Cost in Imperial Credits: $${populationComma}`
+        } else { cost.textContent = `Cost Unknown` }
+
         personDiv.appendChild(name)
         personDiv.appendChild(model)
         personDiv.appendChild(pic)
         personDiv.className = "person-div";
         personDiv.appendChild(cost)
         mainArea.appendChild(personDiv)
-
     })
 }
-
 
 function showCharArray(arrayOfPeople) {
     arrayOfPeople.forEach(person => {
@@ -92,9 +94,8 @@ function getCharNumber(charURL) {
     }
 }
 
-
 let maleButton = document.createElement('button')
-maleButton.textContent = 'male Characters'
+maleButton.textContent = 'Male Characters'
 maleButton.addEventListener('click', () => {
     //deletes if there is a previous display of nodes
     deleteNodes()
