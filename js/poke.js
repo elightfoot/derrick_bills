@@ -11,7 +11,6 @@ async function getAPIData(url) {
         const data = await response.json()
         return data
     } catch (error) {
-        // console.log(error)
     }
 }
 
@@ -20,12 +19,8 @@ const theData = getAPIData(`https://pokeapi.co/api/v2/pokemon/?limit=28&offset=$
         getAPIData(pokemon.url)
             .then(pokedata => {
                 populateDom(pokedata)
-                // console.log(pokedata)
-
             })
     }
-    // populateDom(CreatedPoke)
-
 })
 // WANTED LEFT AND RIGHT SEPERATION FOR DIFFERENT API METHODS
 let mainArea = document.querySelector('.left')
@@ -147,8 +142,8 @@ const fetchPokemon = (num) => {
         const pokemon = results.map((result) => ({
             //select api data to add to display card
             name: result.name,
-            // image: result.sprites['front_default'],
-            // imageBack: result.sprites['back_default'],
+            //!no longer using sprites for images. image: result.sprites['front_default'],
+            //! no longer using sprites. imageBack: result.sprites['back_default'],
             type: result.types.map((type) => type.type.name).join(', '),
             id: result.id,
             weight: result.weight,
@@ -239,7 +234,7 @@ const displayPokemon = (pokemon) => {
 
 };
 // ********************************************************************************
-// CUSTOM CLASS SOLUTION NOT IDEAL, DUPLICATES ALL THE POPULATE DOM FUNCTIONS
+// *CUSTOM CLASS SOLUTION NOT IDEAL, DUPLICATES ALL THE POPULATE DOM FUNCTIONS
 const newButton2 = document.querySelector('#newList')
 newButton2.addEventListener('click', function () {
     const numberToShow = prompt('How many pokemon do you want to see? Keep it under 800')
@@ -287,7 +282,7 @@ class Pokemon {
 // console.log(pokemon.name)
 function random() {
 
-    return (Math.round(Math.random() * 800))
+    return (Math.round(Math.random() * 750))
 }
 const CreatedPoke = new Pokemon(random(), 'Class Pokemon', 713);
 // const CreatedPoke = new Pokemon(31, 'Voldemort', 713, 'fire');
