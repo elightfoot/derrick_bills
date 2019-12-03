@@ -1,10 +1,9 @@
 import { starships } from "../assets/starships.js"
 import { people } from "../assets/people.js"
 import { planets } from "../assets/planets.js"
-let planetList = planets.slice(1, 15);
-let shipList = starships.slice(1, 15);
 
-let mainArea = document.querySelector('main')
+const mainHeader = document.querySelector('header')
+const mainArea = document.querySelector('main')
 
 function showShipsArray(arrayOfShips) {
     arrayOfShips.forEach(ship => {
@@ -25,7 +24,9 @@ function showShipsArray(arrayOfShips) {
         model.textContent = ship.model
 
         pic.src = `https://starwars-visualguide.com/assets/img/starships/${charNum}.jpg`
-        cost.textContent = `Cost in Imperial Credits: ${ship.cost_in_credits}`
+        // !need to refactor populationcomma to a function to reuse for any number needing comma's
+        const populationComma = (Number(ship.cost_in_credits).toLocaleString());
+        cost.textContent = `Cost in Imperial Credits: $${populationComma}`
 
         personDiv.appendChild(name)
         personDiv.appendChild(model)
@@ -103,13 +104,8 @@ function showPlanetArray(arrayOfPlanets) {
         personDiv.className = "person-div";
 
         mainArea.appendChild(personDiv)
-
-
     })
-
-
 }
-// Displays "3,500" if in U.S. English locale
 
 function getCharNumber(charURL) {
     let end = charURL.lastIndexOf('/')
@@ -121,9 +117,7 @@ function getCharNumber(charURL) {
     }
 }
 
-const allDivs = Array.from(document.querySelectorAll('div'))
 
-const mainHeader = document.querySelector('header')
 let maleButton = document.createElement('button')
 maleButton.textContent = 'male Characters'
 maleButton.addEventListener('click', () => {
@@ -174,28 +168,25 @@ shipsButton.addEventListener('click', () => {
     })
 })
 
-
 function deleteNodes() {
     while (mainArea.firstChild) {
         mainArea.removeChild(mainArea.firstChild);
     }
 }
-
-
-
+//!Append all buttons to main header by default
 mainHeader.appendChild(maleButton)
 mainHeader.appendChild(femaleButton)
 mainHeader.appendChild(planetButton)
 mainHeader.appendChild(otherButton)
 mainHeader.appendChild(shipsButton)
 
-
-
-
-
+// !use of filters for requirement
+// !variables are accessable due to hoisting
 const maleCharacters = people.filter(person => person.gender === 'male')
 const femaleCharacters = people.filter(person => person.gender === 'female')
 const otherCharacters = people.filter(person => person.gender === 'n/a' || person.gender === 'none' || person.gender === "hermaphrodite")
 
-
+//!use const to avoid unwanted reassignment of variables
+const planetList = planets.slice(1, 15);
+const shipList = starships.slice(1, 15);
 

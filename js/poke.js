@@ -1,10 +1,3 @@
-
-/*async function getPokemonData(url){
-    const response = await fetch(url)
-    return await response.json()
-}*/
-
-
 async function getAPIData(url) {
     try {
         const response = await fetch(url)
@@ -13,7 +6,7 @@ async function getAPIData(url) {
     } catch (error) {
     }
 }
-
+// random number to initially populate left side with random pokemon.
 const theData = getAPIData(`https://pokeapi.co/api/v2/pokemon/?limit=28&offset=${random()}`).then(data => {
     for (const pokemon of data.results) {
         getAPIData(pokemon.url)
@@ -22,7 +15,7 @@ const theData = getAPIData(`https://pokeapi.co/api/v2/pokemon/?limit=28&offset=$
             })
     }
 })
-// WANTED LEFT AND RIGHT SEPERATION FOR DIFFERENT API METHODS
+//! WANTED LEFT AND RIGHT SEPERATION FOR DIFFERENT API METHODS
 let mainArea = document.querySelector('.left')
 
 function populateDom(single_pokemon) {
@@ -134,8 +127,7 @@ const fetchPokemon = (num) => {
         const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
         promises.push(fetch(url).then((res) => res.json()));
     }
-    //alternate method for pulling data out of api. this one uses sprites vs the full res images.
-    // swapped out sprites for full res images could delete image and image back
+    //*alternate method for pulling data out of api I wanted working copies of both methods for reference.
     Promise.all(promises).then((results) => {
         console.log(results)
         // *map the results to pull out data being used
@@ -155,9 +147,9 @@ const fetchPokemon = (num) => {
     });
 };
 
-let rightArea = document.querySelector('.right')
+const rightArea = document.querySelector('.right')
 // *********************************************************************************
-// I HAVE 2 METHODS OF "API & POPULATEDOM" REQUESTS. THEY PULL DIFFERENT INFO FROM the api with two different api techniques
+//! I HAVE 2 METHODS OF "API & POPULATEDOM" REQUESTS. THEY PULL DIFFERENT INFO FROM the api with two different api techniques
 // only one is needed but I wanted to have both in
 const displayPokemon = (pokemon) => {
     console.log(pokemon);
@@ -235,9 +227,10 @@ const displayPokemon = (pokemon) => {
 };
 // ********************************************************************************
 // *CUSTOM CLASS SOLUTION NOT IDEAL, DUPLICATES ALL THE POPULATE DOM FUNCTIONS
+
 const newButton2 = document.querySelector('#newList')
 newButton2.addEventListener('click', function () {
-    const numberToShow = prompt('How many pokemon do you want to see? Keep it under 800')
+    const numberToShow = prompt('Enter # of  New Pokemon You Want To Add')
     if (numberToShow > 0 && numberToShow <= 800) {
         fetchPokemon(numberToShow);
     } else {
@@ -313,13 +306,17 @@ function fillCardFront2(pokeFront, data) {
     let name = document.createElement('h3')
     let pic = document.createElement('img')
     let type = document.createElement('p')
-    // pic.setAttribute('class', 'picDivs')
     pic.classList.add('animated', 'bounceInRight', 'delay-4s', 'picDivs')
     let pokeNum = getPokeNumber(data.id)
     name.textContent = capitalize_Words(`${data.name}`)
-    // type.textContent = `Type: ${data.types[0].type.name}`
-    pokeFront.appendChild(name)
     pic.src = `https://raw.githubusercontent.com/fanzeyi/pokemon.json/master/images/${data.id}.png`
+    pokeFront.appendChild(name)
     pokeFront.appendChild(type)
     pokeFront.appendChild(pic)
 }
+
+/*async function getPokemonData(url){
+    const response = await fetch(url)
+    return await response.json()
+}*/
+
