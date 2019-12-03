@@ -12,29 +12,20 @@ function showShipsArray(arrayOfShips) {
         let model = document.createElement('p')
         let pic = document.createElement('img')
         let cost = document.createElement('p')
-
-
         personDiv.setAttribute('class', 'charDivs');
         pic.setAttribute('class', 'picDivs')
-
         let charNum = getCharNumber(ship.url)
-
-
         name.textContent = ship.name
         model.textContent = ship.model
-
         pic.src = `https://starwars-visualguide.com/assets/img/starships/${charNum}.jpg`
         // !need to refactor populationcomma to a function to reuse for any number needing comma's
         const populationComma = (Number(ship.cost_in_credits).toLocaleString());
         cost.textContent = `Cost in Imperial Credits: $${populationComma}`
-
         personDiv.appendChild(name)
         personDiv.appendChild(model)
         personDiv.appendChild(pic)
         personDiv.className = "person-div";
         personDiv.appendChild(cost)
-
-
         mainArea.appendChild(personDiv)
 
     })
@@ -47,24 +38,17 @@ function showCharArray(arrayOfPeople) {
         let name = document.createElement('h1')
         let gender = document.createElement('p')
         let pic = document.createElement('img')
-
         personDiv.setAttribute('class', 'charDivs');
         pic.setAttribute('class', 'picDivs')
-
         let charNum = getCharNumber(person.url)
-
-
         name.textContent = person.name
         gender.textContent = person.gender
         pic.src = `https://starwars-visualguide.com/assets/img/characters/${charNum}.jpg`
-
         personDiv.appendChild(name)
         personDiv.appendChild(gender)
         personDiv.appendChild(pic)
         personDiv.className = "person-div";
-
         mainArea.appendChild(personDiv)
-
     })
 }
 
@@ -75,34 +59,25 @@ function showPlanetArray(arrayOfPlanets) {
         let population = document.createElement('p')
         let diameter = document.createElement('p')
         let pic = document.createElement('img')
-
         personDiv.setAttribute('class', 'charDivs');
         pic.setAttribute('class', 'picDivs')
-
         let charNum = getCharNumber(planet.url)
-
-
         name.textContent = planet.name
         const populationComma = (Number(planet.population).toLocaleString());
-
         population.textContent = `Population: ${populationComma}`
         if (planet.population === "unknown") {
             population.textContent = `Unknown`
         }
         else if (planet.population) {
             population.textContent = `Population: ${populationComma}`
-
         }
         diameter.textContent = `${(planet.diameter / 7917).toFixed(2)} Earth Diameters`
         pic.src = `https://starwars-visualguide.com/assets/img/planets/${charNum}.jpg`
-
         personDiv.appendChild(name)
         personDiv.appendChild(population)
         personDiv.appendChild(pic)
         personDiv.appendChild(diameter)
-
         personDiv.className = "person-div";
-
         mainArea.appendChild(personDiv)
     })
 }
@@ -173,6 +148,7 @@ function deleteNodes() {
         mainArea.removeChild(mainArea.firstChild);
     }
 }
+
 //!Append all buttons to main header by default
 mainHeader.appendChild(maleButton)
 mainHeader.appendChild(femaleButton)
@@ -182,8 +158,8 @@ mainHeader.appendChild(shipsButton)
 
 // !use of filters for requirement
 // !variables are accessable due to hoisting
-const maleCharacters = people.filter(person => person.gender === 'male')
-const femaleCharacters = people.filter(person => person.gender === 'female')
+const maleCharacters = people.filter(person => person.gender === 'male').reverse()
+const femaleCharacters = people.filter(person => person.gender === 'female').reverse()
 const otherCharacters = people.filter(person => person.gender === 'n/a' || person.gender === 'none' || person.gender === "hermaphrodite")
 
 //!use const to avoid unwanted reassignment of variables

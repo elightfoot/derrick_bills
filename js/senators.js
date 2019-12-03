@@ -60,7 +60,7 @@ function senatorMap(allOfThem) {
     })
     return results
 }
-//-------------------------------------------------------REDUCE SENATORS.JSON
+//!-------------------------------------------------------EXAMPLE OF REDUCE METHOD
 const testArray = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50]
 const testReduce = testArray.reduce((accumlator, currentValue) => {
     return accumlator + currentValue
@@ -85,15 +85,13 @@ function totalVotesMissed(senatorList) {
     }, 0)
     return (results / len).toFixed(2)
 }
-//calculates the oldest senator 
+//*calculates the oldest senator not used in project
 function oldestSenator(senatorList) {
     return senatorList.reduce((oldest, senator) => {
         return (oldest.age || 0) > senator.age ? oldest : senator
 
     }, {})
 }
-
-
 const container = document.querySelector('.container')
 // populates the DOM with the senator selection
 function populateDom(senator_array) {
