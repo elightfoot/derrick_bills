@@ -78,7 +78,7 @@ function fillCardFront(pokeFront, data) {
     let pokeNum = getPokeNumber(data.id)
 
     // pic.setAttribute('class', 'picDivs')
-    //animate css classes added here to have pictures fly in to view
+    //!animate css classes added here to have pictures fly in to view
     pokeFront.setAttribute('class', 'card__face card__face--front')
     pic.classList.add('animated', 'bounceInRight', 'delay-4s', 'picDivs')
     name.textContent = capitalize_Words(`${data.name}`)
@@ -143,6 +143,7 @@ const fetchPokemon = (num) => {
     // swapped out sprites for full res images could delete image and image back
     Promise.all(promises).then((results) => {
         console.log(results)
+        // *map the results to pull out data being used
         const pokemon = results.map((result) => ({
             //select api data to add to display card
             name: result.name,

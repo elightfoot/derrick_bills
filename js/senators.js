@@ -8,6 +8,7 @@ async function getAPIData(url) {
     }
 }
 // senator arrays available for use 
+// todo refactor to use const to avoid alttering original arrays
 let allSenators = []
 let simpleSenators = []
 let republicans = []
@@ -32,7 +33,7 @@ const theData = getAPIData('senators.json').then(data => {
     utahMapped = senatorMap(utah)
 
 })
-//-------------------------------------------------------FILTER SENATORS.JSON. put in .then method when ready to implement
+//!-------------------------------------------------------FILTER SENATORS.JSON. put in .then method when ready to implement
 function filterSenators(simpleList, partyAffiliation) {
     return simpleList.filter(senator => senator.party === partyAffiliation)
     // console.log(party)
@@ -40,7 +41,7 @@ function filterSenators(simpleList, partyAffiliation) {
 function findUtah(allSenators, state) {
     return allSenators.filter(senator => senator.state === state)
 }
-//-------------------------------------------------------MAP SENATORS.JSON
+//!-------------------------------------------------------MAP SENATORS.JSON
 function senatorMap(allOfThem) {
     let results = allOfThem.map(senator => {
         return {
@@ -64,11 +65,12 @@ const testArray = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50]
 const testReduce = testArray.reduce((accumlator, currentValue) => {
     return accumlator + currentValue
 }, 0)
-// console.log(testReduce)
 //returns the total votes made by the array that is passed in
 // used this reduce to display total votes
 
 // option to add total missed votes for a selected filtered group 
+//!-------------------------------------------------------REDUCE SENATORS.JSON
+
 function totalVotes(senatorList) {
     const results = senatorList.reduce((acc, senator) => {
         return acc + senator.total_votes
@@ -79,7 +81,6 @@ function totalVotesMissed(senatorList) {
     let len = senatorList.length
     console.log(len)
     const results = senatorList.reduce((acc, senator) => {
-        // let len = senatorList.lenth
         return (acc + senator.missed_votes_pct)
     }, 0)
     return (results / len).toFixed(2)
@@ -97,19 +98,19 @@ const container = document.querySelector('.container')
 // populates the DOM with the senator selection
 function populateDom(senator_array) {
     senator_array.forEach(senator => {
-        let card = document.createElement('div')
+        const card = document.createElement('div')
         card.setAttribute('class', 'card')
-        let cardImage = document.createElement('div')
+        const cardImage = document.createElement('div')
         cardImage.setAttribute('class', 'card-image')
-        let figure = document.createElement('figure')
+        const figure = document.createElement('figure')
         figure.setAttribute('class', 'image ')
-        let figureImage = document.createElement('img')
+        const figureImage = document.createElement('img')
         figureImage.src = `https://www.congress.gov/img/member/${senator.id.toLowerCase()}_200.jpg`
         figureImage.alt = 'Placeholder image'
         // handles the 404 issue if no image present. only doug jones is missing!!!
         figureImage.addEventListener('error', (event) => {
             let noImage = event.target
-            //image is from doug jones' twitter page NOTE!!! does not work if a second senator is missing an image
+            //!image is from doug jones' twitter page NOTE!!! does not work if a second senator is missing an image
             noImage.src = 'https://pbs.twimg.com/profile_images/1020031896741400577/RvxrHrIA_400x400.jpg'
         })
 
@@ -122,15 +123,17 @@ function populateDom(senator_array) {
     })
 }
 function cardContent(senator) {
-    let cardContent = document.createElement('div')
+    // *create DOM ELEMENTS to later append items to. changed to const to avoid reassignment
+    const cardContent = document.createElement('div')
+    const media = document.createElement('div')
+    const mediaLeft = document.createElement('div')
+    const figure = document.createElement('figure')
+    const img = document.createElement('img')
+
     cardContent.setAttribute('class', 'card-content')
-    let media = document.createElement('div')
     media.setAttribute('class', 'media')
-    let mediaLeft = document.createElement('div')
     mediaLeft.setAttribute('class', 'media-left')
-    let figure = document.createElement('figure')
     figure.setAttribute('class', 'image is-48x48')
-    let img = document.createElement('img')
     img.src = `/images/independent.png`
     img.alt = 'Placeholder image'
     if (senator.party === "R") {
@@ -139,27 +142,27 @@ function cardContent(senator) {
     else if (senator.party === "D") {
         img.src = `/images/Democrat.png`
     }
-    let mediaContent = document.createElement('div')
+    const mediaContent = document.createElement('div')
     mediaContent.setAttribute('class', 'media-content')
-    let titleP = document.createElement('p')
+    const titleP = document.createElement('p')
     titleP.setAttribute('class', 'title is-6')
     titleP.textContent = `${senator.name}`
-    let subTitleP = document.createElement('p')
+    const subTitleP = document.createElement('p')
     subTitleP.setAttribute('class', 'subtitle is-6')
     subTitleP.textContent = `Home state: ${senator.state}`
 
-    let tweet = document.createElement('img')
+    const tweet = document.createElement('img')
     tweet.setAttribute('class', 'tweet image is-48x48 media-right')
     tweet.src = `/images/twitter.png`
-    let link = document.createTextNode("View Twitter")
+    const link = document.createTextNode("View Twitter")
     tweet.onclick = function () {
         window.location.href = (`http://twitter.com/${senator.twitter}`)
     }
-    let contentDiv = document.createElement('div')
+    const contentDiv = document.createElement('div')
     contentDiv.setAttribute('class', 'content')
     contentDiv.textContent = `Office: ${senator.office}. Phone: ${senator.phone}`
-    let contentBreak = document.createElement('br')
-    let ageP = document.createElement('p')
+    const contentBreak = document.createElement('br')
+    const ageP = document.createElement('p')
     ageP.textContent = `Age: ${senator.age}`
 
     mediaContent.appendChild(titleP)
@@ -181,7 +184,7 @@ function cardContent(senator) {
 
     return cardContent
 }
-//calculates the age of each senator
+//*calculates the age of each senator
 function calculate_age(dob) {
     let diff_ms = Date.now() - dob.getTime();
     let age_dt = new Date(diff_ms);
@@ -204,8 +207,7 @@ function deleteNodes() {
 
 selectElement.addEventListener('change', (event) => {
     const result = document.querySelector('.result');
-    let result2 = document.querySelector('.result2')
-    // let result3 = document.querySelector('.result3')
+    const result2 = document.querySelector('.result2')
 
     deleteNodes()
     if (`${event.target.value}` === "") {
@@ -214,13 +216,11 @@ selectElement.addEventListener('change', (event) => {
     if (`${event.target.value}` === "Utah Senators") {
         populateDom(utah)
         result2.textContent = `Total Senate Votes: ${totalVotes(utah)}`
-        // result3.textContent = `Average Votes Missed: ${totalVotesMissed(utah)}`
 
     }
     if (`${event.target.value}` === "Democrats") {
         populateDom(democrats)
         result2.textContent = `Total Senate Votes: ${totalVotes(democrats)}`
-        // result3.textContent = `Average Votes Missed: ${totalVotesMissed(democrats)}`
 
     }
     if (`${event.target.value}` === "Republicans") {
@@ -228,7 +228,6 @@ selectElement.addEventListener('change', (event) => {
         result2.textContent = `Total Senate Votes: ${totalVotes(republicans)}`
     }
     if (`${event.target.value}` === "All Senators") {
-        // location.reload();
         populateDom(simpleSenators)
         result2.textContent = `Total Senate Votes: ${totalVotes(simpleSenators)}`
     }
