@@ -90,7 +90,10 @@ a.toggle-nav {
     text-align: center;
     line-height: 46px;
 }
-
+.pic{
+    width: 200px;
+    clip-path: circle(45% at 50% 50%);
+}
 a.toggle-nav i {
     font-size: 16px;
 }
@@ -192,9 +195,13 @@ ul.main-menu li a.active {
 
 .home-intro {
     margin-bottom: 100px;
+    justify-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
 .home-intro p {
+    grid-column: 1/span 3;
     font-size: 18px;
     line-height: 1.85;
     width: 80%;
@@ -205,6 +212,9 @@ ul.main-menu li a.active {
 }
 
 h2.welcome-title {
+    grid-column: 2/span 2;
+    align-self: center;
+    justify-self: start;
     font-weight: 100;
     color: #fff;
     font-size: 48px;
@@ -273,6 +283,7 @@ h2.welcome-title {
 }
 
 .project-item img {
+    justify-content: end;
     width: 100%;
     display: block;
 }
