@@ -249,7 +249,6 @@ function random() {
   return Math.round(Math.random() * 750);
 }
 const CreatedPoke = new Pokemon(random(), "Class Pokemon", 713);
-// const CreatedPoke = new Pokemon(31, 'Voldemort', 713, 'fire');
 const newButton3 = document.querySelector("#newPokemon2");
 newButton3.addEventListener("click", function() {
   random();
@@ -260,8 +259,6 @@ function fillCardBack2(pokeBack, data) {
   pokeBack.setAttribute("class", "card__face card__face--back");
   let pokeOrder = document.createElement("p");
   let pokeHP = document.createElement("p");
-  // pokeOrder.textContent = `Poke Number: ${data.order}`
-  // pokeHP.textContent = `Base Hit Points: ${data.stats[0].base_stat}`
   pokeBack.appendChild(pokeOrder);
   pokeBack.appendChild(pokeHP);
   let pokeNum = getPokeNumber(data.id);
@@ -290,40 +287,21 @@ function fillCardFront2(pokeFront, data) {
     const response = await fetch(url)
     return await response.json()
 }*/
-// const newButton2 = document.querySelector("#newList");
-// newButton2.addEventListener("click", function() {
-//   const numberToShow = prompt("Enter # of New Pokemon You Want To Add");
-//   if (numberToShow > 0 && numberToShow <= 800) {
-//     fetchPokemon(numberToShow);
-//   } else {
-//     alert("Please choose a number between 1 and 800!!");
-//   }
-// });
 
-// modal1.addEventListener("submit", function() {
-//   console.log(e.target);
-//   const numberToShow = e.target.value;
-//   if (numberToShow > 0 && numberToShow <= 800) {
-//     fetchPokemon(numberToShow);
-//   } else {
-//     alert("Please choose a number between 1 and 800!!");
-//   }
-// });
-
+// Modal Scripting modified W3 Schools modal for the pokemon project.
 const inputFormValue = document.querySelector("#value");
 const inputFormSubmit = document.querySelector("#submit");
 const inputFormValue2 = document.querySelector("#value2");
 const inputFormSubmit2 = document.querySelector("#submit2");
-
 var modal = document.getElementById("myModal");
 
 // Get the button that opens the modal
 var btn = document.getElementById("myBtn");
 var btnRight = document.getElementById("newList");
-
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 // *****************************************************
+// get the values from the input and run the render functions
 inputFormSubmit.onclick = function() {
   console.log(value.value);
   const numberToShow = value.value;
@@ -334,6 +312,7 @@ inputFormSubmit.onclick = function() {
   }
   modal.style.display = "none";
 };
+// get the values for the 2nd input and button and render the functions
 inputFormSubmit2.onclick = function() {
   console.log(value2.value);
   let pokeId = value2.value;
@@ -350,16 +329,10 @@ inputFormSubmit2.onclick = function() {
 btnRight.onclick = function() {
   modal.style.display = "block";
 };
-// When the user clicks the button, open the modal
-// btn.onclick = function() {
-//   modal.style.display = "block";
-// };
-
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
   modal.style.display = "none";
 };
-
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
   if (event.target == modal) {

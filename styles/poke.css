@@ -20,6 +20,32 @@ button:hover {
   background-color: white;
   cursor: pointer;
 }
+#submit {
+  color: black;
+  background-color: white;
+  border-radius: 25px;
+  padding: 1rem;
+  font-size: 1.2rem;
+  margin: 1rem;
+}
+#submit:hover {
+  color: white;
+  background-color: #8bd4ff;
+  cursor: pointer;
+}
+#submit2 {
+  color: black;
+  background-color: white;
+  border-radius: 25px;
+  padding: 1rem;
+  font-size: 1.2rem;
+  margin: 1rem;
+}
+#submit2:hover {
+  color: white;
+  background-color: #8bd4ff;
+  cursor: pointer;
+}
 header {
   display: flex;
   background-image: url("/images/PokeHeader.png");
