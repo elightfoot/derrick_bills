@@ -1,3 +1,8 @@
+/*async function getPokemonData(url){
+    const response = await fetch(url)
+    return await response.json()
+}*/
+
 async function getAPIData(url) {
   try {
     const response = await fetch(url);
@@ -15,7 +20,7 @@ const theData = getAPIData(
     });
   }
 });
-//! WANTED LEFT AND RIGHT SEPERATION FOR DIFFERENT API METHODS
+//! FOR LEFT AND RIGHT SEPERATION FOR DIFFERENT API METHODS
 let mainArea = document.querySelector(".left");
 
 function populateDom(single_pokemon) {
@@ -96,13 +101,11 @@ function getPokeNumber(id) {
 const fetchPokemon = num => {
   const promises = [];
   const numberToShow = Number(num);
-  // console.log(numberToShow);
 
-  //creates a random number up to 820
+  //creates a random number
   const random = Math.round(Math.random() * 770);
   console.log(random);
-  //uses random number as limit for group up to 15 pokemon
-  //could change second number to users choice of how many to pull
+
   for (let i = random; i <= random + numberToShow - 1; i++) {
     const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
     promises.push(fetch(url).then(res => res.json()));
@@ -112,7 +115,7 @@ const fetchPokemon = num => {
     console.log(results);
     // *map the results to pull out data being used
     const pokemon = results.map(result => ({
-      //select api data to add to display card
+      //select MAP values for data to add to display card
       name: result.name,
       //!no longer using sprites for images. image: result.sprites['front_default'],
       //! no longer using sprites. imageBack: result.sprites['back_default'],
@@ -152,7 +155,6 @@ const displayPokemon = pokemon => {
     pokeCard.appendChild(pokeFront);
     pokeCard.appendChild(pokeBack);
     pokeScene.appendChild(pokeCard);
-
     rightArea.appendChild(pokeScene);
 
     pokeCard.addEventListener("click", function() {
@@ -167,7 +169,7 @@ const displayPokemon = pokemon => {
       pokeHP.textContent = `Base Hit Points: ${p.hp}`;
       pokeBack.appendChild(pokeOrder);
       pokeBack.appendChild(pokeHP);
-      let pokeNum = getPokeNumber(p.id);
+      // let pokeNum = getPokeNumber(p.id);
 
       let pic = document.createElement("img");
       pic.setAttribute("class", "picDivs");
@@ -185,10 +187,9 @@ const displayPokemon = pokemon => {
       let type = document.createElement("p");
       let weight = document.createElement("p");
       weight.textContent = `Weight: ${p.weight}`;
-      // pic.setAttribute('class', 'picDivs ')
       pic.classList.add("animated", "bounceInRight", "delay-4s", "picDivs");
 
-      let pokeNum = getPokeNumber(p.id);
+      // let pokeNum = getPokeNumber(p.id);
       name.textContent = capitalize_Words(`${p.name}`);
       type.textContent = `Type: ${p.type}`;
       pic.src = `https://raw.githubusercontent.com/fanzeyi/pokemon.json/master/images/${p.id}.png`;
@@ -201,16 +202,6 @@ const displayPokemon = pokemon => {
 };
 // ********************************************************************************
 // *CUSTOM CLASS SOLUTION NOT IDEAL, DUPLICATES ALL THE POPULATE DOM FUNCTIONS
-
-// const newButton2 = document.querySelector("#newList");
-// newButton2.addEventListener("click", function() {
-//   const numberToShow = prompt("Enter # of New Pokemon You Want To Add");
-//   if (numberToShow > 0 && numberToShow <= 800) {
-//     fetchPokemon(numberToShow);
-//   } else {
-//     alert("Please choose a number between 1 and 800!!");
-//   }
-// });
 
 function populateDom2(single_pokemon) {
   let pokeCard = document.createElement("div");
@@ -244,7 +235,6 @@ class Pokemon {
   }
 }
 
-// console.log(pokemon.name)
 function random() {
   return Math.round(Math.random() * 750);
 }
@@ -282,11 +272,6 @@ function fillCardFront2(pokeFront, data) {
   pokeFront.appendChild(type);
   pokeFront.appendChild(pic);
 }
-
-/*async function getPokemonData(url){
-    const response = await fetch(url)
-    return await response.json()
-}*/
 
 // Modal Scripting modified W3 Schools modal for the pokemon project.
 const inputFormValue = document.querySelector("#value");
