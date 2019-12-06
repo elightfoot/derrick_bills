@@ -266,7 +266,17 @@ flip card styles end  */
   background-color: #414141;
   color: white;
 }
-
+.modal-content h2 {
+  color: #8bd4ff;
+}
+input {
+  border: none;
+  border-bottom: 2px solid black;
+}
+input:focus {
+  outline: none;
+  border-bottom: 2px solid #8bd4ff;
+}
 .modal-body {
   text-align: center;
   padding: 2px 16px;
@@ -275,6 +285,6 @@ flip card styles end  */
 .modal-footer {
   text-align: center;
   padding: 2px 16px;
-  background-color: #5cb85c;
+  background-color: #8bd4ff;
   color: white;
 }
