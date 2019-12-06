@@ -21,12 +21,34 @@
     </header>
 
     <div class="buttons animated  bounce delay-2s ">
-        <div><button id="newPokemon">Search A Pokemon By Number</button></div>
+        <!-- <div><button id="newPokemon">Search A Pokemon By Number</button></div> -->
         <div><button id="newPokemon2">Add A Pokemon Using Classes</button></div>
+        <!-- <button id="myBtn">Open Modal</button> -->
 
         <div><button id="newList">Want to add more pokemon? Click Here</button></div>
     </div>
 
+    <div id="myModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+              <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>Add a chosen number of pokemon, or search by Poke ID Number</h2>
+              </div>
+              <div class="modal-body">
+                <input id ="value"type="input" placeholder = "Enter How many You Want To See"></input>
+                <button id = "submit" type="submit">Submit</button>
+            </div>
+            <div class="modal-body">
+                    <input id ="value2"type="input" placeholder = "Search By Pokemon ID"></input>
+                    <button id = "submit2" type="submit">Submit</button>
+                </div>
+              <div class="modal-footer">
+                <h3>Modal Footer</h3>
+              </div>
+            </div>
+          
+          </div>
     <main>
         <div class="left animated fadeInDown">
 

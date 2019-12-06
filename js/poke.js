@@ -90,27 +90,13 @@ function getPokeNumber(id) {
     return `0${id}`;
   } else return id;
 }
-// const pokedex = document.getElementById('pokedex');
-
-//Button to search by pokemon id
-const newButton = document.querySelector("#newPokemon");
-newButton.addEventListener("click", function() {
-  let pokeId = prompt("please enter a pokemon ID");
-  if (pokeId > 0 && pokeId <= 807) {
-    getAPIData(`https://pokeapi.co/api/v2/pokemon/${pokeId}`).then(result => {
-      populateDom(result);
-    });
-  } else {
-    alert("there are no poke with that id");
-  }
-});
 
 // *******************************************************************ALTERNATE POKEMON API FETCHING
 
 const fetchPokemon = num => {
   const promises = [];
   const numberToShow = Number(num);
-  console.log(numberToShow);
+  // console.log(numberToShow);
 
   //creates a random number up to 820
   const random = Math.round(Math.random() * 770);
@@ -216,15 +202,15 @@ const displayPokemon = pokemon => {
 // ********************************************************************************
 // *CUSTOM CLASS SOLUTION NOT IDEAL, DUPLICATES ALL THE POPULATE DOM FUNCTIONS
 
-const newButton2 = document.querySelector("#newList");
-newButton2.addEventListener("click", function() {
-  const numberToShow = prompt("Enter # of New Pokemon You Want To Add");
-  if (numberToShow > 0 && numberToShow <= 800) {
-    fetchPokemon(numberToShow);
-  } else {
-    alert("Please choose a number between 1 and 800!!");
-  }
-});
+// const newButton2 = document.querySelector("#newList");
+// newButton2.addEventListener("click", function() {
+//   const numberToShow = prompt("Enter # of New Pokemon You Want To Add");
+//   if (numberToShow > 0 && numberToShow <= 800) {
+//     fetchPokemon(numberToShow);
+//   } else {
+//     alert("Please choose a number between 1 and 800!!");
+//   }
+// });
 
 function populateDom2(single_pokemon) {
   let pokeCard = document.createElement("div");
@@ -304,3 +290,79 @@ function fillCardFront2(pokeFront, data) {
     const response = await fetch(url)
     return await response.json()
 }*/
+// const newButton2 = document.querySelector("#newList");
+// newButton2.addEventListener("click", function() {
+//   const numberToShow = prompt("Enter # of New Pokemon You Want To Add");
+//   if (numberToShow > 0 && numberToShow <= 800) {
+//     fetchPokemon(numberToShow);
+//   } else {
+//     alert("Please choose a number between 1 and 800!!");
+//   }
+// });
+
+// modal1.addEventListener("submit", function() {
+//   console.log(e.target);
+//   const numberToShow = e.target.value;
+//   if (numberToShow > 0 && numberToShow <= 800) {
+//     fetchPokemon(numberToShow);
+//   } else {
+//     alert("Please choose a number between 1 and 800!!");
+//   }
+// });
+
+const inputFormValue = document.querySelector("#value");
+const inputFormSubmit = document.querySelector("#submit");
+const inputFormValue2 = document.querySelector("#value2");
+const inputFormSubmit2 = document.querySelector("#submit2");
+
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+var btnRight = document.getElementById("newList");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+// *****************************************************
+inputFormSubmit.onclick = function() {
+  console.log(value.value);
+  const numberToShow = value.value;
+  if (numberToShow > 0 && numberToShow <= 800) {
+    fetchPokemon(numberToShow);
+  } else {
+    alert("Please choose a number between 1 and 800!!");
+  }
+  modal.style.display = "none";
+};
+inputFormSubmit2.onclick = function() {
+  console.log(value2.value);
+  let pokeId = value2.value;
+  if (pokeId > 0 && pokeId <= 807) {
+    getAPIData(`https://pokeapi.co/api/v2/pokemon/${pokeId}`).then(result => {
+      populateDom(result);
+    });
+  } else {
+    alert("there are no poke with that id");
+  }
+  modal.style.display = "none";
+};
+
+btnRight.onclick = function() {
+  modal.style.display = "block";
+};
+// When the user clicks the button, open the modal
+// btn.onclick = function() {
+//   modal.style.display = "block";
+// };
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+};
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+};

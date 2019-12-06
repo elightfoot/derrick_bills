@@ -1,28 +1,28 @@
-@import url('https://fonts.googleapis.com/css?family=Wallpoet&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Wallpoet&display=swap");
 
-body{
-  font-family: 'Wallpoet', cursive;
+body {
+  font-family: "Wallpoet", cursive;
 }
-p{
+p {
   padding: 0;
 }
 
-button{
-  color:white;
+button {
+  color: white;
   background-color: black;
   border-radius: 25px;
   padding: 1rem;
   font-size: 1.2rem;
   margin: 1rem;
 }
-button:hover{
-  color:black;
+button:hover {
+  color: black;
   background-color: white;
   cursor: pointer;
 }
-header{
+header {
   display: flex;
-  background-image: url('/images/PokeHeader.png');
+  background-image: url("/images/PokeHeader.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -31,36 +31,29 @@ header{
   justify-content: center;
   background-color: blueviolet;
   background-color: rgb(125, 125, 125);
-
-
 }
-header h1{  
-    animation-duration: 3s;
-    animation-delay: 2s;
-    animation-iteration-count: infinite;
-  
+header h1 {
+  animation-duration: 3s;
+  animation-delay: 2s;
+  animation-iteration-count: infinite;
+
   border-top: 5px solid black;
   bottom: 0;
 }
-.buttons{
- display: grid;
- grid-template-columns: 1fr 1fr 1fr;
+.buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   justify-items: center;
   outline: none;
-  
-  
 }
-main{
-  
+main {
   display: flex;
   /* flex-direction: row-reverse; */
 
   /* grid-template-columns: 1fr; */
-  
 }
 
-
-.left{
+.left {
   height: 100%;
   overflow-y: auto;
   width: 50%;
@@ -72,7 +65,7 @@ main{
   flex-grow: 1;
   flex-basis: 1rem;
 }
-.left::after{
+.left::after {
   z-index: -6;
   content: "Displays 28 random pokemon each reload";
   top: 530px;
@@ -80,8 +73,7 @@ main{
   font-size: 1.3rem;
   text-transform: capitalize;
 }
-.right{
-
+.right {
   height: 100%;
   overflow-y: auto;
   width: 50%;
@@ -92,7 +84,7 @@ main{
   flex-grow: 1;
   flex-basis: 1rem;
 }
-.right::after{
+.right::after {
   z-index: -6;
 
   content: "Displays selected # of random pokemon";
@@ -101,35 +93,38 @@ main{
   font-size: 1.3rem;
   text-transform: capitalize;
 }
- .picDivs{
+.picDivs {
   width: 100%;
 }
 
-.charDivs{
+.charDivs {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-section{
+section {
   display: flex;
   flex-direction: column;
 
   align-items: center;
 }
 
-.list{
+.list {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
 /* **************************************************************************
 flip card styles start  */
-.card { transition: all .1s ease-in; }
-.card:hover { transform: scale(1.3); 
+.card {
+  transition: all 0.1s ease-in;
+}
+.card:hover {
+  transform: scale(1.3);
   border: 1px solid white;
 }
 
 .scene {
-  transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out;
   width: 200px;
   height: 350px;
   margin: 40px 0;
@@ -138,9 +133,9 @@ flip card styles start  */
 }
 
 .card {
-  -webkit-box-shadow: 14px 10px 9px -9px rgba(0,0,0,0.75);
--moz-box-shadow: 14px 10px 9px -9px rgba(0,0,0,0.75);
-box-shadow: 14px 10px 9px -9px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 14px 10px 9px -9px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 14px 10px 9px -9px rgba(0, 0, 0, 0.75);
+  box-shadow: 14px 10px 9px -9px rgba(0, 0, 0, 0.75);
   width: 100%;
   height: 100%;
   transition: transform 1s;
@@ -148,14 +143,10 @@ box-shadow: 14px 10px 9px -9px rgba(0,0,0,0.75);
   cursor: pointer;
   position: relative;
   /* border-top: 5px solid rgb(99, 99, 99); */
-
 }
-
 
 .card.is-flipped {
   transform: rotatey(200deg);
-  
-
 }
 
 .card__face {
@@ -173,10 +164,9 @@ box-shadow: 14px 10px 9px -9px rgba(0,0,0,0.75);
 }
 .card__face--front img {
   width: 90%;
-  
+
   background: rgb(125, 125, 125);
 }
-
 
 .card__face--back {
   display: flex;
@@ -184,13 +174,13 @@ box-shadow: 14px 10px 9px -9px rgba(0,0,0,0.75);
   align-items: center;
   background: #8a2be2;
   background-image: linear-gradient(rgba(212, 10, 219, 0.5), rgba(1, 1, 1, 0.5)),
-                  url("/images/pokelogo.png");
-                 
+    url("/images/pokelogo.png");
+
   background-size: 200px 200px;
   background-repeat: no-repeat;
   transform: rotateY(180deg);
 }
-.card__face--back img{
+.card__face--back img {
   padding-top: 100px;
   transform: rotateY(180deg);
   width: 50%;
@@ -198,3 +188,93 @@ box-shadow: 14px 10px 9px -9px rgba(0,0,0,0.75);
 }
 /* **************************************************************************
 flip card styles end  */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+#value {
+  width: 200px;
+}
+#value2 {
+  width: 200px;
+}
+.modal-header {
+  text-align: center;
+  padding: 2px 16px;
+  background-color: #414141;
+  color: white;
+}
+
+.modal-body {
+  text-align: center;
+  padding: 2px 16px;
+}
+
+.modal-footer {
+  text-align: center;
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+}
