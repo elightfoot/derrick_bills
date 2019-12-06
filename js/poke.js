@@ -305,30 +305,35 @@ var span = document.getElementsByClassName("close")[0];
 inputFormSubmit.onclick = function() {
   console.log(value.value);
   const numberToShow = value.value;
+  let modalFooter = document.querySelector("#footer");
+
   if (numberToShow > 0 && numberToShow <= 800) {
     fetchPokemon(numberToShow);
+    modal.style.display = "none";
   } else {
-    alert("Please choose a number between 1 and 800!!");
+    modalFooter.textContent = "PLEASE CHOOSE A NUMBER BETWEEN 0 AND 807";
   }
-  modal.style.display = "none";
 };
 // get the values for the 2nd input and button and render the functions
 inputFormSubmit2.onclick = function() {
   console.log(value2.value);
   let pokeId = value2.value;
+  let modalFooter = document.querySelector("#footer");
   if (pokeId > 0 && pokeId <= 807) {
     getAPIData(`https://pokeapi.co/api/v2/pokemon/${pokeId}`).then(result => {
       populateDom(result);
     });
+    modal.style.display = "none";
   } else {
-    alert("there are no poke with that id");
+    modalFooter.textContent = "PLEASE CHOOSE A NUMBER BETWEEN 0 AND 807";
   }
-  modal.style.display = "none";
+  // modal.style.display = "none";
 };
 
 btnRight.onclick = function() {
   modal.style.display = "block";
 };
+// ! two options to close the modal withuot submitting a choice
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
   modal.style.display = "none";
