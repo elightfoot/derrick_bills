@@ -318,7 +318,7 @@ inputFormSubmit2.onclick = function() {
 btnRight.onclick = function() {
   modal.style.display = "block";
 };
-// ! two options to close the modal withuot submitting a choice
+// !two options to close the modal withuot submitting a choice
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
   modal.style.display = "none";
