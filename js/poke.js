@@ -193,6 +193,11 @@ const displayPokemon = pokemon => {
       name.textContent = capitalize_Words(`${p.name}`);
       type.textContent = `Type: ${p.type}`;
       pic.src = `https://raw.githubusercontent.com/fanzeyi/pokemon.json/master/images/${p.id}.png`;
+      pic.addEventListener("error", event => {
+        let noImage = event.target;
+        //!some images are missing this handles the error if it is.
+        noImage.src = "images/pokelogo.png";
+      });
       pokeFront.appendChild(name);
       pokeFront.appendChild(type);
       pokeFront.appendChild(pic);
