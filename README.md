@@ -34,9 +34,8 @@
   person =>
     person.gender === "n/a" ||
     person.gender === "none" ||
-    person.gender === "hermaphrodite"
-);
-`
+    person.gender === "hermaphrodite");
+
 - :heavy_check_mark: Use of custom JavaScript objects
 - :heavy_check_mark: Demonstrates use of ES6 including
 - :heavy_check_mark: Proper use of let and const variables 
