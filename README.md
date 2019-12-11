@@ -54,5 +54,5 @@
 - :heavy_check_mark: Website runs without errors
 - :heavy_check_mark: Source code is well documented to describe where the features listed above are on display
 - :heavy_check_mark: Website is clearly your own work and creatively demonstrates your web development skills
-- (partial credit) Commit to your GitHub repo at least 4 days a week with at least one commit each day for the remainder of     the semester (October 10th - December 5th)
+- :heavy_check_mark: Commit to your GitHub repo at least 4 days a week with at least one commit each day for the remainder of     the semester (October 10th - December 5th)
 - :heavy_check_mark: Be sure to submit both your GitHub URL and your Netlify URL!
