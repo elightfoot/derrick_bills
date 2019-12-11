@@ -23,14 +23,23 @@ Link to portfolio: [Portfolio Website Link](https://derrickbills.com)
             -REDUCE TOTAL VOTES CASTED (SHOWN FOR EACH FILTER OF DISPLAYED SENATE MEMBERS).
         3. FLEXBOX/GRID SKILLS TO LAYOUT CARDS.
 ```javascript
-var s = "JavaScript syntax highlighting";
-alert(s);
+function totalVotes(senatorList) {
+  const results = senatorList.reduce((acc, senator) => {
+    return acc + senator.total_votes;
+  }, 0);
+  return results;
+}
+function totalVotesMissed(senatorList) {
+  let len = senatorList.length;
+  console.log(len);
+  const results = senatorList.reduce((acc, senator) => {
+    return acc + senator.missed_votes_pct;
+  }, 0);
+  return (results / len).toFixed(2);
+}
 ```
  
-```python
-s = "Python syntax highlighting"
-print s
-```
+
  
 ```
 No language indicated, so no syntax highlighting. 
@@ -46,11 +55,42 @@ But let's throw in a <b>tag</b>.
 - :heavy_check_mark: Good use of Arrays 
 - :heavy_check_mark: Use of custom JavaScript objects
 - :heavy_check_mark: Demonstrates use of ES6 including
+```javascript
+function totalVotes(senatorList) {
+  const results = senatorList.reduce((acc, senator) => {
+    return acc + senator.total_votes;
+  }, 0);
+  return results;
+}
+function totalVotesMissed(senatorList) {
+  let len = senatorList.length;
+  console.log(len);
+  const results = senatorList.reduce((acc, senator) => {
+    return acc + senator.missed_votes_pct;
+  }, 0);
+  return (results / len).toFixed(2);
+}
+```
 - :heavy_check_mark: Proper use of let and const variables 
 - :heavy_check_mark: Use of Arrow functions
+```javascript
+function filterSenators(simpleList, partyAffiliation) {
+  return simpleList.filter(senator => senator.party === partyAffiliation);
+  // console.log(party)
+}
+function findUtah(allSenators, state) {
+  return allSenators.filter(senator => senator.state === state);
+}
+```
 - :heavy_check_mark: Use of Strings using Template Literals
 - :heavy_check_mark: Proper declarations of Objects
 - :heavy_check_mark: Use of Import and Export statements
+```javascript
+import { starships } from "../assets/starships.js";
+import { people } from "../assets/people.js";
+import { planets } from "../assets/planets.js";
+
+```
 - :heavy_check_mark: Demonstrates use of Basic Data Structures including
 - :heavy_check_mark: Using Arrays to store and manipulate collections of data
 - :heavy_check_mark: Use of Objects with key-value pairs
