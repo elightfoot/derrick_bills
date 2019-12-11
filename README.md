@@ -22,7 +22,20 @@ Link to portfolio: [Portfolio Website Link](https://derrickbills.com)
             -FILTER BY HOME STATE & FILTER BY PARTY AFFILIATION.
             -REDUCE TOTAL VOTES CASTED (SHOWN FOR EACH FILTER OF DISPLAYED SENATE MEMBERS).
         3. FLEXBOX/GRID SKILLS TO LAYOUT CARDS.
-        
+```javascript
+var s = "JavaScript syntax highlighting";
+alert(s);
+```
+ 
+```python
+s = "Python syntax highlighting"
+print s
+```
+ 
+```
+No language indicated, so no syntax highlighting. 
+But let's throw in a <b>tag</b>.
+```
 # FINAL REQUREMENTS COMBINATION OF ALL 4 PROJECTS (POKEMON/SENATORS/STARWARS/PORFOLIO SITE)
 - :heavy_check_mark: Deployable by simple Git push from your local Git repository to your Github repo to your public URL 
 - :heavy_check_mark: Provides examples of Basic JavaScript code including
