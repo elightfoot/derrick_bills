@@ -38,13 +38,7 @@ function totalVotesMissed(senatorList) {
   return (results / len).toFixed(2);
 }
 ```
- 
 
- 
-```
-No language indicated, so no syntax highlighting. 
-But let's throw in a <b>tag</b>.
-```
 # FINAL REQUREMENTS COMBINATION OF ALL 4 PROJECTS (POKEMON/SENATORS/STARWARS/PORFOLIO SITE)
 - :heavy_check_mark: Deployable by simple Git push from your local Git repository to your Github repo to your public URL 
 - :heavy_check_mark: Provides examples of Basic JavaScript code including
@@ -83,6 +77,15 @@ function findUtah(allSenators, state) {
 }
 ```
 - :heavy_check_mark: Use of Strings using Template Literals
+```javascript
+const populationComma = Number(planet.population).toLocaleString();
+    population.textContent = `Population: ${populationComma}`;
+    if (planet.population === "unknown") {
+      population.textContent = `Unknown`;
+    } else if (planet.population) {
+      population.textContent = `Population: ${populationComma}`;
+    }
+```
 - :heavy_check_mark: Proper declarations of Objects
 - :heavy_check_mark: Use of Import and Export statements
 ```javascript
@@ -93,6 +96,10 @@ import { planets } from "../assets/planets.js";
 ```
 - :heavy_check_mark: Demonstrates use of Basic Data Structures including
 - :heavy_check_mark: Using Arrays to store and manipulate collections of data
+```javascript
+const planetList = planets.slice(1, 15);
+const shipList = starships.slice(1, 15);
+```
 - :heavy_check_mark: Use of Objects with key-value pairs
 - :heavy_check_mark: Iteration through an Array using loops and Array methods
 - :heavy_check_mark: Demonstrates us of Object Oriented Programming techniques including:
