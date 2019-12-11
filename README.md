@@ -1,5 +1,5 @@
 # FINAL PROJECT
-You can insert links in text like [this](derrickbills.com)
+Link to portfolio: [Portfolio Website Link](https://derrickbills.com)
 2 projects to meet the requirements.
 # POKEMON:
 1. Header that summarizes what the page is about
