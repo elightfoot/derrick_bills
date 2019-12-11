@@ -1,4 +1,5 @@
 # FINAL PROJECT
+You can insert links in text like [this](derrickbills.com)
 2 projects to meet the requirements.
 # POKEMON:
 1. Header that summarizes what the page is about
@@ -30,12 +31,6 @@
 - :heavy_check_mark: Good use of conditional logic and value comparison
 - :heavy_check_mark: Proper use of String manipulation
 - :heavy_check_mark: Good use of Arrays 
-  ```const otherCharacters = people.filter(
-  person =>
-    person.gender === "n/a" ||
-    person.gender === "none" ||
-    person.gender === "hermaphrodite");
-
 - :heavy_check_mark: Use of custom JavaScript objects
 - :heavy_check_mark: Demonstrates use of ES6 including
 - :heavy_check_mark: Proper use of let and const variables 
