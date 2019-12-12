@@ -1,14 +1,9 @@
-/*async function getPokemonData(url){
-    const response = await fetch(url)
-    return await response.json()
-}*/
-
 async function getAPIData(url) {
   try {
     const response = await fetch(url);
     const data = await response.json();
     return data;
-  } catch (error) { }
+  } catch (error) {}
 }
 // random number to initially populate left side with random pokemon.
 const theData = getAPIData(
@@ -40,7 +35,7 @@ function populateDom(single_pokemon) {
 
   mainArea.appendChild(pokeScene);
 
-  pokeCard.addEventListener("click", function () {
+  pokeCard.addEventListener("click", function() {
     pokeCard.classList.toggle("is-flipped");
   });
 }
@@ -82,7 +77,7 @@ function fillCardFront(pokeFront, data) {
 }
 
 function capitalize_Words(str) {
-  return str.replace(/\w\S*/g, function (txt) {
+  return str.replace(/\w\S*/g, function(txt) {
     return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
   });
 }
@@ -140,7 +135,7 @@ const displayPokemon = pokemon => {
   //that contains the properties and values picked in the const pokemon map.
   let pokeArray = [...pokemon];
   console.log(pokeArray);
-  pokeArray.forEach(function (p) {
+  pokeArray.forEach(function(p) {
     // console.log(p)
     let pokeCard = document.createElement("div");
     let pokeScene = document.createElement("div");
@@ -157,7 +152,7 @@ const displayPokemon = pokemon => {
     pokeScene.appendChild(pokeCard);
     rightArea.appendChild(pokeScene);
 
-    pokeCard.addEventListener("click", function () {
+    pokeCard.addEventListener("click", function() {
       pokeCard.classList.toggle("is-flipped");
     });
     function fillBack(pokeBack, p) {
@@ -225,7 +220,7 @@ function populateDom2(single_pokemon) {
 
   mainArea.appendChild(pokeScene);
 
-  pokeCard.addEventListener("click", function () {
+  pokeCard.addEventListener("click", function() {
     pokeCard.classList.toggle("is-flipped");
   });
 }
@@ -245,7 +240,7 @@ function random() {
 }
 const CreatedPoke = new Pokemon(random(), "Class Pokemon", 713);
 const newButton3 = document.querySelector("#newPokemon2");
-newButton3.addEventListener("click", function () {
+newButton3.addEventListener("click", function() {
   random();
   populateDom2(CreatedPoke);
 });
@@ -292,7 +287,7 @@ var btnRight = document.getElementById("newList");
 var span = document.getElementsByClassName("close")[0];
 // *****************************************************
 // get the values from the input and run the render functions
-inputFormSubmit.onclick = function () {
+inputFormSubmit.onclick = function() {
   console.log(value.value);
   const numberToShow = value.value;
   let modalFooter = document.querySelector("#footer");
@@ -305,7 +300,7 @@ inputFormSubmit.onclick = function () {
   }
 };
 // get the values for the 2nd input and button and render the functions
-inputFormSubmit2.onclick = function () {
+inputFormSubmit2.onclick = function() {
   console.log(value2.value);
   let pokeId = value2.value;
   let modalFooter = document.querySelector("#footer");
@@ -320,16 +315,16 @@ inputFormSubmit2.onclick = function () {
   // modal.style.display = "none";
 };
 
-btnRight.onclick = function () {
+btnRight.onclick = function() {
   modal.style.display = "block";
 };
 // !two options to close the modal withuot submitting a choice
 // When the user clicks on <span> (x), close the modal
-span.onclick = function () {
+span.onclick = function() {
   modal.style.display = "none";
 };
 // When the user clicks anywhere outside of the modal, close it
-window.onclick = function (event) {
+window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }

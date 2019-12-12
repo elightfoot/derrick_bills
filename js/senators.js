@@ -16,7 +16,7 @@ let democrats = [];
 let utah = [];
 let utahMapped = [];
 let ageSort = [];
-
+// FETCH TO GET THE DATA FROM THE SENATORS.JSON FILE.
 const theData = getAPIData("senators.json").then(data => {
   allSenators = data.results[0].members;
   //returns a map of all senators to the simpleSenators array
@@ -175,7 +175,6 @@ function cardContent(senator) {
   contentDiv.appendChild(ageP);
   cardContent.appendChild(media);
   cardContent.appendChild(contentDiv);
-
   return cardContent;
 }
 //*calculates the age of each senator

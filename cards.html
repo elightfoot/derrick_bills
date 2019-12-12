@@ -9,61 +9,55 @@
     <link href="/styles/poke.css" rel="stylesheet" />
     <link href="./css/animate.css" rel="stylesheet">
     <script defer src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
+    <script defer type="module" src="/js/poke.js"></script>
 
     <title>Pokemon Cards</title>
 </head>
 
 <body>
     <a href="index.html">Back To portfolio</a>
+
     <header class="animated fadeInDownBig delay-5s">
         <h1 class="pulse">Click a card to view more info!</h1>
     </header>
 
     <div class="buttons animated  bounce delay-2s ">
         <div><button id="newPokemon2">Add A Pokemon Using Classes</button></div>
-
         <div><button id="newList">Want to add more pokemon? Click Here For Options</button></div>
     </div>
 
     <div id="myModal" class="modal">
-            <!-- Modal content  -->
-            <div class="modal-content">
-              <div class="modal-header">
+        <!-- Modal content  -->
+        <div class="modal-content">
+            <div class="modal-header">
                 <span class="close">&times;</span>
                 <h2>Add a chosen number of pokemon, or search by Poke ID Number</h2>
-              </div>
-              <div class="modal-body">
-                <input id ="value"type="input" placeholder = "Enter How many You Want To See"></input>
-                <button id = "submit" type="submit">Submit</button>
             </div>
             <div class="modal-body">
-                    <input id ="value2"type="input" placeholder = "Search By Pokemon ID"></input>
-                    <button id = "submit2" type="submit">Submit</button>
-                </div>
-              <div class="modal-footer">
-                <h3 id="footer"></h3>
-              </div>
+                <input id="value" type="input" placeholder="Enter How many You Want To See"></input>
+                <button id="submit" type="submit">Submit</button>
             </div>
-          
-          </div>
-    <main>
-        <div class="left animated fadeInDown">
-
+            <div class="modal-body">
+                <input id="value2" type="input" placeholder="Search By Pokemon ID"></input>
+                <button id="submit2" type="submit">Submit</button>
+            </div>
+            <div class="modal-footer">
+                <h3 id="footer"></h3>
+            </div>
         </div>
+
+    </div>
+    <main>
+        <div class="left animated fadeInDown"></div>
         <div class="right animated fadeInDown"></div>
 
     </main>
     <div class="container">
         <div class="second container" id="pokedex"></div>
-
-
     </div>
-    <script defer type="module" src="/js/poke.js"></script>
+
 
     <section>
-
-
         </p>Take data from JSON file and dynamically render to page<p>
             <h3>Features Included for Assignment Requirement</h3>
             <div class="list">
@@ -80,7 +74,6 @@
                     <li>Grid or Flexbox to display card grid</li>
                     <li>New Object Creation</li>
                     <li>Map used on promise results to get data to display</li>
-
                 </ul>
             </div>
     </section>
