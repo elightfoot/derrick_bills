@@ -232,7 +232,7 @@ class Pokemon {
 function random() {
   return Math.round(Math.random() * 750);
 }
-const CreatedPoke = new Pokemon(random(), "Class Pokemon", 713);
+const CreatedPoke = new Pokemon(random(), "Class Pokemon", 73);
 const newButton3 = document.querySelector("#newPokemon2");
 newButton3.addEventListener("click", function() {
   random();
