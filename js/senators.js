@@ -223,8 +223,9 @@ selectElement.addEventListener("change", event => {
     result2.textContent = `Total Senate Votes: ${totalVotes(simpleSenators)}`;
   }
   if (`${event.target.value}` === "All Sen By Age") {
-    populateDom(sortSenatorsByAge(simpleSenators));
-    result2.textContent = `Total Senate Votes: ${totalVotes(simpleSenators)}`;
+    let sortThis = [...simpleSenators]; //copy simple senators to not mutate orginal array going to all senators list
+    populateDom(sortSenatorsByAge(sortThis));
+    result2.textContent = `Total Senate Votes: ${totalVotes(sortThis)}`;
   }
   result.textContent = `Showing results for: ${event.target.value}`;
   result.addEventListener("click", () => {
