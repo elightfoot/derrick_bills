@@ -47,6 +47,13 @@ function totalVotesMissed(senatorList) {
 - :heavy_check_mark: Good use of conditional logic and value comparison
 - :heavy_check_mark: Proper use of String manipulation
 - :heavy_check_mark: Good use of Arrays 
+```javascript
+if (`${event.target.value}` === "All Sen By Age") {
+    let sortThis = [...simpleSenators]; //copy simple senators using the spread operator. to not mutate orginal array going to all senators list
+    populateDom(sortSenatorsByAge(sortThis));
+    result2.textContent = `Total Senate Votes: ${totalVotes(sortThis)}`;
+  }
+  ```
 - :heavy_check_mark: Use of custom JavaScript objects
 - :heavy_check_mark: Demonstrates use of ES6 including
 ```javascript
