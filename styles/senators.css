@@ -10,10 +10,18 @@ section {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: auto;
 }
 .custom-select {
-  margin: 30px;
+  margin: 0px auto;
+  padding: 10px;
+  width: 25vw;
 }
+/* .section {
+  padding: 0 !important;
+  margin: 0 auto;
+  text-align: center;
+} */
 
 .senator {
   border-radius: 5px;
