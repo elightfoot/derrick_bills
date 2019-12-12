@@ -281,8 +281,9 @@ var span = document.getElementsByClassName("close")[0]; //get the span element t
 // *****************************************************
 // get the values from the input and run the render functions
 inputFormSubmit.onclick = function() {
-  console.log(value.value);
   const numberToShow = value.value;
+  inputFormValue.value = "";
+
   let modalFooter = document.querySelector("#footer");
 
   if (numberToShow > 0 && numberToShow <= 800) {
@@ -296,6 +297,8 @@ inputFormSubmit.onclick = function() {
 inputFormSubmit2.onclick = function() {
   console.log(value2.value);
   let pokeId = value2.value;
+  inputFormValue2.value = "";
+
   let modalFooter = document.querySelector("#footer");
   if (pokeId > 0 && pokeId <= 807) {
     getAPIData(`https://pokeapi.co/api/v2/pokemon/${pokeId}`).then(result => {
