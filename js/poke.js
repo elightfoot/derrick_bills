@@ -63,7 +63,6 @@ function fillCardFront(pokeFront, data) {
   let type = document.createElement("p");
   let pokeNum = getPokeNumber(data.id);
 
-  // pic.setAttribute('class', 'picDivs')
   //!animate css classes added here to have pictures fly in to view
   pokeFront.setAttribute("class", "card__face card__face--front");
   pic.classList.add("animated", "bounceInRight", "delay-4s", "picDivs");
@@ -82,8 +81,6 @@ function capitalize_Words(str) {
   });
 }
 
-// console.log(capitalize_Words('js string exercises'));
-
 function getPokeNumber(id) {
   if (id < 10) return `00${id}`;
   if (id > 9 && id < 100) {
@@ -97,8 +94,7 @@ const fetchPokemon = num => {
   const promises = [];
   const numberToShow = Number(num);
 
-  //creates a random number
-  const random = Math.round(Math.random() * 770);
+  const random = Math.round(Math.random() * 770); //create a random number so the pokemon are diffent each time a user choses a number to show.
   console.log(random);
 
   for (let i = random; i <= random + numberToShow - 1; i++) {
@@ -164,7 +160,6 @@ const displayPokemon = pokemon => {
       pokeHP.textContent = `Base Hit Points: ${p.hp}`;
       pokeBack.appendChild(pokeOrder);
       pokeBack.appendChild(pokeHP);
-      // let pokeNum = getPokeNumber(p.id);
 
       let pic = document.createElement("img");
       pic.setAttribute("class", "picDivs");
@@ -184,14 +179,12 @@ const displayPokemon = pokemon => {
       weight.textContent = `Weight: ${p.weight}`;
       pic.classList.add("animated", "bounceInRight", "delay-4s", "picDivs");
 
-      // let pokeNum = getPokeNumber(p.id);
       name.textContent = capitalize_Words(`${p.name}`);
       type.textContent = `Type: ${p.type}`;
       pic.src = `https://raw.githubusercontent.com/fanzeyi/pokemon.json/master/images/${p.id}.png`;
       pic.addEventListener("error", event => {
         let noImage = event.target;
-        //!some images are missing this handles the error if it is.
-        noImage.src = "images/pokelogo.png";
+        noImage.src = "images/pokelogo.png"; //some pokemon do not have images this is the default image to fix
       });
       pokeFront.appendChild(name);
       pokeFront.appendChild(type);
@@ -204,7 +197,7 @@ const displayPokemon = pokemon => {
 // *CUSTOM CLASS SOLUTION NOT IDEAL, DUPLICATES ALL THE POPULATE DOM FUNCTIONS
 
 function populateDom2(single_pokemon) {
-  let pokeCard = document.createElement("div");
+  let pokeCard = document.createElement("div"); //create the elements
   let pokeScene = document.createElement("div");
   let pokeFront = document.createElement("div");
   let pokeBack = document.createElement("div");
@@ -212,15 +205,16 @@ function populateDom2(single_pokemon) {
   fillCardFront2(pokeFront, single_pokemon);
   fillCardBack2(pokeBack, single_pokemon);
 
-  pokeScene.setAttribute("class", "scene");
+  pokeScene.setAttribute("class", "scene"); //set the attributes of the created elements
   pokeCard.setAttribute("class", "card");
-  pokeCard.appendChild(pokeFront);
+  pokeCard.appendChild(pokeFront); //append them to the various areas of the document
   pokeCard.appendChild(pokeBack);
   pokeScene.appendChild(pokeCard);
 
   mainArea.appendChild(pokeScene);
 
   pokeCard.addEventListener("click", function() {
+    //toggle the class is-flipped on and off
     pokeCard.classList.toggle("is-flipped");
   });
 }
@@ -273,7 +267,7 @@ function fillCardFront2(pokeFront, data) {
   pokeFront.appendChild(pic);
 }
 
-// Modal Scripting modified W3 Schools modal for the pokemon project.
+// Modal outline modified W3 Schools modal for the pokemon project.
 const inputFormValue = document.querySelector("#value");
 const inputFormSubmit = document.querySelector("#submit");
 const inputFormValue2 = document.querySelector("#value2");
@@ -283,8 +277,7 @@ var modal = document.getElementById("myModal");
 // Get the button that opens the modal
 var btn = document.getElementById("myBtn");
 var btnRight = document.getElementById("newList");
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+var span = document.getElementsByClassName("close")[0]; //get the span element that closes the modal
 // *****************************************************
 // get the values from the input and run the render functions
 inputFormSubmit.onclick = function() {
@@ -312,7 +305,6 @@ inputFormSubmit2.onclick = function() {
   } else {
     modalFooter.textContent = "PLEASE CHOOSE A NUMBER BETWEEN 0 AND 807";
   }
-  // modal.style.display = "none";
 };
 
 btnRight.onclick = function() {
