@@ -1,9 +1,12 @@
 # FINAL PROJECT
+I thouroghly enjoyed this class and learned a lot!!
 - fixes from class:
 - starwars reload removed. (no glitches in reload)
 - array mutation solved with spread operator to copy to new array then run changes on that copied array.
 - styling changes to star wars
 - fixed png file for democrates(removed background in photoshop)
+- small style changes to portfolio site
+  
   
 
 Link to portfolio: [Portfolio Website Link](https://derrickbills.com).
