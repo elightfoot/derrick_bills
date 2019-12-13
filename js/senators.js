@@ -8,7 +8,7 @@ async function getAPIData(url) {
   }
 }
 // senator arrays available for use
-// todo refactor to use const to avoid alttering original arrays
+// todo refactor to use const to avoid alttering original arrays FIXED: simplesenator array overwrite problem
 let allSenators = [];
 let simpleSenators = [];
 let republicans = [];

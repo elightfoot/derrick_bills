@@ -1,21 +1,21 @@
 html {
-    color: rgb(0, 0, 0);
-    margin: 0;
+  color: rgb(0, 0, 0);
+  margin: 0;
 }
-body{
-    margin: auto;
-    max-width: 1200px;
+body {
+  margin: auto;
+  max-width: 1200px;
   background-color: black;
-  background-image: url('http://www.script-tutorials.com/demos/360/images/stars.png')
-   /* top center #000 */
+  background-image: url("http://www.script-tutorials.com/demos/360/images/stars.png");
+  /* top center #000 */
 }
-.logo{
+.logo {
   padding: 0;
   margin: 0;
   width: 100%;
   height: 200px;
   background-color: blue;
-  background-image: url('/images/logo.jpg');
+  background-image: url("/images/logo.jpg");
   background-repeat: no-repeat;
   background-size: 50%;
   background-position-y: -58px;
@@ -23,7 +23,6 @@ body{
   background-color: black;
   position: center;
   z-index: 50;
-
 }
 header {
   display: flex;
@@ -45,7 +44,7 @@ section {
 main {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  
+
   grid-gap: 2rem;
   width: 100%;
   max-width: 1280px;
@@ -54,127 +53,140 @@ main {
   /* grid-template-columns: auto auto; */
   /* background-image: url("/assets/star-wars-star-background-4.jpg"); */
   padding: 1rem;
-  }
+}
 
-  button {
-    margin: 1rem;
-    font-size: 1.5rem;
-    background: #c2c2c2;
-    background-image: -webkit-linear-gradient(top, #c2c2c2, #000000);
-    background-image: -moz-linear-gradient(top, #c2c2c2, #000000);
-    background-image: -ms-linear-gradient(top, #c2c2c2, #000000);
-    background-image: -o-linear-gradient(top, #c2c2c2, #000000);
-    background-image: linear-gradient(to bottom, #c2c2c2, #000000);
-    -webkit-border-radius: 28;
-    -moz-border-radius: 28;
-    border-radius: 28px;
-    text-shadow: 1px 1px 3px #666666;
-    font-family: Arial;
-    color: #000000;
-    font-size: 20px;
-    padding: 10px 20px 10px 20px;
-    text-decoration: none;
-    z-index: 99;
-  }
-  button:hover{
-    cursor: pointer;
-    background: #525252;
+button {
+  margin: 1rem;
+  font-size: 1.5rem;
+  background: #c2c2c2;
+  background-image: -webkit-linear-gradient(top, #c2c2c2, #000000);
+  background-image: -moz-linear-gradient(top, #c2c2c2, #000000);
+  background-image: -ms-linear-gradient(top, #c2c2c2, #000000);
+  background-image: -o-linear-gradient(top, #c2c2c2, #000000);
+  background-image: linear-gradient(to bottom, #c2c2c2, #000000);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  text-shadow: 1px 1px 3px #666666;
+  font-family: Arial;
+  color: #000000;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  z-index: 99;
+}
+button:hover {
+  cursor: pointer;
+  background: #525252;
   background-image: -webkit-linear-gradient(top, #525252, #e0e0e0);
   background-image: -moz-linear-gradient(top, #525252, #e0e0e0);
   background-image: -ms-linear-gradient(top, #525252, #e0e0e0);
   background-image: -o-linear-gradient(top, #525252, #e0e0e0);
   background-image: linear-gradient(to bottom, #525252, #e0e0e0);
   text-decoration: none;
-  }
-  button:active{
-      text-decoration: none;
-  }
- 
- h1, p{
-   text-align: center;
-   color: #feda4a;
-    font-family: 'Pathway Gothic One', sans-serif;
- }
- .grid{
-   margin: auto;
-     width: 90vw;
-     gap: 20px;
-     display: grid;
-     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-     grid-auto-rows: minmax(100px, 1fr);
-    grid-column: 1/span 1;
-  
 }
-main img{
-  opacity: .7;
-    border-radius: 30%;
-    display: grid;
-    align-self: end;
-    width: 100%;
+button:active {
+  text-decoration: none;
+}
+
+h1,
+p {
+  text-align: center;
+  color: #fffefa;
+  font-family: "Pathway Gothic One", sans-serif;
+}
+.grid {
+  margin: auto;
+  width: 90vw;
+  gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-auto-rows: minmax(100px, 1fr);
+  grid-column: 1 / span 1;
+}
+main img {
+  opacity: 0.7;
+  /* border-radius: 30%; */
+  display: grid;
+  align-self: end;
   width: 100%;
+  width: 100%;
+}
+.person-div {
+  flex-direction: column;
+  display: flex;
+  min-height: 500px;
+  border-top: 1px solid white;
+  justify-content: center;
+  border-bottom-width: 50%;
+}
+.person-div h1 {
+  font-size: 24px;
 }
 /* **************************************** */
 
-  .star-wars {
-    /* Flexbox to center the entire element on the screen */
-    display: flex;
-    justify-content: center;
-    /* This is a magic number based on the context in which this snippet is used and effects the perspective */
-    height: 800px;
-    /* This sets allows us to transform the text on a 3D plane, and is somewhat a magic number */
-    perspective: 400px;
-    /* The rest is totally up to personal styling preferences */
-    color: #feda4a;
-    font-family: 'Pathway Gothic One', sans-serif;
-    font-size: 500%;
-    font-weight: 600;
-    letter-spacing: 6px;
-    line-height: 150%;
-    text-align: justify;
-  }
-  .crawl p, h1{
-    color: #feda4a;
+.star-wars {
+  /* Flexbox to center the entire element on the screen */
+  display: flex;
+  justify-content: center;
+  /* This is a magic number based on the context in which this snippet is used and effects the perspective */
+  height: 800px;
+  /* This sets allows us to transform the text on a 3D plane, and is somewhat a magic number */
+  perspective: 400px;
+  /* The rest is totally up to personal styling preferences */
+  color: #fff2bd;
+  font-family: "Pathway Gothic One", sans-serif;
+  font-size: 500%;
+  font-weight: 600;
+  letter-spacing: 6px;
+  line-height: 150%;
+  text-align: justify;
+}
+.crawl p,
+h1 {
+  padding: 0;
+  margin: 0;
+  color: #feda4a;
+}
+.population-p {
+  color: white;
+}
 
+.crawl {
+  /* Position the element so we can adjust the top property in the animation */
+  position: relative;
+  /* Making sure the text is fully off the screen at the start and end of the animation */
+  top: -100px;
+  /* Defines the skew origin at the very center when we apply transforms on the animation */
+  transform-origin: 50% 100%;
+}
+@keyframes crawl {
+  0% {
+    /* The element starts below the screen */
+    top: 0;
+    /* Rotate the text 20 degrees but keep it close to the viewer */
+    transform: rotateX(20deg) translateZ(0);
   }
-
-
-  .crawl {
-
-    /* Position the element so we can adjust the top property in the animation */
-    position: relative;
-    /* Making sure the text is fully off the screen at the start and end of the animation */
-    top: -100px;
-    /* Defines the skew origin at the very center when we apply transforms on the animation */
-    transform-origin: 50% 100%;
-
+  100% {
+    /* This is a magic number, but using a big one to make sure the text is fully off the screen at the end */
+    top: -6000px;
+    /* Slightly increasing the rotation at the end and moving the text far away from the viewer */
+    transform: rotateX(25deg) translateZ(-2900px);
   }
-  @keyframes crawl {
-    0% {
-      /* The element starts below the screen */
-      top: 0;
-      /* Rotate the text 20 degrees but keep it close to the viewer */
-      transform: rotateX(20deg) translateZ(0);
-    }
-    100% { 
-      /* This is a magic number, but using a big one to make sure the text is fully off the screen at the end */
-      top: -6000px;
-      /* Slightly increasing the rotation at the end and moving the text far away from the viewer */
-      transform: rotateX(25deg) translateZ(-2900px);
-    }
-  }
-  .crawl {
-    /* Position the element so we can adjust the top property in the animation */
-    position: relative;
-    /* Defines the skew origin at the very center when we apply transforms on the animation */
-    transform-origin: 50% 100%;
-    /* Adds the crawl animation, which plays for one minute */
-    animation: crawl 60s linear;
-  }
-  .fade {
-    position: relative;
-    width: 100%;
-    min-height: 60vh;
-    top: -75px;
-    background-image: linear-gradient(0deg, transparent, black 75%);
-    z-index: -5;
-  }
+}
+.crawl {
+  /* Position the element so we can adjust the top property in the animation */
+  position: relative;
+  /* Defines the skew origin at the very center when we apply transforms on the animation */
+  transform-origin: 50% 100%;
+  /* Adds the crawl animation, which plays for one minute */
+  animation: crawl 60s linear;
+}
+.fade {
+  position: relative;
+  width: 100%;
+  min-height: 60vh;
+  top: -75px;
+  background-image: linear-gradient(0deg, transparent, black 75%);
+  z-index: -5;
+}

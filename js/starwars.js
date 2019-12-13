@@ -58,6 +58,7 @@ function showCharArray(arrayOfPeople) {
 
 function showPlanetArray(arrayOfPlanets) {
   arrayOfPlanets.forEach(planet => {
+    //create all elements to add to a persondiv card
     let personDiv = document.createElement("div");
     let name = document.createElement("h1");
     let population = document.createElement("p");
@@ -66,8 +67,9 @@ function showPlanetArray(arrayOfPlanets) {
     personDiv.setAttribute("class", "charDivs");
     pic.setAttribute("class", "picDivs");
     let charNum = getCharNumber(planet.url);
+    // set text/pic/content wanted for each created element.
     name.textContent = planet.name;
-    const populationComma = Number(planet.population).toLocaleString();
+    const populationComma = Number(planet.population).toLocaleString(); //convert to number then convert to local string for commas
     population.textContent = `Population: ${populationComma}`;
     if (planet.population === "unknown") {
       population.textContent = `Unknown`;
@@ -78,12 +80,14 @@ function showPlanetArray(arrayOfPlanets) {
       2
     )} Earth Diameters`;
     pic.src = `https://starwars-visualguide.com/assets/img/planets/${charNum}.jpg`;
+    // append all elemnts to the parent(personDiv)
     personDiv.appendChild(name);
     personDiv.appendChild(population);
     personDiv.appendChild(pic);
     personDiv.appendChild(diameter);
-    personDiv.className = "person-div";
     mainArea.appendChild(personDiv);
+    personDiv.className = "person-div";
+    population.className = "population-p";
   });
 }
 
@@ -104,9 +108,7 @@ maleButton.addEventListener("click", () => {
   deleteNodes();
   showCharArray(maleCharacters);
   //auto reloads to delete display on second click
-  maleButton.addEventListener("click", () => {
-    location.reload();
-  });
+  maleButton.addEventListener("click", () => {});
 });
 
 let femaleButton = document.createElement("button");
@@ -114,9 +116,7 @@ femaleButton.textContent = "Female Characters";
 femaleButton.addEventListener("click", () => {
   deleteNodes();
   showCharArray(femaleCharacters);
-  femaleButton.addEventListener("click", () => {
-    location.reload();
-  });
+  femaleButton.addEventListener("click", () => {});
 });
 
 let planetButton = document.createElement("button");
@@ -124,27 +124,21 @@ planetButton.textContent = "Planets";
 planetButton.addEventListener("click", () => {
   deleteNodes();
   showPlanetArray(planetList);
-  planetButton.addEventListener("click", () => {
-    location.reload();
-  });
+  planetButton.addEventListener("click", () => {});
 });
 let otherButton = document.createElement("button");
 otherButton.textContent = "Other Characters";
 otherButton.addEventListener("click", () => {
   deleteNodes();
   showCharArray(otherCharacters);
-  otherButton.addEventListener("click", () => {
-    location.reload();
-  });
+  otherButton.addEventListener("click", () => {});
 });
 let shipsButton = document.createElement("button");
 shipsButton.textContent = "Ships";
 shipsButton.addEventListener("click", () => {
   deleteNodes();
   showShipsArray(shipList);
-  shipsButton.addEventListener("click", () => {
-    location.reload();
-  });
+  shipsButton.addEventListener("click", () => {});
 });
 
 function deleteNodes() {
@@ -165,6 +159,7 @@ mainHeader.appendChild(shipsButton);
 const maleCharacters = people
   .filter(person => person.gender === "male")
   .reverse();
+
 const femaleCharacters = people
   .filter(person => person.gender === "female")
   .reverse();
@@ -178,3 +173,7 @@ const otherCharacters = people.filter(
 //!use const to avoid unwanted reassignment of variables
 const planetList = planets.slice(1, 15);
 const shipList = starships.slice(1, 15);
+
+maleCharacters.forEach(function(characters) {
+  console.log(characters.birth_year);
+});

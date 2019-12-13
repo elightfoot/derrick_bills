@@ -1,4 +1,11 @@
 # FINAL PROJECT
+- fixes from class:
+- starwars reload removed. (no glitches in reload)
+- array mutation solved with spread operator to copy to new array then run changes on that copied array.
+- styling changes to star wars
+- fixed png file for democrates(removed background in photoshop)
+  
+
 Link to portfolio: [Portfolio Website Link](https://derrickbills.com).
 (3) projects to meet the requirements.
 # POKEMON:
