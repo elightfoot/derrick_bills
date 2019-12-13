@@ -72,7 +72,7 @@ function showPlanetArray(arrayOfPlanets) {
     const populationComma = Number(planet.population).toLocaleString(); //convert to number then convert to local string for commas
     population.textContent = `Population: ${populationComma}`;
     if (planet.population === "unknown") {
-      population.textContent = `Unknown`;
+      population.textContent = `Population is Unknown`;
     } else if (planet.population) {
       population.textContent = `Population: ${populationComma}`;
     }
