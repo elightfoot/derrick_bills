@@ -33,7 +33,6 @@ const theData = getAPIData("senators.json").then(data => {
 //!-------------------------------------------------------FILTER SENATORS.JSON. put in .then method when ready to implement
 function filterSenators(simpleList, partyAffiliation) {
   return simpleList.filter(senator => senator.party === partyAffiliation);
-  // console.log(party)
 }
 function findUtah(allSenators, state) {
   return allSenators.filter(senator => senator.state === state);

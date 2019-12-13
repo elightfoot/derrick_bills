@@ -22,6 +22,7 @@ Link to portfolio: [Portfolio Website Link](https://derrickbills.com).
             -FILTER BY HOME STATE & FILTER BY PARTY AFFILIATION.
             -REDUCE TOTAL VOTES CASTED (SHOWN FOR EACH FILTER OF DISPLAYED SENATE MEMBERS).
         3. FLEXBOX/GRID SKILLS TO LAYOUT CARDS.
+        4. CREATED A DROP DOWN SELECT LIST TO ORGANIZE THE DISPLAY OF DIFFERENT SENATOR LISTS.
 ```javascript
 function totalVotes(senatorList) {
   const results = senatorList.reduce((acc, senator) => {
@@ -108,6 +109,16 @@ const planetList = planets.slice(1, 15);
 const shipList = starships.slice(1, 15);
 ```
 - :heavy_check_mark: Use of Objects with key-value pairs
+```javascript
+class Pokemon {
+  constructor(id, name, pokeNum, type) {
+    this.id = id;
+    this.name = name;
+    this.pokeNum = Number(pokeNum);
+    this.type = type;
+  }
+}
+```
 - :heavy_check_mark: Iteration through an Array using loops and Array methods
 - :heavy_check_mark: Demonstrates us of Object Oriented Programming techniques including:
 - :heavy_check_mark: Objects with properties and methods accessed using dot notation
