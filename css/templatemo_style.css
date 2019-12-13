@@ -1,8 +1,12 @@
 @import url(
-  http://fonts.googleapis.com/css?family=Roboto:100,400,300,500,700
+  http://fonts.googleapis.com/css?family=Roboto:100,
+  400,
+  300,
+  500,
+  700
 );
 
-@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400, 700);
 
 .overlay h4 {
   position: relative;
@@ -373,8 +377,8 @@ h2.welcome-title {
   margin-bottom: 30px;
   position: relative;
   overflow: hidden;
-  -webkit-box-shadow: 5px 5px 4px -1px rgba(0,0,0,0.44); 
-box-shadow: 5px 5px 4px -1px rgba(0,0,0,0.44);
+  -webkit-box-shadow: 5px 5px 4px -1px rgba(0, 0, 0, 0.44);
+  box-shadow: 5px 5px 4px -1px rgba(0, 0, 0, 0.44);
   /* border: 3px solid #1a1c1f; */
   -moz-backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
@@ -417,7 +421,7 @@ box-shadow: 5px 5px 4px -1px rgba(0,0,0,0.44);
 }
 
 .project-item:hover .overlay {
-  opacity: 1;
+  opacity: 0.7;
   -moz-transform: rotate(0);
   -ms-transform: rotate(0);
   -o-transform: rotate(0);
