@@ -54,6 +54,7 @@ ul {
   justify-content: center;
   text-align: center;
 }
+
 .container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 280px));
@@ -63,8 +64,8 @@ ul {
   margin-bottom: 6rem;
   /* background-color: blue; */
 }
-figure .img {
-  width: 200px;
+figure img {
+  max-width: 100%;
 }
 
 .tweet {
