@@ -77,9 +77,6 @@ header h1 {
 }
 main {
   display: flex;
-  /* flex-direction: row-reverse; */
-
-  /* grid-template-columns: 1fr; */
 }
 
 .left {
@@ -115,7 +112,6 @@ main {
 }
 .right::after {
   z-index: -6;
-
   content: "Displays selected # of random pokemon";
   top: 530px;
   position: absolute;
@@ -171,7 +167,6 @@ flip card styles start  */
   transform-style: preserve-3d;
   cursor: pointer;
   position: relative;
-  /* border-top: 5px solid rgb(99, 99, 99); */
 }
 
 .card.is-flipped {
@@ -216,7 +211,7 @@ flip card styles start  */
   justify-self: flex-end;
 }
 /* **************************************************************************
-flip card styles end  */
+flip card styles end  from w3schools tutorial*/
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
