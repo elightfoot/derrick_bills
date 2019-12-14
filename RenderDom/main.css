@@ -1,0 +1,19 @@
+body {
+  background-image: url("https://picsum.photos/800?grayscale=3");
+  background-size: cover;
+}
+.list-group-item:hover {
+  background-color: #777;
+  color: rgb(180, 180, 180);
+}
+.form-control:focus {
+  color: red;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#main {
+  max-width: 500px;
+}
