@@ -53,3 +53,6 @@ function renderNewListItem() {
     item.style.color = "fff";
   });
 }
+let testlist = document.querySelector("#items");
+testlist.parentNode.style.backgroundColor = "#f4f4f4";
+cons;
