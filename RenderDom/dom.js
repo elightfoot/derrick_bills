@@ -20,17 +20,30 @@ function renderNewListItem() {
 
   const deletebtn = document.createElement("button");
   const listItem = document.createElement("li");
+  const input = document.createElement("input");
   const span = document.createElement("span");
+  const editbtn = document.createElement("button");
 
+  input.textContent = newItemValue.value;
   deletebtn.textContent = "Delete";
+  editbtn.textContent = "Edit";
+
   listItem.textContent = newItemValue.value;
   listItem.setAttribute(
     "class",
     "list-group-item d-flex justify-content-between"
   );
-  deletebtn.setAttribute("class", "btn btn-dark");
+  input.textContent = newItemValue.value;
+  deletebtn.setAttribute("class", "btn btn-danger");
+  editbtn.setAttribute("class", "btn btn-success");
+  editbtn.classList.add("edit");
+  input.innerHTML = newItemValue.value;
+
   list.appendChild(listItem);
+  listItem.appendChild(input);
   listItem.appendChild(span);
+  span.appendChild(editbtn);
+
   span.appendChild(deletebtn);
 
   if (emptyCheck.firstChild) {
@@ -52,7 +65,10 @@ function renderNewListItem() {
     item.style.backgroundColor = "#999";
     item.style.color = "fff";
   });
+
+  editbtn.onclick = function() {
+    listItem.textContent = "test";
+  };
 }
 let testlist = document.querySelector("#items");
 testlist.parentNode.style.backgroundColor = "#f4f4f4";
-cons;
