@@ -15,6 +15,12 @@ class item {
 
     let itemBox = document.createElement("div");
     itemBox.classList.add("item");
+    let checkbox = document.createElement("input");
+    let checkspan = document.createElement("span");
+    checkspan.className = "checkmark";
+
+    checkbox.setAttribute("type", "checkbox");
+    checkbox.className = "checkbox";
 
     let editButton = document.createElement("button");
     editButton.className = "editButton fa fa-pencil-square-o fa-1x";
@@ -23,6 +29,9 @@ class item {
 
     container.appendChild(itemBox);
 
+    checkbox.appendChild(checkspan);
+
+    itemBox.appendChild(checkbox);
     itemBox.appendChild(input);
     itemBox.appendChild(editButton);
     itemBox.appendChild(removeButton);
@@ -30,6 +39,10 @@ class item {
     editButton.addEventListener("click", () => this.edit(input));
     removeButton.addEventListener("click", () => this.remove(itemBox));
     removeButton.addEventListener("click", () => this.remove(itemBox));
+    checkbox.addEventListener("click", () => this.strike(input));
+  }
+  strike(input) {
+    input.classList.toggle("strike");
   }
   edit(input) {
     input.disabled = !input.disabled;
@@ -47,6 +60,7 @@ function check() {
 }
 addbutton.addEventListener("click", check);
 window.addEventListener("keydown", e => {
+  //e.which returns the keycode value of which key was pressed 13 is the enter key
   if (e.which == 13) {
     check();
   }
